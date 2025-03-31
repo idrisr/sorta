@@ -12,20 +12,22 @@ import Test.QuickCheck.Instances.Time ()
 import Prelude hiding (map)
 
 data Subtitle = Subtitle
-    { count :: Int
-    , timeRange :: SRTTime
+    { count :: Integer
+    , timeRange :: SubTime
     , subtitle :: Text
     }
+    deriving (Eq)
 
-data SRTTime = SRTTime
+data SubTime = SubTime
     { begin :: NominalDiffTime
     , end :: NominalDiffTime
     }
+    deriving (Eq)
 
 -- 00:00:00,310 --> 00:00:00,320
 
-instance Buildable SRTTime where
-    build (SRTTime b e) =
+instance Buildable SubTime where
+    build (SubTime b e) =
         formatTime b
             |+ " --> "
             +| formatTime e
@@ -48,11 +50,11 @@ formatTime s = map f $ fromBuilder . timeF "%02H:%02M:%03Es" $ s
   where
     f c = if c == '.' then ',' else c
 
-instance Arbitrary SRTTime where
+instance Arbitrary SubTime where
     arbitrary = do
         let s = secondsToNominalDiffTime <$> positive
         let e = secondsToNominalDiffTime <$> positive
-        SRTTime <$> s <*> ((+) <$> s <*> e)
+        SubTime <$> s <*> ((+) <$> s <*> e)
 
 instance Arbitrary Subtitle where
     arbitrary =

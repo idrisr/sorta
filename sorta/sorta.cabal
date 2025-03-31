@@ -23,12 +23,14 @@ common warnings
     , subtitleParser
     , text
     , time
+    , trifecta
     , turtle
 
 library
   import:          warnings
   exposed-modules:
     Params
+    Parser
     Types
 
   hs-source-dirs:  src
@@ -45,7 +47,9 @@ test-suite tests
   hs-source-dirs: test
   main-is:        Main.hs
   build-depends:
-    , base         ^>=4.18.2.1
+    , base              ^>=4.18.2.1
+    , raw-strings-qq
     , sorta
     , tasty
     , tasty-hunit
+    , tasty-quickcheck
