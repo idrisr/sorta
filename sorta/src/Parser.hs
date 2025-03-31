@@ -3,6 +3,7 @@
 {-# HLINT ignore "Use <$>" #-}
 module Parser where
 
+import Data.Fixed
 import Data.Text (pack)
 import Data.Time.Clock
 import Text.Trifecta
@@ -22,9 +23,9 @@ parseCount = token decimal
 
 parseTimeRange :: Parser SubTime
 parseTimeRange = do
-    b <- timestampParser
+    b <- parseTimestamp
     _ <- string " --> "
-    e <- timestampParser
+    e <- parseTimestamp
     pure $ SubTime b e
 
 -- Parse a two-digit number (e.g., "00" or "12")
@@ -41,14 +42,16 @@ threeDigits = do
     pure (read digits :: Int)
 
 -- Parse the full timestamp (e . g ., "00:00:00,320")
-timestampParser :: Parser NominalDiffTime
-timestampParser = do
+parseTimestamp :: Parser Timestamp
+parseTimestamp = do
     h <- twoDigits
     _ <- char ':'
     m <- twoDigits
     _ <- char ':'
     s <- twoDigits
     _ <- char ','
-    _ <- threeDigits -- fixme
-    let timeSum = h * 3600 + m * 60 + s -- + ms / 1000
-    pure . fromIntegral $ timeSum
+    ms <- threeDigits -- fixme
+    let
+        timeSum :: Pico
+        timeSum = MkFixed $ (* 1000000000) $ toInteger (h * 3600 * 1000 + m * 60 * 1000 + s * 1000 + ms)
+    pure . Timestamp . secondsToNominalDiffTime $ timeSum
