@@ -2,7 +2,7 @@
 
 module TestSubtitle where
 
-import Parser (parseSubtitle, parseTimeRange)
+import Parser (parseSubtitle, parseTimerange)
 import Test.Tasty
 import Test.Tasty.HUnit
 import Test.Tasty.QuickCheck hiding (Failure, Fixed, Success)
@@ -24,5 +24,5 @@ qcPropSubTime :: TestTree
 qcPropSubTime =
     testGroup
         "Subtitle"
-        [ testProperty "a == (parse . print) a" $ propPrintParse parseTimeRange show
+        [ testProperty "a == (parse . print) a" $ propPrintParse parseTimerange show
         ]

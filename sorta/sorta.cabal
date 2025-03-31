@@ -48,7 +48,8 @@ test-suite tests
   main-is:        Main.hs
   other-modules:
     TestSubtitle
-    TestTimeStamp
+    TestTimerange
+    TestTimestamp
     Util
 
   build-depends:

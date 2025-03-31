@@ -1,6 +1,5 @@
-{-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
+{-# LANGUAGE NumericUnderscores #-}
 
-{-# HLINT ignore "Use <$>" #-}
 module Parser where
 
 import Data.Fixed
@@ -13,7 +12,7 @@ parseSubtitle :: Parser Subtitle
 parseSubtitle = do
     c <- parseCount
     -- _ <- token newline
-    t <- parseTimeRange
+    t <- parseTimerange
     _ <- newline
     s <- manyTill anyChar (try (count 2 newline))
     pure $ Subtitle c t (pack s)
@@ -21,12 +20,11 @@ parseSubtitle = do
 parseCount :: Parser Integer
 parseCount = token decimal
 
-parseTimeRange :: Parser SubTime
-parseTimeRange = do
+parseTimerange :: Parser Timerange
+parseTimerange = do
     b <- parseTimestamp
     _ <- string " --> "
-    e <- parseTimestamp
-    pure $ SubTime b e
+    Timerange b <$> parseTimestamp
 
 -- Parse a two-digit number (e.g., "00" or "12")
 twoDigits :: Parser Int
@@ -50,8 +48,14 @@ parseTimestamp = do
     _ <- char ':'
     s <- twoDigits
     _ <- char ','
-    ms <- threeDigits -- fixme
+    ms <- threeDigits
     let
         timeSum :: Pico
-        timeSum = MkFixed $ (* 1000000000) $ toInteger (h * 3600 * 1000 + m * 60 * 1000 + s * 1000 + ms)
+        timeSum =
+            MkFixed . (* 1_000_000_000) . toInteger $
+                ( h * 3600 * 1000
+                    + m * 60 * 1000
+                    + s * 1000
+                    + ms
+                )
     pure . Timestamp . secondsToNominalDiffTime $ timeSum

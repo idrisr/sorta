@@ -1,6 +1,9 @@
 module Util where
 
+import Data.Fixed
+import Data.Time.Clock
 import Text.Trifecta hiding (parseTest)
+import Types
 
 parseTest :: Parser a -> String -> Either String a
 parseTest parser s =
@@ -15,3 +18,9 @@ propPrintParse parser f a =
      in case res of
             Success a' -> a == a'
             Failure _ -> False
+
+mkTimestamp :: Pico -> Pico -> Pico -> Pico -> Timestamp
+mkTimestamp h m s ms = Timestamp . secondsToNominalDiffTime $ t
+  where
+    t :: Pico
+    t = h * 3600 + m * 60 + s + ms / 1000
