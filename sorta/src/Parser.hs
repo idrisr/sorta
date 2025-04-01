@@ -1,4 +1,5 @@
 {-# LANGUAGE NumericUnderscores #-}
+{-# LANGUAGE TypeApplications #-}
 
 module Parser where
 
@@ -37,7 +38,7 @@ twoDigits = do
 threeDigits :: Parser Int
 threeDigits = do
     digits <- count 3 digit
-    pure (read digits :: Int)
+    pure . read @Int $ digits
 
 -- Parse the full timestamp (e . g ., "00:00:00,320")
 parseTimestamp :: Parser Timestamp

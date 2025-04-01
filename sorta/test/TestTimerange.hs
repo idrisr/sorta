@@ -1,5 +1,4 @@
 {-# LANGUAGE QuasiQuotes #-}
-{-# OPTIONS_GHC -Wno-name-shadowing #-}
 
 module TestTimerange where
 
@@ -50,10 +49,9 @@ timerange01s =
 
 timerange01 :: Timerange
 timerange01 =
-    Timerange begin end
-  where
-    begin = mkTimestamp 0 0 4 880
-    end = mkTimestamp 0 0 7 829
+    Timerange
+        (mkTimestamp 0 0 4 880)
+        (mkTimestamp 0 0 7 829)
 
 timerange02s :: String
 timerange02s =
@@ -61,7 +59,6 @@ timerange02s =
 
 timerange02 :: Timerange
 timerange02 =
-    Timerange begin end
-  where
-    begin = mkTimestamp 0 0 7 829
-    end = mkTimestamp 0 0 7 839
+    Timerange
+        (mkTimestamp 0 0 7 829)
+        (mkTimestamp 0 0 7 839)

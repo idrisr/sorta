@@ -21,7 +21,7 @@ data Subtitle = Subtitle
     , timeRange :: Timerange
     , subtitle :: Text
     }
-    deriving (Eq)
+    deriving (Eq, Show)
 
 newtype Timestamp = Timestamp NominalDiffTime
     deriving (Eq, Num, FormatTime, Ord, Show)
@@ -40,19 +40,13 @@ instance Buildable Timerange where
             +| formatTime e
             |+ "\n"
 
-instance Show Subtitle where
-    show = fmt . build
-
--- instance Show Timerange where
--- show = fmt . build
-
 instance Buildable Subtitle where
     build (Subtitle c t s) =
         c
             |+ "\n"
             +| build t
             +| s
-            |+ "\n"
+            |+ "\n\n"
 
 instance Arbitrary Timestamp where
     arbitrary =
