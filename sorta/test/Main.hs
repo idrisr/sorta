@@ -1,6 +1,7 @@
 module Main (main) where
 
 import Test.Tasty
+import TestSampleFiles
 import TestSubtitle
 import TestTimerange (testTimeranges)
 import TestTimestamp (testTimeStamps)
@@ -15,4 +16,6 @@ allTests =
         ]
 
 main :: IO ()
-main = defaultMain allTests
+main = do
+    f <- fileTests
+    defaultMain $ testGroup "more" [allTests, f]

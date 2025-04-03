@@ -11,7 +11,7 @@ cmdLineParser = execParser opts
     opts =
         info
             (parseParams <**> helper)
-            (fullDesc <> progDesc "parse srt file and print text to stdout")
+            (fullDesc <> progDesc "parse srt file and print cleaned version to stdout")
 
 parseParams :: Options.Applicative.Parser Params
 parseParams =

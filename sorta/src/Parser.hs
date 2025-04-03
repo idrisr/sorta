@@ -4,7 +4,7 @@
 module Parser where
 
 import Data.Fixed
-import Data.Text (pack)
+import Data.Text (pack, stripEnd)
 import Data.Time.Clock
 import Text.Trifecta
 import Types hiding (count)
@@ -16,7 +16,7 @@ parseSubtitle = do
     t <- parseTimerange
     _ <- newline
     s <- manyTill anyChar (try (count 2 newline))
-    pure $ Subtitle c t (pack s)
+    pure $ Subtitle c t ((stripEnd . pack) s)
 
 parseCount :: Parser Integer
 parseCount = token decimal

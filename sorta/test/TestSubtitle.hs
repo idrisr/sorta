@@ -4,12 +4,11 @@ module TestSubtitle where
 
 import Data.Text
 import Fmt
-import Parser (parseSubtitle, parseTimerange)
+import Parser (parseSubtitle)
 import Test.Tasty
 import Test.Tasty.HUnit
 import Test.Tasty.QuickCheck hiding (Failure, Fixed, Success)
 import Text.RawString.QQ
-import Text.Trifecta hiding (parseTest)
 import Types
 import Util
 
@@ -28,7 +27,9 @@ qcSubtitle :: TestTree
 qcSubtitle =
     testGroup
         "subtitle"
-        [ testProperty "gen -> print -> parse" $ propPrintParse parseSubtitle (fmt . build)
+        [ testProperty "gen -> print -> parse" $
+            withMaxSuccess 1000 $
+                propPrintParse parseSubtitle (fmt . build)
         ]
 
 subtitle01s :: String

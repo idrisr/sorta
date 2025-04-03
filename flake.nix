@@ -9,6 +9,6 @@
       pkgs = nixpkgs.legacyPackages.${system};
       system = flake-utils.lib.system.x86_64-linux;
       compiler = "ghc96";
-      renameme = pkgs.haskell.packages.${compiler}.callPackage ./. { };
+      renameme = pkgs.haskell.packages.${compiler}.callPackage ./sorta { };
     in { packages.${system}.default = renameme; };
 }

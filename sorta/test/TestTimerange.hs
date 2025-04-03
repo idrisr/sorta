@@ -24,7 +24,9 @@ qcProptimerange :: TestTree
 qcProptimerange =
     testGroup
         "timerange"
-        [ testProperty "gen -> print -> parse" $ propPrintParse parseTimerange (fmt . build)
+        [ testProperty "gen -> print -> parse" $
+            withMaxSuccess 1000 $
+                propPrintParse parseTimerange (fmt . build)
         ]
 
 testTimerange01 :: TestTree

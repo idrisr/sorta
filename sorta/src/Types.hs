@@ -1,11 +1,12 @@
 {-# LANGUAGE GeneralisedNewtypeDeriving #-}
 {-# LANGUAGE NumericUnderscores #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeApplications #-}
 
 module Types where
 
 import Data.Fixed
-import Data.Text
+import Data.Text hiding (filter)
 import Data.Time (FormatTime)
 import Data.Time.Clock
 import Fmt
@@ -14,7 +15,7 @@ import Test.QuickCheck
 import Test.QuickCheck.Instances.Num
 import Test.QuickCheck.Instances.Text ()
 import Test.QuickCheck.Instances.Time ()
-import Prelude hiding (map)
+import Prelude hiding (all, concat, last, map, null)
 
 data Subtitle = Subtitle
     { count :: Integer
@@ -48,10 +49,23 @@ instance Buildable Subtitle where
             +| s
             |+ "\n\n"
 
+-- Function to filter consecutive newlines from Text
+filterConsecutiveNewlines :: Text -> Text
+filterConsecutiveNewlines t = concat $ filter g ts
+  where
+    ts = groupBy (\a b -> a == '\n' && b == '\n') t
+    g = not . all (== '\n')
+
+-- Define a custom generator that filters out Text values ending with a newline
+genTextWithoutNewline :: Gen Text
+genTextWithoutNewline = do
+    txt <- filterConsecutiveNewlines <$> arbitrary @Text
+    pure . stripEnd $ txt
+
 instance Arbitrary Timestamp where
     arbitrary =
         Timestamp . secondsToNominalDiffTime . MkFixed
-            <$> ((* 1_000_000_000) <$> positive :: Gen Integer)
+            <$> ((* 1_000_000_000) <$> positive @Integer)
 
 -- not a huge fan of this.
 formatTime :: (FormatTime a) => a -> Text
@@ -67,4 +81,4 @@ instance Arbitrary Subtitle where
         Subtitle
             <$> positive
             <*> arbitrary
-            <*> arbitrary
+            <*> genTextWithoutNewline
