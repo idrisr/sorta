@@ -6,7 +6,7 @@
 module Types where
 
 import Data.Fixed
-import Data.Text hiding (filter)
+import Data.Text
 import Data.Time (FormatTime)
 import Data.Time.Clock
 import Fmt
@@ -51,7 +51,7 @@ instance Buildable Subtitle where
 
 -- Function to filter consecutive newlines from Text
 filterConsecutiveNewlines :: Text -> Text
-filterConsecutiveNewlines t = concat $ filter g ts
+filterConsecutiveNewlines t = concat . Prelude.filter g $ ts
   where
     ts = groupBy (\a b -> a == '\n' && b == '\n') t
     g = not . all (== '\n')
@@ -60,7 +60,7 @@ filterConsecutiveNewlines t = concat $ filter g ts
 genTextWithoutNewline :: Gen Text
 genTextWithoutNewline = do
     txt <- filterConsecutiveNewlines <$> arbitrary @Text
-    pure . stripEnd $ txt
+    pure . strip . Data.Text.filter (/= '\CR') $ txt
 
 instance Arbitrary Timestamp where
     arbitrary =

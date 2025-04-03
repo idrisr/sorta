@@ -20,6 +20,7 @@ import System.Exit
 import Text.Subtitles.SRT
 import Text.Trifecta
 import Turtle qualified as Tu
+import Types
 
 generalizeFileName :: Text -> Text
 generalizeFileName t =
@@ -49,6 +50,12 @@ main2 = do
         Left e -> print e
         Right xs -> putStrLn . unpack . toText $ xs
 
+toText2 :: [Subtitle] -> Text
+toText2 ls = T.intercalate "\n" (head <$> group (concatMap clean ls))
+  where
+    clean :: Subtitle -> [Text]
+    clean = T.lines . T.strip . subtitle
+
 main :: IO ()
 main = do
     (Params path) <- cmdLineParser
@@ -56,4 +63,4 @@ main = do
     result <- parseFromFile (many parseSubtitle) absPath
     case result of
         Nothing -> exitFailure
-        Just a -> mapM_ (fmt . build) a
+        Just a -> putStrLn . unpack . toText2 $ a
