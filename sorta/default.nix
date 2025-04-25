@@ -1,7 +1,7 @@
 { mkDerivation, attoparsec, base, checkers, directory, filepath
 , fmt, lib, optparse-applicative, QuickCheck, quickcheck-instances
 , raw-strings-qq, subtitleParser, tasty, tasty-golden, tasty-hunit
-, tasty-quickcheck, text, time, trifecta, turtle
+, tasty-quickcheck, text, time, transformers, trifecta
 }:
 mkDerivation {
   pname = "sorta";
@@ -12,18 +12,18 @@ mkDerivation {
   libraryHaskellDepends = [
     attoparsec base checkers directory filepath fmt
     optparse-applicative QuickCheck quickcheck-instances subtitleParser
-    tasty-golden text time trifecta turtle
+    tasty-golden text time trifecta
   ];
   executableHaskellDepends = [
     attoparsec base checkers directory filepath fmt
     optparse-applicative QuickCheck quickcheck-instances subtitleParser
-    tasty-golden text time trifecta turtle
+    tasty-golden text time transformers trifecta
   ];
   testHaskellDepends = [
     attoparsec base checkers directory filepath fmt
     optparse-applicative QuickCheck quickcheck-instances raw-strings-qq
     subtitleParser tasty tasty-golden tasty-hunit tasty-quickcheck text
-    time trifecta turtle
+    time trifecta
   ];
   license = lib.licenses.mit;
   mainProgram = "sorta";

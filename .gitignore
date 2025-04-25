@@ -22,5 +22,4 @@ cabal.sandbox.config
 result
 session.yaml
 sorta/.vscode
-data
 sorta/golden

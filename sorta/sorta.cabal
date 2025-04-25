@@ -26,7 +26,6 @@ common warnings
     , text
     , time
     , trifecta
-    , turtle
 
 library
   import:          warnings
@@ -41,7 +40,9 @@ executable sorta
   import:         warnings
   main-is:        Main.hs
   hs-source-dirs: app
-  build-depends:  sorta
+  build-depends:
+    , sorta
+    , transformers
 
 test-suite tests
   import:         warnings
