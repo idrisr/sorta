@@ -13,7 +13,7 @@ common warnings
 
   build-depends:
     , attoparsec
-    , base                  ^>=4.18.2.1
+    , base                  ^>=4.19.0.0
     , checkers
     , directory
     , filepath
@@ -22,7 +22,6 @@ common warnings
     , QuickCheck
     , quickcheck-instances
     , subtitleParser
-    , tasty-golden
     , text
     , time
     , trifecta
@@ -57,9 +56,9 @@ test-suite tests
     Util
 
   build-depends:
-    , base              ^>=4.18.2.1
     , raw-strings-qq
     , sorta
     , tasty
+    , tasty-golden
     , tasty-hunit
     , tasty-quickcheck

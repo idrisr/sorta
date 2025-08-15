@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
@@ -10,5 +10,6 @@
       system = flake-utils.lib.system.x86_64-linux;
       compiler = "ghc96";
       sorta = pkgs.haskell.packages.${compiler}.callPackage ./sorta { };
-    in { packages.${system}.default = sorta; };
+    in
+    { packages.${system}.default = sorta; };
 }

@@ -1,0 +1,4655 @@
+1
+00:00:00,240 --> 00:00:03,350
+
+hello folks welcome back today we are
+
+2
+00:00:03,350 --> 00:00:03,360
+hello folks welcome back today we are
+ 
+
+3
+00:00:03,360 --> 00:00:05,789
+hello folks welcome back today we are
+adding a new server to my home lab setup
+
+4
+00:00:05,789 --> 00:00:05,799
+adding a new server to my home lab setup
+ 
+
+5
+00:00:05,799 --> 00:00:08,430
+adding a new server to my home lab setup
+a proxmark server I will use it to
+
+6
+00:00:08,430 --> 00:00:08,440
+a proxmark server I will use it to
+ 
+
+7
+00:00:08,440 --> 00:00:10,350
+a proxmark server I will use it to
+create and manage virtual machines
+
+8
+00:00:10,350 --> 00:00:10,360
+create and manage virtual machines
+ 
+
+9
+00:00:10,360 --> 00:00:13,549
+create and manage virtual machines
+starting with the nxo VM today we'll set
+
+10
+00:00:13,549 --> 00:00:13,559
+starting with the nxo VM today we'll set
+ 
+
+11
+00:00:13,559 --> 00:00:15,749
+starting with the nxo VM today we'll set
+it all up using terraform for a fully
+
+12
+00:00:15,749 --> 00:00:15,759
+it all up using terraform for a fully
+ 
+
+13
+00:00:15,759 --> 00:00:18,470
+it all up using terraform for a fully
+declarative infrastructure as
+
+14
+00:00:18,470 --> 00:00:18,480
+declarative infrastructure as
+ 
+
+15
+00:00:18,480 --> 00:00:21,269
+declarative infrastructure as
+C first of all let me walk you through
+
+16
+00:00:21,269 --> 00:00:21,279
+C first of all let me walk you through
+ 
+
+17
+00:00:21,279 --> 00:00:22,950
+C first of all let me walk you through
+the existing infrastructure using a
+
+18
+00:00:22,950 --> 00:00:22,960
+the existing infrastructure using a
+ 
+
+19
+00:00:22,960 --> 00:00:24,630
+the existing infrastructure using a
+network diagram
+
+20
+00:00:24,630 --> 00:00:24,640
+network diagram
+ 
+
+21
+00:00:24,640 --> 00:00:28,429
+network diagram
+here so here I have the 10 GB router
+
+22
+00:00:28,429 --> 00:00:28,439
+here so here I have the 10 GB router
+ 
+
+23
+00:00:28,439 --> 00:00:30,230
+here so here I have the 10 GB router
+from the ISP which is connect to the
+
+24
+00:00:30,230 --> 00:00:30,240
+from the ISP which is connect to the
+ 
+
+25
+00:00:30,240 --> 00:00:31,670
+from the ISP which is connect to the
+internet through
+
+26
+00:00:31,670 --> 00:00:31,680
+internet through
+ 
+
+27
+00:00:31,680 --> 00:00:34,470
+internet through
+fiber in one of the 1GB ports in the
+
+28
+00:00:34,470 --> 00:00:34,480
+fiber in one of the 1GB ports in the
+ 
+
+29
+00:00:34,480 --> 00:00:37,990
+fiber in one of the 1GB ports in the
+router I have an existing prox MOX
+
+30
+00:00:37,990 --> 00:00:38,000
+router I have an existing prox MOX
+ 
+
+31
+00:00:38,000 --> 00:00:40,670
+router I have an existing prox MOX
+server connected and it is called
+
+32
+00:00:40,670 --> 00:00:40,680
+server connected and it is called
+ 
+
+33
+00:00:40,680 --> 00:00:43,830
+server connected and it is called
+Pluto so from the router I have a 10 GB
+
+34
+00:00:43,830 --> 00:00:43,840
+Pluto so from the router I have a 10 GB
+ 
+
+35
+00:00:43,840 --> 00:00:47,029
+Pluto so from the router I have a 10 GB
+switch connected to it it's just a cheap
+
+36
+00:00:47,029 --> 00:00:47,039
+switch connected to it it's just a cheap
+ 
+
+37
+00:00:47,039 --> 00:00:48,990
+switch connected to it it's just a cheap
+router I bought from alexpress but it
+
+38
+00:00:48,990 --> 00:00:49,000
+router I bought from alexpress but it
+ 
+
+39
+00:00:49,000 --> 00:00:50,830
+router I bought from alexpress but it
+it's working perfectly
+
+40
+00:00:50,830 --> 00:00:50,840
+it's working perfectly
+ 
+
+41
+00:00:50,840 --> 00:00:54,869
+it's working perfectly
+fine and in the sitch I have two devices
+
+42
+00:00:54,869 --> 00:00:54,879
+fine and in the sitch I have two devices
+ 
+
+43
+00:00:54,879 --> 00:00:57,670
+fine and in the sitch I have two devices
+connected so one is the one is the TR
+
+44
+00:00:57,670 --> 00:00:57,680
+connected so one is the one is the TR
+ 
+
+45
+00:00:57,680 --> 00:01:01,029
+connected so one is the one is the TR
+server it is running in a in an old HP
+
+46
+00:01:01,029 --> 00:01:01,039
+server it is running in a in an old HP
+ 
+
+47
+00:01:01,039 --> 00:01:04,070
+server it is running in a in an old HP
+machine which I bought from eBay so here
+
+48
+00:01:04,070 --> 00:01:04,080
+machine which I bought from eBay so here
+ 
+
+49
+00:01:04,080 --> 00:01:05,950
+machine which I bought from eBay so here
+I have two interfaces connected to it
+
+50
+00:01:05,950 --> 00:01:05,960
+I have two interfaces connected to it
+ 
+
+51
+00:01:05,960 --> 00:01:10,910
+I have two interfaces connected to it
+one 1GB and uh the second one at 2.5
+
+52
+00:01:10,910 --> 00:01:10,920
+one 1GB and uh the second one at 2.5
+ 
+
+53
+00:01:10,920 --> 00:01:13,510
+one 1GB and uh the second one at 2.5
+GB and coming to the server specs for
+
+54
+00:01:13,510 --> 00:01:13,520
+GB and coming to the server specs for
+ 
+
+55
+00:01:13,520 --> 00:01:16,590
+GB and coming to the server specs for
+our jupyter proxmox server so I'm using
+
+56
+00:01:16,590 --> 00:01:16,600
+our jupyter proxmox server so I'm using
+ 
+
+57
+00:01:16,600 --> 00:01:21,230
+our jupyter proxmox server so I'm using
+an Intel Knock 10 which I bought B 3 or
+
+58
+00:01:21,230 --> 00:01:21,240
+an Intel Knock 10 which I bought B 3 or
+ 
+
+59
+00:01:21,240 --> 00:01:24,310
+an Intel Knock 10 which I bought B 3 or
+four years ago so it has 12 course it's
+
+60
+00:01:24,310 --> 00:01:24,320
+four years ago so it has 12 course it's
+ 
+
+61
+00:01:24,320 --> 00:01:29,749
+four years ago so it has 12 course it's
+an i7 CPU and 32 GB of RAM it also have
+
+62
+00:01:29,749 --> 00:01:29,759
+an i7 CPU and 32 GB of RAM it also have
+ 
+
+63
+00:01:29,759 --> 00:01:33,230
+an i7 CPU and 32 GB of RAM it also have
+a 2 terab of SSD out of which I have
+
+64
+00:01:33,230 --> 00:01:33,240
+a 2 terab of SSD out of which I have
+ 
+
+65
+00:01:33,240 --> 00:01:37,710
+a 2 terab of SSD out of which I have
+given 1 tab for proxmox and I left 1 tab
+
+66
+00:01:37,710 --> 00:01:37,720
+given 1 tab for proxmox and I left 1 tab
+ 
+
+67
+00:01:37,720 --> 00:01:39,109
+given 1 tab for proxmox and I left 1 tab
+as and
+
+68
+00:01:39,109 --> 00:01:39,119
+as and
+ 
+
+69
+00:01:39,119 --> 00:01:41,590
+as and
+partitioned so here is what we are going
+
+70
+00:01:41,590 --> 00:01:41,600
+partitioned so here is what we are going
+ 
+
+71
+00:01:41,600 --> 00:01:44,230
+partitioned so here is what we are going
+to do today so I already installed prox
+
+72
+00:01:44,230 --> 00:01:44,240
+to do today so I already installed prox
+ 
+
+73
+00:01:44,240 --> 00:01:46,389
+to do today so I already installed prox
+Mox and configured it with this IP
+
+74
+00:01:46,389 --> 00:01:46,399
+Mox and configured it with this IP
+ 
+
+75
+00:01:46,399 --> 00:01:51,789
+Mox and configured it with this IP
+address and I also use a DNS for This
+
+76
+00:01:51,789 --> 00:01:51,799
+address and I also use a DNS for This
+ 
+
+77
+00:01:51,799 --> 00:01:54,870
+address and I also use a DNS for This
+Server so this is already configured to
+
+78
+00:01:54,870 --> 00:01:54,880
+Server so this is already configured to
+ 
+
+79
+00:01:54,880 --> 00:01:58,389
+Server so this is already configured to
+resolve to this IP address and uh I have
+
+80
+00:01:58,389 --> 00:01:58,399
+resolve to this IP address and uh I have
+ 
+
+81
+00:01:58,399 --> 00:02:03,429
+resolve to this IP address and uh I have
+this machine configured to SSH into
+
+82
+00:02:03,429 --> 00:02:03,439
+this machine configured to SSH into
+ 
+
+83
+00:02:03,439 --> 00:02:06,109
+this machine configured to SSH into
+proxmox so first of all I'm going to use
+
+84
+00:02:06,109 --> 00:02:06,119
+proxmox so first of all I'm going to use
+ 
+
+85
+00:02:06,119 --> 00:02:09,070
+proxmox so first of all I'm going to use
+the proxmox helper scripts to do a bunch
+
+86
+00:02:09,070 --> 00:02:09,080
+the proxmox helper scripts to do a bunch
+ 
+
+87
+00:02:09,080 --> 00:02:12,830
+the proxmox helper scripts to do a bunch
+of post install tasks for example
+
+88
+00:02:12,830 --> 00:02:12,840
+of post install tasks for example
+ 
+
+89
+00:02:12,840 --> 00:02:15,270
+of post install tasks for example
+disabling the nag screen and setting up
+
+90
+00:02:15,270 --> 00:02:15,280
+disabling the nag screen and setting up
+ 
+
+91
+00:02:15,280 --> 00:02:18,990
+disabling the nag screen and setting up
+updates Etc and then I'm going to add a
+
+92
+00:02:18,990 --> 00:02:19,000
+updates Etc and then I'm going to add a
+ 
+
+93
+00:02:19,000 --> 00:02:21,150
+updates Etc and then I'm going to add a
+new NFS volume which is going to connect
+
+94
+00:02:21,150 --> 00:02:21,160
+new NFS volume which is going to connect
+ 
+
+95
+00:02:21,160 --> 00:02:24,150
+new NFS volume which is going to connect
+to the trest server so I'm going to tore
+
+96
+00:02:24,150 --> 00:02:24,160
+to the trest server so I'm going to tore
+ 
+
+97
+00:02:24,160 --> 00:02:25,949
+to the trest server so I'm going to tore
+all the vir machine templates iOS
+
+98
+00:02:25,949 --> 00:02:25,959
+all the vir machine templates iOS
+ 
+
+99
+00:02:25,959 --> 00:02:29,150
+all the vir machine templates iOS
+templates Etc in the truna server and in
+
+100
+00:02:29,150 --> 00:02:29,160
+templates Etc in the truna server and in
+ 
+
+101
+00:02:29,160 --> 00:02:31,030
+templates Etc in the truna server and in
+order to use the in procm I need to add
+
+102
+00:02:31,030 --> 00:02:31,040
+order to use the in procm I need to add
+ 
+
+103
+00:02:31,040 --> 00:02:34,390
+order to use the in procm I need to add
+a volume for that then I'm going to use
+
+104
+00:02:34,390 --> 00:02:34,400
+a volume for that then I'm going to use
+ 
+
+105
+00:02:34,400 --> 00:02:37,869
+a volume for that then I'm going to use
+nio as my base image for building the
+
+106
+00:02:37,869 --> 00:02:37,879
+nio as my base image for building the
+ 
+
+107
+00:02:37,879 --> 00:02:39,910
+nio as my base image for building the
+virtual machines so for that I need to
+
+108
+00:02:39,910 --> 00:02:39,920
+virtual machines so for that I need to
+ 
+
+109
+00:02:39,920 --> 00:02:41,869
+virtual machines so for that I need to
+download the iso and store it in the
+
+110
+00:02:41,869 --> 00:02:41,879
+download the iso and store it in the
+ 
+
+111
+00:02:41,879 --> 00:02:46,229
+download the iso and store it in the
+location where prox MOX can use them
+
+112
+00:02:46,229 --> 00:02:46,239
+location where prox MOX can use them
+ 
+
+113
+00:02:46,239 --> 00:02:48,350
+location where prox MOX can use them
+after that we are going to do we are
+
+114
+00:02:48,350 --> 00:02:48,360
+after that we are going to do we are
+ 
+
+115
+00:02:48,360 --> 00:02:50,910
+after that we are going to do we are
+going to start working with terao so we
+
+116
+00:02:50,910 --> 00:02:50,920
+going to start working with terao so we
+ 
+
+117
+00:02:50,920 --> 00:02:52,990
+going to start working with terao so we
+need to set up the providers and set up
+
+118
+00:02:52,990 --> 00:02:53,000
+need to set up the providers and set up
+ 
+
+119
+00:02:53,000 --> 00:02:54,869
+need to set up the providers and set up
+the initial project for
+
+120
+00:02:54,869 --> 00:02:54,879
+the initial project for
+ 
+
+121
+00:02:54,879 --> 00:02:57,790
+the initial project for
+terao so then we are going to use terao
+
+122
+00:02:57,790 --> 00:02:57,800
+terao so then we are going to use terao
+ 
+
+123
+00:02:57,800 --> 00:03:00,750
+terao so then we are going to use terao
+to provision a new nyxo vir
+
+124
+00:03:00,750 --> 00:03:00,760
+to provision a new nyxo vir
+ 
+
+125
+00:03:00,760 --> 00:03:03,630
+to provision a new nyxo vir
+machine so this is what I'm trying I'm
+
+126
+00:03:03,630 --> 00:03:03,640
+machine so this is what I'm trying I'm
+ 
+
+127
+00:03:03,640 --> 00:03:06,430
+machine so this is what I'm trying I'm
+planning to complete today So eventually
+
+128
+00:03:06,430 --> 00:03:06,440
+planning to complete today So eventually
+ 
+
+129
+00:03:06,440 --> 00:03:08,350
+planning to complete today So eventually
+I will set I will be working more with
+
+130
+00:03:08,350 --> 00:03:08,360
+I will set I will be working more with
+ 
+
+131
+00:03:08,360 --> 00:03:11,270
+I will set I will be working more with
+NYX and uh set up Game servers
+
+132
+00:03:11,270 --> 00:03:11,280
+NYX and uh set up Game servers
+ 
+
+133
+00:03:11,280 --> 00:03:13,869
+NYX and uh set up Game servers
+kubernetes and a bunch more
+
+134
+00:03:13,869 --> 00:03:13,879
+kubernetes and a bunch more
+ 
+
+135
+00:03:13,879 --> 00:03:17,190
+kubernetes and a bunch more
+things okay so let's start with the post
+
+136
+00:03:17,190 --> 00:03:17,200
+things okay so let's start with the post
+ 
+
+137
+00:03:17,200 --> 00:03:20,550
+things okay so let's start with the post
+install scripts so for that fortunately
+
+138
+00:03:20,550 --> 00:03:20,560
+install scripts so for that fortunately
+ 
+
+139
+00:03:20,560 --> 00:03:22,830
+install scripts so for that fortunately
+we have a project called proxmox V
+
+140
+00:03:22,830 --> 00:03:22,840
+we have a project called proxmox V
+ 
+
+141
+00:03:22,840 --> 00:03:25,949
+we have a project called proxmox V
+helper scripts uh I will add the link to
+
+142
+00:03:25,949 --> 00:03:25,959
+helper scripts uh I will add the link to
+ 
+
+143
+00:03:25,959 --> 00:03:29,309
+helper scripts uh I will add the link to
+this website in the description so this
+
+144
+00:03:29,309 --> 00:03:29,319
+this website in the description so this
+ 
+
+145
+00:03:29,319 --> 00:03:31,589
+this website in the description so this
+project contains a bunch of useful
+
+146
+00:03:31,589 --> 00:03:31,599
+project contains a bunch of useful
+ 
+
+147
+00:03:31,599 --> 00:03:33,309
+project contains a bunch of useful
+scripts which you can use to automate
+
+148
+00:03:33,309 --> 00:03:33,319
+scripts which you can use to automate
+ 
+
+149
+00:03:33,319 --> 00:03:36,070
+scripts which you can use to automate
+working with prox MOX so this makes our
+
+150
+00:03:36,070 --> 00:03:36,080
+working with prox MOX so this makes our
+ 
+
+151
+00:03:36,080 --> 00:03:38,429
+working with prox MOX so this makes our
+life much easier so here you can see a
+
+152
+00:03:38,429 --> 00:03:38,439
+life much easier so here you can see a
+ 
+
+153
+00:03:38,439 --> 00:03:41,309
+life much easier so here you can see a
+bunch of things like uh for example if
+
+154
+00:03:41,309 --> 00:03:41,319
+bunch of things like uh for example if
+ 
+
+155
+00:03:41,319 --> 00:03:42,910
+bunch of things like uh for example if
+you want to install
+
+156
+00:03:42,910 --> 00:03:42,920
+you want to install
+ 
+
+157
+00:03:42,920 --> 00:03:45,470
+you want to install
+Docker if you install a lxc container
+
+158
+00:03:45,470 --> 00:03:45,480
+Docker if you install a lxc container
+ 
+
+159
+00:03:45,480 --> 00:03:47,710
+Docker if you install a lxc container
+with Docker you can use one of
+
+160
+00:03:47,710 --> 00:03:47,720
+with Docker you can use one of
+ 
+
+161
+00:03:47,720 --> 00:03:51,550
+with Docker you can use one of
+this so what we interested in for now is
+
+162
+00:03:51,550 --> 00:03:51,560
+this so what we interested in for now is
+ 
+
+163
+00:03:51,560 --> 00:03:55,630
+this so what we interested in for now is
+to use the prox MOX V post installed
+
+164
+00:03:55,630 --> 00:03:55,640
+to use the prox MOX V post installed
+ 
+
+165
+00:03:55,640 --> 00:03:58,750
+to use the prox MOX V post installed
+script so I'm going to use that the
+
+166
+00:03:58,750 --> 00:03:58,760
+script so I'm going to use that the
+ 
+
+167
+00:03:58,760 --> 00:04:00,830
+script so I'm going to use that the
+script provides option for managing Fox
+
+168
+00:04:00,830 --> 00:04:00,840
+script provides option for managing Fox
+ 
+
+169
+00:04:00,840 --> 00:04:02,910
+script provides option for managing Fox
+MOX V repositories including disabling
+
+170
+00:04:02,910 --> 00:04:02,920
+MOX V repositories including disabling
+ 
+
+171
+00:04:02,920 --> 00:04:05,710
+MOX V repositories including disabling
+Enterprise sto adding or correcting PR
+
+172
+00:04:05,710 --> 00:04:05,720
+Enterprise sto adding or correcting PR
+ 
+
+173
+00:04:05,720 --> 00:04:08,149
+Enterprise sto adding or correcting PR
+PV sources enabling the no subscription
+
+174
+00:04:08,149 --> 00:04:08,159
+PV sources enabling the no subscription
+ 
+
+175
+00:04:08,159 --> 00:04:10,910
+PV sources enabling the no subscription
+repo adding the test repo disabling the
+
+176
+00:04:10,910 --> 00:04:10,920
+repo adding the test repo disabling the
+ 
+
+177
+00:04:10,920 --> 00:04:13,550
+repo adding the test repo disabling the
+subscription nag updating Pro Mox and
+
+178
+00:04:13,550 --> 00:04:13,560
+subscription nag updating Pro Mox and
+ 
+
+179
+00:04:13,560 --> 00:04:16,430
+subscription nag updating Pro Mox and
+reboting the system okay that's exactly
+
+180
+00:04:16,430 --> 00:04:16,440
+reboting the system okay that's exactly
+ 
+
+181
+00:04:16,440 --> 00:04:19,509
+reboting the system okay that's exactly
+what we're looking for since I have SS
+
+182
+00:04:19,509 --> 00:04:19,519
+what we're looking for since I have SS
+ 
+
+183
+00:04:19,519 --> 00:04:25,430
+what we're looking for since I have SS
+access configured I will do s to
+
+184
+00:04:25,430 --> 00:04:25,440
+access configured I will do s to
+ 
+
+185
+00:04:25,440 --> 00:04:27,870
+access configured I will do s to
+Jupiter copy and run the
+
+186
+00:04:27,870 --> 00:04:27,880
+Jupiter copy and run the
+ 
+
+187
+00:04:27,880 --> 00:04:30,230
+Jupiter copy and run the
+command the script will per form post
+
+188
+00:04:30,230 --> 00:04:30,240
+command the script will per form post
+ 
+
+189
+00:04:30,240 --> 00:04:33,510
+command the script will per form post
+install routines yes
+
+190
+00:04:33,510 --> 00:04:33,520
+install routines yes
+ 
+
+191
+00:04:33,520 --> 00:04:36,350
+install routines yes
+please so we will have the option to
+
+192
+00:04:36,350 --> 00:04:36,360
+please so we will have the option to
+ 
+
+193
+00:04:36,360 --> 00:04:38,990
+please so we will have the option to
+choose what we want to do correct Pro
+
+194
+00:04:38,990 --> 00:04:39,000
+choose what we want to do correct Pro
+ 
+
+195
+00:04:39,000 --> 00:04:41,590
+choose what we want to do correct Pro
+Resources yes please disable Enterprise
+
+196
+00:04:41,590 --> 00:04:41,600
+Resources yes please disable Enterprise
+ 
+
+197
+00:04:41,600 --> 00:04:44,870
+Resources yes please disable Enterprise
+repository yes enable no subscription
+
+198
+00:04:44,870 --> 00:04:44,880
+repository yes enable no subscription
+ 
+
+199
+00:04:44,880 --> 00:04:48,310
+repository yes enable no subscription
+repository yes correct safe package
+
+200
+00:04:48,310 --> 00:04:48,320
+repository yes correct safe package
+ 
+
+201
+00:04:48,320 --> 00:04:49,909
+repository yes correct safe package
+sources yes
+
+202
+00:04:49,909 --> 00:04:49,919
+sources yes
+ 
+
+203
+00:04:49,919 --> 00:04:52,590
+sources yes
+please add PV test
+
+204
+00:04:52,590 --> 00:04:52,600
+please add PV test
+ 
+
+205
+00:04:52,600 --> 00:04:54,830
+please add PV test
+repository okay I'm not interested in
+
+206
+00:04:54,830 --> 00:04:54,840
+repository okay I'm not interested in
+ 
+
+207
+00:04:54,840 --> 00:04:58,310
+repository okay I'm not interested in
+that disable the subscription a yes
+
+208
+00:04:58,310 --> 00:04:58,320
+that disable the subscription a yes
+ 
+
+209
+00:04:58,320 --> 00:05:00,230
+that disable the subscription a yes
+please
+
+210
+00:05:00,230 --> 00:05:00,240
+please
+ 
+
+211
+00:05:00,240 --> 00:05:03,629
+please
+okay disable High availability I don't
+
+212
+00:05:03,629 --> 00:05:03,639
+okay disable High availability I don't
+ 
+
+213
+00:05:03,639 --> 00:05:05,230
+okay disable High availability I don't
+need it at the moment maybe we will
+
+214
+00:05:05,230 --> 00:05:05,240
+need it at the moment maybe we will
+ 
+
+215
+00:05:05,240 --> 00:05:06,990
+need it at the moment maybe we will
+enable it
+
+216
+00:05:06,990 --> 00:05:07,000
+enable it
+ 
+
+217
+00:05:07,000 --> 00:05:09,629
+enable it
+later
+
+218
+00:05:09,629 --> 00:05:09,639
+later
+ 
+
+219
+00:05:09,639 --> 00:05:13,550
+later
+okay update prox box V now yes let's do
+
+220
+00:05:13,550 --> 00:05:13,560
+okay update prox box V now yes let's do
+ 
+
+221
+00:05:13,560 --> 00:05:17,230
+okay update prox box V now yes let's do
+it okay so the post installation script
+
+222
+00:05:17,230 --> 00:05:17,240
+it okay so the post installation script
+ 
+
+223
+00:05:17,240 --> 00:05:19,670
+it okay so the post installation script
+is complete we can also do a report if
+
+224
+00:05:19,670 --> 00:05:19,680
+is complete we can also do a report if
+ 
+
+225
+00:05:19,680 --> 00:05:22,430
+is complete we can also do a report if
+necessary but I chose not to so this is
+
+226
+00:05:22,430 --> 00:05:22,440
+necessary but I chose not to so this is
+ 
+
+227
+00:05:22,440 --> 00:05:24,270
+necessary but I chose not to so this is
+now complete the next thing is to add
+
+228
+00:05:24,270 --> 00:05:24,280
+now complete the next thing is to add
+ 
+
+229
+00:05:24,280 --> 00:05:27,950
+now complete the next thing is to add
+the NFS volume for the templates let's
+
+230
+00:05:27,950 --> 00:05:27,960
+the NFS volume for the templates let's
+ 
+
+231
+00:05:27,960 --> 00:05:30,350
+the NFS volume for the templates let's
+do that
+
+232
+00:05:30,350 --> 00:05:30,360
+do that
+ 
+
+233
+00:05:30,360 --> 00:05:33,550
+do that
+okay so let's go to Data Center storage
+
+234
+00:05:33,550 --> 00:05:33,560
+okay so let's go to Data Center storage
+ 
+
+235
+00:05:33,560 --> 00:05:36,230
+okay so let's go to Data Center storage
+and add
+
+236
+00:05:36,230 --> 00:05:36,240
+and add
+ 
+
+237
+00:05:36,240 --> 00:05:39,990
+and add
+NFS okay let's call
+
+238
+00:05:39,990 --> 00:05:40,000
+NFS okay let's call
+ 
+
+239
+00:05:40,000 --> 00:05:48,430
+NFS okay let's call
+it templates NFS so true n
+
+240
+00:05:48,430 --> 00:05:48,440
+
+ 
+
+241
+00:05:48,440 --> 00:05:50,469
+
+cost
+
+242
+00:05:50,469 --> 00:05:50,479
+cost
+ 
+
+243
+00:05:50,479 --> 00:05:55,790
+cost
+okay and uh here it shows the export
+
+244
+00:05:55,790 --> 00:05:55,800
+okay and uh here it shows the export
+ 
+
+245
+00:05:55,800 --> 00:06:04,309
+okay and uh here it shows the export
+list and uh that's the one
+
+246
+00:06:04,309 --> 00:06:04,319
+
+ 
+
+247
+00:06:04,319 --> 00:06:08,390
+
+okay so it can have a container template
+
+248
+00:06:08,390 --> 00:06:08,400
+okay so it can have a container template
+ 
+
+249
+00:06:08,400 --> 00:06:10,029
+okay so it can have a container template
+we see the backup
+
+250
+00:06:10,029 --> 00:06:10,039
+we see the backup
+ 
+
+251
+00:06:10,039 --> 00:06:14,350
+we see the backup
+file ISO image dis image all these
+
+252
+00:06:14,350 --> 00:06:14,360
+file ISO image dis image all these
+ 
+
+253
+00:06:14,360 --> 00:06:17,110
+file ISO image dis image all these
+things okay let's add
+
+254
+00:06:17,110 --> 00:06:17,120
+things okay let's add
+ 
+
+255
+00:06:17,120 --> 00:06:20,430
+things okay let's add
+it all right so
+
+256
+00:06:20,430 --> 00:06:20,440
+it all right so
+ 
+
+257
+00:06:20,440 --> 00:06:24,350
+it all right so
+here the NFS has been added here
+
+258
+00:06:24,350 --> 00:06:24,360
+here the NFS has been added here
+ 
+
+259
+00:06:24,360 --> 00:06:27,830
+here the NFS has been added here
+perfect now what else do we need to do
+
+260
+00:06:27,830 --> 00:06:27,840
+perfect now what else do we need to do
+ 
+
+261
+00:06:27,840 --> 00:06:30,350
+perfect now what else do we need to do
+we need to download the nxo ISO into
+
+262
+00:06:30,350 --> 00:06:30,360
+we need to download the nxo ISO into
+ 
+
+263
+00:06:30,360 --> 00:06:38,589
+we need to download the nxo ISO into
+this directory perfect next is
+
+264
+00:06:38,589 --> 00:06:38,599
+
+ 
+
+265
+00:06:38,599 --> 00:06:42,230
+
+ISO so we are looking for a minimal ISO
+
+266
+00:06:42,230 --> 00:06:42,240
+ISO so we are looking for a minimal ISO
+ 
+
+267
+00:06:42,240 --> 00:06:43,309
+ISO so we are looking for a minimal ISO
+image
+
+268
+00:06:43,309 --> 00:06:43,319
+image
+ 
+
+269
+00:06:43,319 --> 00:06:45,790
+image
+for Intel
+
+270
+00:06:45,790 --> 00:06:45,800
+for Intel
+ 
+
+271
+00:06:45,800 --> 00:06:49,589
+for Intel
+AMD okay let's use a clean
+
+272
+00:06:49,589 --> 00:06:49,599
+AMD okay let's use a clean
+ 
+
+273
+00:06:49,599 --> 00:06:51,950
+AMD okay let's use a clean
+link okay so we will have to download
+
+274
+00:06:51,950 --> 00:06:51,960
+link okay so we will have to download
+ 
+
+275
+00:06:51,960 --> 00:06:54,309
+link okay so we will have to download
+this directly in the
+
+276
+00:06:54,309 --> 00:06:54,319
+this directly in the
+ 
+
+277
+00:06:54,319 --> 00:06:56,749
+this directly in the
+nas I'm wondering if where this is
+
+278
+00:06:56,749 --> 00:06:56,759
+nas I'm wondering if where this is
+ 
+
+279
+00:06:56,759 --> 00:06:59,670
+nas I'm wondering if where this is
+mounted in the
+
+280
+00:06:59,670 --> 00:06:59,680
+mounted in the
+ 
+
+281
+00:06:59,680 --> 00:07:02,670
+mounted in the
+prox MOX see the mount
+
+282
+00:07:02,670 --> 00:07:02,680
+prox MOX see the mount
+ 
+
+283
+00:07:02,680 --> 00:07:06,790
+prox MOX see the mount
+points okay so this is mounted to mnpv
+
+284
+00:07:06,790 --> 00:07:06,800
+points okay so this is mounted to mnpv
+ 
+
+285
+00:07:06,800 --> 00:07:07,790
+points okay so this is mounted to mnpv
+templates
+
+286
+00:07:07,790 --> 00:07:07,800
+templates
+ 
+
+287
+00:07:07,800 --> 00:07:12,830
+templates
+NFS that's
+
+288
+00:07:12,830 --> 00:07:12,840
+
+ 
+
+289
+00:07:12,840 --> 00:07:17,830
+
+easier okay so I can do Wate with the
+
+290
+00:07:17,830 --> 00:07:17,840
+easier okay so I can do Wate with the
+ 
+
+291
+00:07:17,840 --> 00:07:24,070
+easier okay so I can do Wate with the
+Linux
+
+292
+00:07:24,070 --> 00:07:24,080
+
+ 
+
+293
+00:07:24,080 --> 00:07:27,070
+
+ISO so the
+
+294
+00:07:27,070 --> 00:07:27,080
+ISO so the
+ 
+
+295
+00:07:27,080 --> 00:07:30,150
+ISO so the
+iso huh actually this this should be
+
+296
+00:07:30,150 --> 00:07:30,160
+iso huh actually this this should be
+ 
+
+297
+00:07:30,160 --> 00:07:33,749
+iso huh actually this this should be
+inside template ISO okay so we need to
+
+298
+00:07:33,749 --> 00:07:33,759
+inside template ISO okay so we need to
+ 
+
+299
+00:07:33,759 --> 00:07:37,550
+inside template ISO okay so we need to
+move the latest nxo ISO into template
+
+300
+00:07:37,550 --> 00:07:37,560
+move the latest nxo ISO into template
+ 
+
+301
+00:07:37,560 --> 00:07:41,390
+move the latest nxo ISO into template
+sliso folder that is
+
+302
+00:07:41,390 --> 00:07:41,400
+sliso folder that is
+ 
+
+303
+00:07:41,400 --> 00:07:45,350
+sliso folder that is
+location nexos is available now
+
+304
+00:07:45,350 --> 00:07:45,360
+location nexos is available now
+ 
+
+305
+00:07:45,360 --> 00:07:49,510
+location nexos is available now
+now we can start tform
+
+306
+00:07:49,510 --> 00:07:49,520
+now we can start tform
+ 
+
+307
+00:07:49,520 --> 00:07:51,749
+now we can start tform
+setup
+
+308
+00:07:51,749 --> 00:07:51,759
+setup
+ 
+
+309
+00:07:51,759 --> 00:07:54,350
+setup
+so I already have the repository called
+
+310
+00:07:54,350 --> 00:07:54,360
+so I already have the repository called
+ 
+
+311
+00:07:54,360 --> 00:07:55,869
+so I already have the repository called
+H lab
+
+312
+00:07:55,869 --> 00:07:55,879
+H lab
+ 
+
+313
+00:07:55,879 --> 00:07:59,990
+H lab
+I ready let's start the editor
+
+314
+00:07:59,990 --> 00:08:00,000
+I ready let's start the editor
+ 
+
+315
+00:08:00,000 --> 00:08:01,790
+I ready let's start the editor
+so we are going to have different
+
+316
+00:08:01,790 --> 00:08:01,800
+so we are going to have different
+ 
+
+317
+00:08:01,800 --> 00:08:05,029
+so we are going to have different
+projects for procm Tress and multiple
+
+318
+00:08:05,029 --> 00:08:05,039
+projects for procm Tress and multiple
+ 
+
+319
+00:08:05,039 --> 00:08:06,869
+projects for procm Tress and multiple
+things so I need to keep them separate
+
+320
+00:08:06,869 --> 00:08:06,879
+things so I need to keep them separate
+ 
+
+321
+00:08:06,879 --> 00:08:10,469
+things so I need to keep them separate
+in different folders so I like to use a
+
+322
+00:08:10,469 --> 00:08:10,479
+in different folders so I like to use a
+ 
+
+323
+00:08:10,479 --> 00:08:12,629
+in different folders so I like to use a
+a folder structure which includes the
+
+324
+00:08:12,629 --> 00:08:12,639
+a folder structure which includes the
+ 
+
+325
+00:08:12,639 --> 00:08:15,589
+a folder structure which includes the
+site name and the infrastructure project
+
+326
+00:08:15,589 --> 00:08:15,599
+site name and the infrastructure project
+ 
+
+327
+00:08:15,599 --> 00:08:19,749
+site name and the infrastructure project
+name so here my site name is Cosmos and
+
+328
+00:08:19,749 --> 00:08:19,759
+name so here my site name is Cosmos and
+ 
+
+329
+00:08:19,759 --> 00:08:21,550
+name so here my site name is Cosmos and
+uh inside that I'm going to create a
+
+330
+00:08:21,550 --> 00:08:21,560
+uh inside that I'm going to create a
+ 
+
+331
+00:08:21,560 --> 00:08:26,270
+uh inside that I'm going to create a
+folder with the name
+
+332
+00:08:26,270 --> 00:08:26,280
+
+ 
+
+333
+00:08:26,280 --> 00:08:29,830
+
+Jupiter okay so this folder is going to
+
+334
+00:08:29,830 --> 00:08:29,840
+Jupiter okay so this folder is going to
+ 
+
+335
+00:08:29,840 --> 00:08:31,230
+Jupiter okay so this folder is going to
+manage all the
+
+336
+00:08:31,230 --> 00:08:31,240
+manage all the
+ 
+
+337
+00:08:31,240 --> 00:08:34,589
+manage all the
+infrastructure within this
+
+338
+00:08:34,589 --> 00:08:34,599
+infrastructure within this
+ 
+
+339
+00:08:34,599 --> 00:08:37,670
+infrastructure within this
+proxo okay so inside that we need a
+
+340
+00:08:37,670 --> 00:08:37,680
+proxo okay so inside that we need a
+ 
+
+341
+00:08:37,680 --> 00:08:42,829
+proxo okay so inside that we need a
+main.tf file a providers. tfile
+
+342
+00:08:42,829 --> 00:08:42,839
+main.tf file a providers. tfile
+ 
+
+343
+00:08:42,839 --> 00:08:46,070
+main.tf file a providers. tfile
+terraform dotf file
+
+344
+00:08:46,070 --> 00:08:46,080
+terraform dotf file
+ 
+
+345
+00:08:46,080 --> 00:08:49,389
+terraform dotf file
+okay so in order to use terraform for
+
+346
+00:08:49,389 --> 00:08:49,399
+okay so in order to use terraform for
+ 
+
+347
+00:08:49,399 --> 00:08:52,670
+okay so in order to use terraform for
+proxmox we need a proxmox provider so
+
+348
+00:08:52,670 --> 00:08:52,680
+proxmox we need a proxmox provider so
+ 
+
+349
+00:08:52,680 --> 00:08:57,269
+proxmox we need a proxmox provider so
+let's prox
+
+350
+00:08:57,269 --> 00:08:57,279
+
+ 
+
+351
+00:08:57,279 --> 00:09:00,949
+
+mod Okay so so we actually have a couple
+
+352
+00:09:00,949 --> 00:09:00,959
+mod Okay so so we actually have a couple
+ 
+
+353
+00:09:00,959 --> 00:09:04,030
+mod Okay so so we actually have a couple
+of different options and uh what I used
+
+354
+00:09:04,030 --> 00:09:04,040
+of different options and uh what I used
+ 
+
+355
+00:09:04,040 --> 00:09:07,949
+of different options and uh what I used
+before is this one tmate box MOX
+
+356
+00:09:07,949 --> 00:09:07,959
+before is this one tmate box MOX
+ 
+
+357
+00:09:07,959 --> 00:09:10,389
+before is this one tmate box MOX
+provider and here in resource you can
+
+358
+00:09:10,389 --> 00:09:10,399
+provider and here in resource you can
+ 
+
+359
+00:09:10,399 --> 00:09:14,230
+provider and here in resource you can
+see it can create a prox MOX qm virtual
+
+360
+00:09:14,230 --> 00:09:14,240
+see it can create a prox MOX qm virtual
+ 
+
+361
+00:09:14,240 --> 00:09:18,269
+see it can create a prox MOX qm virtual
+machines and lxc and also cloud in discs
+
+362
+00:09:18,269 --> 00:09:18,279
+machines and lxc and also cloud in discs
+ 
+
+363
+00:09:18,279 --> 00:09:21,269
+machines and lxc and also cloud in discs
+so this looks like a good start for
+
+364
+00:09:21,269 --> 00:09:21,279
+so this looks like a good start for
+ 
+
+365
+00:09:21,279 --> 00:09:24,470
+so this looks like a good start for
+us let's copy this actually before that
+
+366
+00:09:24,470 --> 00:09:24,480
+us let's copy this actually before that
+ 
+
+367
+00:09:24,480 --> 00:09:27,230
+us let's copy this actually before that
+we need to use the provider
+
+368
+00:09:27,230 --> 00:09:27,240
+we need to use the provider
+ 
+
+369
+00:09:27,240 --> 00:09:30,310
+we need to use the provider
+so we need to initi ize the ter from
+
+370
+00:09:30,310 --> 00:09:30,320
+so we need to initi ize the ter from
+ 
+
+371
+00:09:30,320 --> 00:09:34,670
+so we need to initi ize the ter from
+Project by adding this
+
+372
+00:09:34,670 --> 00:09:34,680
+
+ 
+
+373
+00:09:34,680 --> 00:09:38,269
+
+here okay so this is going to use
+
+374
+00:09:38,269 --> 00:09:38,279
+here okay so this is going to use
+ 
+
+375
+00:09:38,279 --> 00:09:40,710
+here okay so this is going to use
+3.01
+
+376
+00:09:40,710 --> 00:09:40,720
+3.01
+ 
+
+377
+00:09:40,720 --> 00:09:45,110
+3.01
+rc4 okay and uh
+
+378
+00:09:45,110 --> 00:09:45,120
+rc4 okay and uh
+ 
+
+379
+00:09:45,120 --> 00:09:47,310
+rc4 okay and uh
+configuration we need to first check the
+
+380
+00:09:47,310 --> 00:09:47,320
+configuration we need to first check the
+ 
+
+381
+00:09:47,320 --> 00:09:50,470
+configuration we need to first check the
+configuration
+
+382
+00:09:50,470 --> 00:09:50,480
+
+ 
+
+383
+00:09:50,480 --> 00:09:53,389
+
+part so first of all we need to create a
+
+384
+00:09:53,389 --> 00:09:53,399
+part so first of all we need to create a
+ 
+
+385
+00:09:53,399 --> 00:09:57,710
+part so first of all we need to create a
+the new user name perform Prof and uh
+
+386
+00:09:57,710 --> 00:09:57,720
+the new user name perform Prof and uh
+ 
+
+387
+00:09:57,720 --> 00:09:59,389
+the new user name perform Prof and uh
+assign the necessary permissions to be
+
+388
+00:09:59,389 --> 00:09:59,399
+assign the necessary permissions to be
+ 
+
+389
+00:09:59,399 --> 00:10:01,630
+assign the necessary permissions to be
+able to create the virtual machines and
+
+390
+00:10:01,630 --> 00:10:01,640
+able to create the virtual machines and
+ 
+
+391
+00:10:01,640 --> 00:10:04,790
+able to create the virtual machines and
+then provide those credentials in here
+
+392
+00:10:04,790 --> 00:10:04,800
+then provide those credentials in here
+ 
+
+393
+00:10:04,800 --> 00:10:08,550
+then provide those credentials in here
+to be able to connect to proxmox okay
+
+394
+00:10:08,550 --> 00:10:08,560
+to be able to connect to proxmox okay
+ 
+
+395
+00:10:08,560 --> 00:10:10,269
+to be able to connect to proxmox okay
+let's do
+
+396
+00:10:10,269 --> 00:10:10,279
+let's do
+ 
+
+397
+00:10:10,279 --> 00:10:12,870
+let's do
+this so this is going to create a new
+
+398
+00:10:12,870 --> 00:10:12,880
+this so this is going to create a new
+ 
+
+399
+00:10:12,880 --> 00:10:16,829
+this so this is going to create a new
+role named tform Pro and uh let's have
+
+400
+00:10:16,829 --> 00:10:16,839
+role named tform Pro and uh let's have
+ 
+
+401
+00:10:16,839 --> 00:10:18,389
+role named tform Pro and uh let's have
+quick look through the permissions to
+
+402
+00:10:18,389 --> 00:10:18,399
+quick look through the permissions to
+ 
+
+403
+00:10:18,399 --> 00:10:22,269
+quick look through the permissions to
+see that it's
+
+404
+00:10:22,269 --> 00:10:22,279
+
+ 
+
+405
+00:10:22,279 --> 00:10:26,150
+
+correct okay nothing crazy I think then
+
+406
+00:10:26,150 --> 00:10:26,160
+correct okay nothing crazy I think then
+ 
+
+407
+00:10:26,160 --> 00:10:28,389
+correct okay nothing crazy I think then
+creates a user and uh here we had to
+
+408
+00:10:28,389 --> 00:10:28,399
+creates a user and uh here we had to
+ 
+
+409
+00:10:28,399 --> 00:10:29,870
+creates a user and uh here we had to
+provide a password
+
+410
+00:10:29,870 --> 00:10:29,880
+provide a password
+ 
+
+411
+00:10:29,880 --> 00:10:34,150
+provide a password
+okay then it assigns the role to this
+
+412
+00:10:34,150 --> 00:10:34,160
+okay then it assigns the role to this
+ 
+
+413
+00:10:34,160 --> 00:10:40,550
+okay then it assigns the role to this
+user okay let's add the role
+
+414
+00:10:40,550 --> 00:10:40,560
+
+ 
+
+415
+00:10:40,560 --> 00:10:44,470
+
+first okay and then
+
+416
+00:10:44,470 --> 00:10:44,480
+first okay and then
+ 
+
+417
+00:10:44,480 --> 00:10:47,269
+first okay and then
+user so I'm going to use a simple
+
+418
+00:10:47,269 --> 00:10:47,279
+user so I'm going to use a simple
+ 
+
+419
+00:10:47,279 --> 00:10:54,069
+user so I'm going to use a simple
+password now and then change it
+
+420
+00:10:54,069 --> 00:10:54,079
+
+ 
+
+421
+00:10:54,079 --> 00:10:56,310
+
+later because I'll have to add it to my
+
+422
+00:10:56,310 --> 00:10:56,320
+later because I'll have to add it to my
+ 
+
+423
+00:10:56,320 --> 00:10:57,990
+later because I'll have to add it to my
+bit
+
+424
+00:10:57,990 --> 00:10:58,000
+bit
+ 
+
+425
+00:10:58,000 --> 00:11:00,110
+bit
+Wen and
+
+426
+00:11:00,110 --> 00:11:00,120
+Wen and
+ 
+
+427
+00:11:00,120 --> 00:11:04,829
+Wen and
+then allow the user with this role okay
+
+428
+00:11:04,829 --> 00:11:04,839
+then allow the user with this role okay
+ 
+
+429
+00:11:04,839 --> 00:11:07,150
+then allow the user with this role okay
+and then we need to create a connection
+
+430
+00:11:07,150 --> 00:11:07,160
+and then we need to create a connection
+ 
+
+431
+00:11:07,160 --> 00:11:08,670
+and then we need to create a connection
+by username and
+
+432
+00:11:08,670 --> 00:11:08,680
+by username and
+ 
+
+433
+00:11:08,680 --> 00:11:15,069
+by username and
+password
+
+434
+00:11:15,069 --> 00:11:15,079
+
+ 
+
+435
+00:11:15,079 --> 00:11:17,550
+
+okay so in order to provide this
+
+436
+00:11:17,550 --> 00:11:17,560
+okay so in order to provide this
+ 
+
+437
+00:11:17,560 --> 00:11:19,670
+okay so in order to provide this
+environment variables I'm going to use
+
+438
+00:11:19,670 --> 00:11:19,680
+environment variables I'm going to use
+ 
+
+439
+00:11:19,680 --> 00:11:26,310
+environment variables I'm going to use
+uh D so I can add this
+
+440
+00:11:26,310 --> 00:11:26,320
+
+ 
+
+441
+00:11:26,320 --> 00:11:28,350
+
+here so what I'm going to do is
+
+442
+00:11:28,350 --> 00:11:28,360
+here so what I'm going to do is
+ 
+
+443
+00:11:28,360 --> 00:11:30,629
+here so what I'm going to do is
+eventually
+
+444
+00:11:30,629 --> 00:11:30,639
+eventually
+ 
+
+445
+00:11:30,639 --> 00:11:33,829
+eventually
+move this to a new password manager so
+
+446
+00:11:33,829 --> 00:11:33,839
+move this to a new password manager so
+ 
+
+447
+00:11:33,839 --> 00:11:36,710
+move this to a new password manager so
+instead of exporting this instead of
+
+448
+00:11:36,710 --> 00:11:36,720
+instead of exporting this instead of
+ 
+
+449
+00:11:36,720 --> 00:11:38,949
+instead of exporting this instead of
+hardcoding this here it is going to get
+
+450
+00:11:38,949 --> 00:11:38,959
+hardcoding this here it is going to get
+ 
+
+451
+00:11:38,959 --> 00:11:42,670
+hardcoding this here it is going to get
+it from New pass okay so for that I'm
+
+452
+00:11:42,670 --> 00:11:42,680
+it from New pass okay so for that I'm
+ 
+
+453
+00:11:42,680 --> 00:11:47,069
+it from New pass okay so for that I'm
+going to use this something called
+
+454
+00:11:47,069 --> 00:11:47,079
+going to use this something called
+ 
+
+455
+00:11:47,079 --> 00:11:51,069
+going to use this something called
+D so what DM does is whenever we CD into
+
+456
+00:11:51,069 --> 00:11:51,079
+D so what DM does is whenever we CD into
+ 
+
+457
+00:11:51,079 --> 00:11:53,990
+D so what DM does is whenever we CD into
+a directory and if it has a envc it's
+
+458
+00:11:53,990 --> 00:11:54,000
+a directory and if it has a envc it's
+ 
+
+459
+00:11:54,000 --> 00:11:55,509
+a directory and if it has a envc it's
+going to Source it
+
+460
+00:11:55,509 --> 00:11:55,519
+going to Source it
+ 
+
+461
+00:11:55,519 --> 00:11:57,550
+going to Source it
+automatically so we
+
+462
+00:11:57,550 --> 00:11:57,560
+automatically so we
+ 
+
+463
+00:11:57,560 --> 00:12:01,590
+automatically so we
+can we can also add uh like scripts here
+
+464
+00:12:01,590 --> 00:12:01,600
+can we can also add uh like scripts here
+ 
+
+465
+00:12:01,600 --> 00:12:02,949
+can we can also add uh like scripts here
+or things like
+
+466
+00:12:02,949 --> 00:12:02,959
+or things like
+ 
+
+467
+00:12:02,959 --> 00:12:05,230
+or things like
+that so this makes our workflow much
+
+468
+00:12:05,230 --> 00:12:05,240
+that so this makes our workflow much
+ 
+
+469
+00:12:05,240 --> 00:12:07,230
+that so this makes our workflow much
+easier so you don't have to run this
+
+470
+00:12:07,230 --> 00:12:07,240
+easier so you don't have to run this
+ 
+
+471
+00:12:07,240 --> 00:12:08,790
+easier so you don't have to run this
+command each time when you have to run a
+
+472
+00:12:08,790 --> 00:12:08,800
+command each time when you have to run a
+ 
+
+473
+00:12:08,800 --> 00:12:10,110
+command each time when you have to run a
+terraform
+
+474
+00:12:10,110 --> 00:12:10,120
+terraform
+ 
+
+475
+00:12:10,120 --> 00:12:16,550
+terraform
+command Okay so let's uh let's try it
+
+476
+00:12:16,550 --> 00:12:16,560
+
+ 
+
+477
+00:12:16,560 --> 00:12:21,069
+
+out let's try from it oh sorry I'm in
+
+478
+00:12:21,069 --> 00:12:21,079
+out let's try from it oh sorry I'm in
+ 
+
+479
+00:12:21,079 --> 00:12:22,870
+out let's try from it oh sorry I'm in
+the wrong folder of
+
+480
+00:12:22,870 --> 00:12:22,880
+the wrong folder of
+ 
+
+481
+00:12:22,880 --> 00:12:25,949
+the wrong folder of
+course so as you see when we are new
+
+482
+00:12:25,949 --> 00:12:25,959
+course so as you see when we are new
+ 
+
+483
+00:12:25,959 --> 00:12:28,870
+course so as you see when we are new
+nvrc file then D will complain that this
+
+484
+00:12:28,870 --> 00:12:28,880
+nvrc file then D will complain that this
+ 
+
+485
+00:12:28,880 --> 00:12:31,590
+nvrc file then D will complain that this
+is not yet allowed so we have to allow
+
+486
+00:12:31,590 --> 00:12:31,600
+is not yet allowed so we have to allow
+ 
+
+487
+00:12:31,600 --> 00:12:34,310
+is not yet allowed so we have to allow
+it whenever we change this for security
+
+488
+00:12:34,310 --> 00:12:34,320
+it whenever we change this for security
+ 
+
+489
+00:12:34,320 --> 00:12:36,870
+it whenever we change this for security
+purposes so if I do
+
+490
+00:12:36,870 --> 00:12:36,880
+purposes so if I do
+ 
+
+491
+00:12:36,880 --> 00:12:40,110
+purposes so if I do
+the allow okay so it's going to export
+
+492
+00:12:40,110 --> 00:12:40,120
+the allow okay so it's going to export
+ 
+
+493
+00:12:40,120 --> 00:12:46,770
+the allow okay so it's going to export
+these two these two
+
+494
+00:12:46,770 --> 00:12:46,780
+
+ 
+
+495
+00:12:46,780 --> 00:12:50,509
+
+[Music]
+
+496
+00:12:50,509 --> 00:12:50,519
+
+ 
+
+497
+00:12:50,519 --> 00:12:53,150
+
+variables let's do a simple terraform
+
+498
+00:12:53,150 --> 00:12:53,160
+variables let's do a simple terraform
+ 
+
+499
+00:12:53,160 --> 00:12:55,550
+variables let's do a simple terraform
+plan and see what's happening okay there
+
+500
+00:12:55,550 --> 00:12:55,560
+plan and see what's happening okay there
+ 
+
+501
+00:12:55,560 --> 00:12:56,710
+plan and see what's happening okay there
+are no changes because we haven't
+
+502
+00:12:56,710 --> 00:12:56,720
+are no changes because we haven't
+ 
+
+503
+00:12:56,720 --> 00:13:00,069
+are no changes because we haven't
+defined any resources yet perfect and uh
+
+504
+00:13:00,069 --> 00:13:00,079
+defined any resources yet perfect and uh
+ 
+
+505
+00:13:00,079 --> 00:13:02,069
+defined any resources yet perfect and uh
+what else do we
+
+506
+00:13:02,069 --> 00:13:02,079
+what else do we
+ 
+
+507
+00:13:02,079 --> 00:13:04,189
+what else do we
+need okay I don't think we need anything
+
+508
+00:13:04,189 --> 00:13:04,199
+need okay I don't think we need anything
+ 
+
+509
+00:13:04,199 --> 00:13:07,310
+need okay I don't think we need anything
+else so the provider is set up terraform
+
+510
+00:13:07,310 --> 00:13:07,320
+else so the provider is set up terraform
+ 
+
+511
+00:13:07,320 --> 00:13:12,069
+else so the provider is set up terraform
+is ready now we can go
+
+512
+00:13:12,069 --> 00:13:12,079
+
+ 
+
+513
+00:13:12,079 --> 00:13:15,949
+
+to creating a q km
+
+514
+00:13:15,949 --> 00:13:15,959
+to creating a q km
+ 
+
+515
+00:13:15,959 --> 00:13:19,069
+to creating a q km
+resource okay so this is how we Define a
+
+516
+00:13:19,069 --> 00:13:19,079
+resource okay so this is how we Define a
+ 
+
+517
+00:13:19,079 --> 00:13:22,069
+resource okay so this is how we Define a
+virtual machine uh this it is called
+
+518
+00:13:22,069 --> 00:13:22,079
+virtual machine uh this it is called
+ 
+
+519
+00:13:22,079 --> 00:13:24,269
+virtual machine uh this it is called
+proxmox VM Kimu then we can provide all
+
+520
+00:13:24,269 --> 00:13:24,279
+proxmox VM Kimu then we can provide all
+ 
+
+521
+00:13:24,279 --> 00:13:26,509
+proxmox VM Kimu then we can provide all
+the parameters like the name of the
+
+522
+00:13:26,509 --> 00:13:26,519
+the parameters like the name of the
+ 
+
+523
+00:13:26,519 --> 00:13:29,110
+the parameters like the name of the
+virtual machine which node it has to be
+
+524
+00:13:29,110 --> 00:13:29,120
+virtual machine which node it has to be
+ 
+
+525
+00:13:29,120 --> 00:13:31,069
+virtual machine which node it has to be
+be deployed to and all the
+
+526
+00:13:31,069 --> 00:13:31,079
+be deployed to and all the
+ 
+
+527
+00:13:31,079 --> 00:13:35,069
+be deployed to and all the
+additional uh discs CPU memory all those
+
+528
+00:13:35,069 --> 00:13:35,079
+additional uh discs CPU memory all those
+ 
+
+529
+00:13:35,079 --> 00:13:38,949
+additional uh discs CPU memory all those
+details so this provider actually has a
+
+530
+00:13:38,949 --> 00:13:38,959
+details so this provider actually has a
+ 
+
+531
+00:13:38,959 --> 00:13:42,350
+details so this provider actually has a
+lot of parameters to go through so
+
+532
+00:13:42,350 --> 00:13:42,360
+lot of parameters to go through so
+ 
+
+533
+00:13:42,360 --> 00:13:45,470
+lot of parameters to go through so
+instead of defining this from scratch
+
+534
+00:13:45,470 --> 00:13:45,480
+instead of defining this from scratch
+ 
+
+535
+00:13:45,480 --> 00:13:47,389
+instead of defining this from scratch
+the easiest approach which I usually
+
+536
+00:13:47,389 --> 00:13:47,399
+the easiest approach which I usually
+ 
+
+537
+00:13:47,399 --> 00:13:50,550
+the easiest approach which I usually
+follow is to create one VM from here
+
+538
+00:13:50,550 --> 00:13:50,560
+follow is to create one VM from here
+ 
+
+539
+00:13:50,560 --> 00:13:53,829
+follow is to create one VM from here
+from scratch and then import it to
+
+540
+00:13:53,829 --> 00:13:53,839
+from scratch and then import it to
+ 
+
+541
+00:13:53,839 --> 00:13:56,030
+from scratch and then import it to
+terraform then we can start tweaking
+
+542
+00:13:56,030 --> 00:13:56,040
+terraform then we can start tweaking
+ 
+
+543
+00:13:56,040 --> 00:13:58,870
+terraform then we can start tweaking
+this and uh use that as a template for
+
+544
+00:13:58,870 --> 00:13:58,880
+this and uh use that as a template for
+ 
+
+545
+00:13:58,880 --> 00:14:00,350
+this and uh use that as a template for
+the
+
+546
+00:14:00,350 --> 00:14:00,360
+the
+ 
+
+547
+00:14:00,360 --> 00:14:01,990
+the
+the next set of
+
+548
+00:14:01,990 --> 00:14:02,000
+the next set of
+ 
+
+549
+00:14:02,000 --> 00:14:05,350
+the next set of
+images Okay so let's try that let's
+
+550
+00:14:05,350 --> 00:14:05,360
+images Okay so let's try that let's
+ 
+
+551
+00:14:05,360 --> 00:14:07,990
+images Okay so let's try that let's
+create a VM and
+
+552
+00:14:07,990 --> 00:14:08,000
+create a VM and
+ 
+
+553
+00:14:08,000 --> 00:14:11,749
+create a VM and
+sayit okay call it
+
+554
+00:14:11,749 --> 00:14:11,759
+sayit okay call it
+ 
+
+555
+00:14:11,759 --> 00:14:14,710
+sayit okay call it
+nxo so here we are using the image which
+
+556
+00:14:14,710 --> 00:14:14,720
+nxo so here we are using the image which
+ 
+
+557
+00:14:14,720 --> 00:14:15,710
+nxo so here we are using the image which
+we just
+
+558
+00:14:15,710 --> 00:14:15,720
+we just
+ 
+
+559
+00:14:15,720 --> 00:14:18,269
+we just
+downloaded so let's leave everything as
+
+560
+00:14:18,269 --> 00:14:18,279
+downloaded so let's leave everything as
+ 
+
+561
+00:14:18,279 --> 00:14:21,310
+downloaded so let's leave everything as
+default and yeah let's add a chem agent
+
+562
+00:14:21,310 --> 00:14:21,320
+default and yeah let's add a chem agent
+ 
+
+563
+00:14:21,320 --> 00:14:22,840
+default and yeah let's add a chem agent
+as
+
+564
+00:14:22,840 --> 00:14:22,850
+as
+ 
+
+565
+00:14:22,850 --> 00:14:24,030
+as
+[Music]
+
+566
+00:14:24,030 --> 00:14:24,040
+[Music]
+ 
+
+567
+00:14:24,040 --> 00:14:28,310
+[Music]
+well okay diss we will give it let's say
+
+568
+00:14:28,310 --> 00:14:28,320
+well okay diss we will give it let's say
+ 
+
+569
+00:14:28,320 --> 00:14:32,550
+well okay diss we will give it let's say
+50 g B and under the local
+
+570
+00:14:32,550 --> 00:14:32,560
+50 g B and under the local
+ 
+
+571
+00:14:32,560 --> 00:14:36,389
+50 g B and under the local
+lbm okay this will
+
+572
+00:14:36,389 --> 00:14:36,399
+lbm okay this will
+ 
+
+573
+00:14:36,399 --> 00:14:42,389
+lbm okay this will
+be okay CPU let's keep it say two
+
+574
+00:14:42,389 --> 00:14:42,399
+be okay CPU let's keep it say two
+ 
+
+575
+00:14:42,399 --> 00:14:48,790
+be okay CPU let's keep it say two
+cores and uh 2 G be Memory looks good
+
+576
+00:14:48,790 --> 00:14:48,800
+cores and uh 2 G be Memory looks good
+ 
+
+577
+00:14:48,800 --> 00:14:50,990
+cores and uh 2 G be Memory looks good
+Network give it a VI
+
+578
+00:14:50,990 --> 00:14:51,000
+Network give it a VI
+ 
+
+579
+00:14:51,000 --> 00:14:53,910
+Network give it a VI
+brid
+
+580
+00:14:53,910 --> 00:14:53,920
+brid
+ 
+
+581
+00:14:53,920 --> 00:14:58,749
+brid
+okay right two cores 2GB name is nio
+
+582
+00:14:58,749 --> 00:14:58,759
+okay right two cores 2GB name is nio
+ 
+
+583
+00:14:58,759 --> 00:15:00,110
+okay right two cores 2GB name is nio
+looks good to
+
+584
+00:15:00,110 --> 00:15:00,120
+looks good to
+ 
+
+585
+00:15:00,120 --> 00:15:03,749
+looks good to
+me so the virtual machine is created now
+
+586
+00:15:03,749 --> 00:15:03,759
+me so the virtual machine is created now
+ 
+
+587
+00:15:03,759 --> 00:15:05,949
+me so the virtual machine is created now
+here what we can do is if you scroll
+
+588
+00:15:05,949 --> 00:15:05,959
+here what we can do is if you scroll
+ 
+
+589
+00:15:05,959 --> 00:15:07,790
+here what we can do is if you scroll
+down there should be an option called
+
+590
+00:15:07,790 --> 00:15:07,800
+down there should be an option called
+ 
+
+591
+00:15:07,800 --> 00:15:11,069
+down there should be an option called
+import so terraform has a way
+
+592
+00:15:11,069 --> 00:15:11,079
+import so terraform has a way
+ 
+
+593
+00:15:11,079 --> 00:15:13,990
+import so terraform has a way
+to import an existing resource into the
+
+594
+00:15:13,990 --> 00:15:14,000
+to import an existing resource into the
+ 
+
+595
+00:15:14,000 --> 00:15:16,030
+to import an existing resource into the
+code instead of writing this from
+
+596
+00:15:16,030 --> 00:15:16,040
+code instead of writing this from
+ 
+
+597
+00:15:16,040 --> 00:15:20,790
+code instead of writing this from
+scratch so let's do
+
+598
+00:15:20,790 --> 00:15:20,800
+
+ 
+
+599
+00:15:20,800 --> 00:15:32,389
+
+that so
+
+600
+00:15:32,389 --> 00:15:32,399
+
+ 
+
+601
+00:15:32,399 --> 00:15:35,590
+
+import blocks okay so let's use this
+
+602
+00:15:35,590 --> 00:15:35,600
+import blocks okay so let's use this
+ 
+
+603
+00:15:35,600 --> 00:15:37,309
+import blocks okay so let's use this
+syntax to import this existing virtual
+
+604
+00:15:37,309 --> 00:15:37,319
+syntax to import this existing virtual
+ 
+
+605
+00:15:37,319 --> 00:15:40,269
+syntax to import this existing virtual
+machine into our code so the reason why
+
+606
+00:15:40,269 --> 00:15:40,279
+machine into our code so the reason why
+ 
+
+607
+00:15:40,279 --> 00:15:42,269
+machine into our code so the reason why
+we using this instead of the import
+
+608
+00:15:42,269 --> 00:15:42,279
+we using this instead of the import
+ 
+
+609
+00:15:42,279 --> 00:15:44,110
+we using this instead of the import
+command is we can also do code
+
+610
+00:15:44,110 --> 00:15:44,120
+command is we can also do code
+ 
+
+611
+00:15:44,120 --> 00:15:46,710
+command is we can also do code
+generation with this so it will generate
+
+612
+00:15:46,710 --> 00:15:46,720
+generation with this so it will generate
+ 
+
+613
+00:15:46,720 --> 00:15:48,949
+generation with this so it will generate
+the entire configuration for
+
+614
+00:15:48,949 --> 00:15:48,959
+the entire configuration for
+ 
+
+615
+00:15:48,959 --> 00:15:50,790
+the entire configuration for
+us
+
+616
+00:15:50,790 --> 00:15:50,800
+us
+ 
+
+617
+00:15:50,800 --> 00:15:54,030
+us
+imports.
+
+618
+00:15:54,030 --> 00:15:54,040
+
+ 
+
+619
+00:15:54,040 --> 00:15:59,309
+
+DF so this will be
+
+620
+00:15:59,309 --> 00:15:59,319
+
+ 
+
+621
+00:15:59,319 --> 00:16:00,509
+
+prox MOX
+
+622
+00:16:00,509 --> 00:16:00,519
+prox MOX
+ 
+
+623
+00:16:00,519 --> 00:16:05,629
+prox MOX
+vmk
+
+624
+00:16:05,629 --> 00:16:05,639
+
+ 
+
+625
+00:16:05,639 --> 00:16:10,150
+
+okay dot
+
+626
+00:16:10,150 --> 00:16:10,160
+
+ 
+
+627
+00:16:10,160 --> 00:16:14,230
+
+nyos and the ID is the VM ID which
+
+628
+00:16:14,230 --> 00:16:14,240
+nyos and the ID is the VM ID which
+ 
+
+629
+00:16:14,240 --> 00:16:16,749
+nyos and the ID is the VM ID which
+is
+
+630
+00:16:16,749 --> 00:16:16,759
+is
+ 
+
+631
+00:16:16,759 --> 00:16:18,749
+is
+100
+
+632
+00:16:18,749 --> 00:16:18,759
+100
+ 
+
+633
+00:16:18,759 --> 00:16:23,870
+100
+okay now what we can do is when we do
+
+634
+00:16:23,870 --> 00:16:23,880
+okay now what we can do is when we do
+ 
+
+635
+00:16:23,880 --> 00:16:27,990
+okay now what we can do is when we do
+terraform plan it should show that
+
+636
+00:16:27,990 --> 00:16:28,000
+terraform plan it should show that
+ 
+
+637
+00:16:28,000 --> 00:16:29,749
+terraform plan it should show that
+configuration for about Target does not
+
+638
+00:16:29,749 --> 00:16:29,759
+configuration for about Target does not
+ 
+
+639
+00:16:29,759 --> 00:16:31,910
+configuration for about Target does not
+exist because we don't have the code for
+
+640
+00:16:31,910 --> 00:16:31,920
+exist because we don't have the code for
+ 
+
+641
+00:16:31,920 --> 00:16:35,389
+exist because we don't have the code for
+this so we can do terraform plan with
+
+642
+00:16:35,389 --> 00:16:35,399
+this so we can do terraform plan with
+ 
+
+643
+00:16:35,399 --> 00:16:39,670
+this so we can do terraform plan with
+generate config out so this parameter is
+
+644
+00:16:39,670 --> 00:16:39,680
+generate config out so this parameter is
+ 
+
+645
+00:16:39,680 --> 00:16:41,670
+generate config out so this parameter is
+going so with this parameter we can
+
+646
+00:16:41,670 --> 00:16:41,680
+going so with this parameter we can
+ 
+
+647
+00:16:41,680 --> 00:16:44,629
+going so with this parameter we can
+Define that uh it should try to generate
+
+648
+00:16:44,629 --> 00:16:44,639
+Define that uh it should try to generate
+ 
+
+649
+00:16:44,639 --> 00:16:47,069
+Define that uh it should try to generate
+the configuration as code for this
+
+650
+00:16:47,069 --> 00:16:47,079
+the configuration as code for this
+ 
+
+651
+00:16:47,079 --> 00:16:49,829
+the configuration as code for this
+resource and uh write it to generator.
+
+652
+00:16:49,829 --> 00:16:49,839
+resource and uh write it to generator.
+ 
+
+653
+00:16:49,839 --> 00:16:55,910
+resource and uh write it to generator.
+TF let's try that and it doesn't
+
+654
+00:16:55,910 --> 00:16:55,920
+
+ 
+
+655
+00:16:55,920 --> 00:16:58,069
+
+work because you must specify an
+
+656
+00:16:58,069 --> 00:16:58,079
+work because you must specify an
+ 
+
+657
+00:16:58,079 --> 00:17:02,870
+work because you must specify an
+endpoint for the prop most envirment
+
+658
+00:17:02,870 --> 00:17:02,880
+
+ 
+
+659
+00:17:02,880 --> 00:17:06,069
+
+okay so it looks like we need ah of
+
+660
+00:17:06,069 --> 00:17:06,079
+okay so it looks like we need ah of
+ 
+
+661
+00:17:06,079 --> 00:17:07,870
+okay so it looks like we need ah of
+course of
+
+662
+00:17:07,870 --> 00:17:07,880
+course of
+ 
+
+663
+00:17:07,880 --> 00:17:16,029
+course of
+course PM
+
+664
+00:17:16,029 --> 00:17:16,039
+
+ 
+
+665
+00:17:16,039 --> 00:17:25,110
+
+P so this is going to be this
+
+666
+00:17:25,110 --> 00:17:25,120
+
+ 
+
+667
+00:17:25,120 --> 00:17:32,510
+
+URL okay sorry
+
+668
+00:17:32,510 --> 00:17:32,520
+
+ 
+
+669
+00:17:32,520 --> 00:17:38,230
+
+okay let's let's try
+
+670
+00:17:38,230 --> 00:17:38,240
+
+ 
+
+671
+00:17:38,240 --> 00:17:40,750
+
+again next trying to read and pass the
+
+672
+00:17:40,750 --> 00:17:40,760
+again next trying to read and pass the
+ 
+
+673
+00:17:40,760 --> 00:17:42,350
+again next trying to read and pass the
+resource in valid resource format it
+
+674
+00:17:42,350 --> 00:17:42,360
+resource in valid resource format it
+ 
+
+675
+00:17:42,360 --> 00:17:48,870
+resource in valid resource format it
+should be node type VM ID what is the
+
+676
+00:17:48,870 --> 00:17:48,880
+
+ 
+
+677
+00:17:48,880 --> 00:17:52,270
+
+type so node is
+
+678
+00:17:52,270 --> 00:17:52,280
+type so node is
+ 
+
+679
+00:17:52,280 --> 00:17:55,590
+type so node is
+Jupiter and I think it's
+
+680
+00:17:55,590 --> 00:17:55,600
+Jupiter and I think it's
+ 
+
+681
+00:17:55,600 --> 00:17:59,430
+Jupiter and I think it's
+K okay so now that we specify the the ID
+
+682
+00:17:59,430 --> 00:17:59,440
+K okay so now that we specify the the ID
+ 
+
+683
+00:17:59,440 --> 00:18:02,230
+K okay so now that we specify the the ID
+of the virtual machine to import let's
+
+684
+00:18:02,230 --> 00:18:02,240
+of the virtual machine to import let's
+ 
+
+685
+00:18:02,240 --> 00:18:09,950
+of the virtual machine to import let's
+try
+
+686
+00:18:09,950 --> 00:18:09,960
+
+ 
+
+687
+00:18:09,960 --> 00:18:13,110
+
+the okay so it's not always perfect
+
+688
+00:18:13,110 --> 00:18:13,120
+the okay so it's not always perfect
+ 
+
+689
+00:18:13,120 --> 00:18:15,110
+the okay so it's not always perfect
+sometimes there can be
+
+690
+00:18:15,110 --> 00:18:15,120
+sometimes there can be
+ 
+
+691
+00:18:15,120 --> 00:18:18,029
+sometimes there can be
+conflict so I think we can just get rid
+
+692
+00:18:18,029 --> 00:18:18,039
+conflict so I think we can just get rid
+ 
+
+693
+00:18:18,039 --> 00:18:20,909
+conflict so I think we can just get rid
+of the this parameter to make it
+
+694
+00:18:20,909 --> 00:18:20,919
+of the this parameter to make it
+ 
+
+695
+00:18:20,919 --> 00:18:24,430
+of the this parameter to make it
+work so generator TF as you can see it
+
+696
+00:18:24,430 --> 00:18:24,440
+work so generator TF as you can see it
+ 
+
+697
+00:18:24,440 --> 00:18:26,510
+work so generator TF as you can see it
+has already generated the entire
+
+698
+00:18:26,510 --> 00:18:26,520
+has already generated the entire
+ 
+
+699
+00:18:26,520 --> 00:18:30,149
+has already generated the entire
+configuration for us
+
+700
+00:18:30,149 --> 00:18:30,159
+configuration for us
+ 
+
+701
+00:18:30,159 --> 00:18:32,430
+configuration for us
+so here it was complaining about line
+
+702
+00:18:32,430 --> 00:18:32,440
+so here it was complaining about line
+ 
+
+703
+00:18:32,440 --> 00:18:33,710
+so here it was complaining about line
+number
+
+704
+00:18:33,710 --> 00:18:33,720
+number
+ 
+
+705
+00:18:33,720 --> 00:18:38,789
+number
+77 let's
+
+706
+00:18:38,789 --> 00:18:38,799
+
+ 
+
+707
+00:18:38,799 --> 00:18:41,470
+
+see see don't pass
+
+708
+00:18:41,470 --> 00:18:41,480
+see see don't pass
+ 
+
+709
+00:18:41,480 --> 00:18:44,909
+see see don't pass
+through let's remove this part and leave
+
+710
+00:18:44,909 --> 00:18:44,919
+through let's remove this part and leave
+ 
+
+711
+00:18:44,919 --> 00:18:46,390
+through let's remove this part and leave
+it as
+
+712
+00:18:46,390 --> 00:18:46,400
+it as
+ 
+
+713
+00:18:46,400 --> 00:18:51,750
+it as
+default
+
+714
+00:18:51,750 --> 00:18:51,760
+
+ 
+
+715
+00:18:51,760 --> 00:18:57,149
+
+then can we do a plan now so here as you
+
+716
+00:18:57,149 --> 00:18:57,159
+then can we do a plan now so here as you
+ 
+
+717
+00:18:57,159 --> 00:18:58,830
+then can we do a plan now so here as you
+can see now it is trying to import this
+
+718
+00:18:58,830 --> 00:18:58,840
+can see now it is trying to import this
+ 
+
+719
+00:18:58,840 --> 00:19:01,270
+can see now it is trying to import this
+into our state and
+
+720
+00:19:01,270 --> 00:19:01,280
+into our state and
+ 
+
+721
+00:19:01,280 --> 00:19:04,190
+into our state and
+uh looks
+
+722
+00:19:04,190 --> 00:19:04,200
+uh looks
+ 
+
+723
+00:19:04,200 --> 00:19:12,870
+uh looks
+good we can apply this
+
+724
+00:19:12,870 --> 00:19:12,880
+
+ 
+
+725
+00:19:12,880 --> 00:19:15,669
+
+now perfect so now we should have a new
+
+726
+00:19:15,669 --> 00:19:15,679
+now perfect so now we should have a new
+ 
+
+727
+00:19:15,679 --> 00:19:17,029
+now perfect so now we should have a new
+state
+
+728
+00:19:17,029 --> 00:19:17,039
+state
+ 
+
+729
+00:19:17,039 --> 00:19:21,230
+state
+file so it has created a ter TF typ file
+
+730
+00:19:21,230 --> 00:19:21,240
+file so it has created a ter TF typ file
+ 
+
+731
+00:19:21,240 --> 00:19:23,549
+file so it has created a ter TF typ file
+this will contain the entire state of
+
+732
+00:19:23,549 --> 00:19:23,559
+this will contain the entire state of
+ 
+
+733
+00:19:23,559 --> 00:19:26,950
+this will contain the entire state of
+our infrastructure so we not pushing
+
+734
+00:19:26,950 --> 00:19:26,960
+our infrastructure so we not pushing
+ 
+
+735
+00:19:26,960 --> 00:19:28,750
+our infrastructure so we not pushing
+this to get at the moment but if
+
+736
+00:19:28,750 --> 00:19:28,760
+this to get at the moment but if
+ 
+
+737
+00:19:28,760 --> 00:19:31,070
+this to get at the moment but if
+eventually we will encrypt this and push
+
+738
+00:19:31,070 --> 00:19:31,080
+eventually we will encrypt this and push
+ 
+
+739
+00:19:31,080 --> 00:19:34,350
+eventually we will encrypt this and push
+it to Kit you can also use like a S3 or
+
+740
+00:19:34,350 --> 00:19:34,360
+it to Kit you can also use like a S3 or
+ 
+
+741
+00:19:34,360 --> 00:19:38,669
+it to Kit you can also use like a S3 or
+some other cloud storage for storing the
+
+742
+00:19:38,669 --> 00:19:38,679
+some other cloud storage for storing the
+ 
+
+743
+00:19:38,679 --> 00:19:40,590
+some other cloud storage for storing the
+state but I prefer to just keep it
+
+744
+00:19:40,590 --> 00:19:40,600
+state but I prefer to just keep it
+ 
+
+745
+00:19:40,600 --> 00:19:44,310
+state but I prefer to just keep it
+simple and uh push it as encrypted into
+
+746
+00:19:44,310 --> 00:19:44,320
+simple and uh push it as encrypted into
+ 
+
+747
+00:19:44,320 --> 00:19:47,350
+simple and uh push it as encrypted into
+git okay so this is generated. TF I will
+
+748
+00:19:47,350 --> 00:19:47,360
+git okay so this is generated. TF I will
+ 
+
+749
+00:19:47,360 --> 00:19:51,470
+git okay so this is generated. TF I will
+just REM rename it to
+
+750
+00:19:51,470 --> 00:19:51,480
+just REM rename it to
+ 
+
+751
+00:19:51,480 --> 00:19:55,590
+just REM rename it to
+n.f okay so let's clean up a
+
+752
+00:19:55,590 --> 00:19:55,600
+n.f okay so let's clean up a
+ 
+
+753
+00:19:55,600 --> 00:19:58,830
+n.f okay so let's clean up a
+bit remove that part and uh all the
+
+754
+00:19:58,830 --> 00:19:58,840
+bit remove that part and uh all the
+ 
+
+755
+00:19:58,840 --> 00:20:01,110
+bit remove that part and uh all the
+parameters are optional so we can
+
+756
+00:20:01,110 --> 00:20:01,120
+parameters are optional so we can
+ 
+
+757
+00:20:01,120 --> 00:20:09,310
+parameters are optional so we can
+actually do a find and
+
+758
+00:20:09,310 --> 00:20:09,320
+
+ 
+
+759
+00:20:09,320 --> 00:20:12,950
+
+replace okay so that removed
+
+760
+00:20:12,950 --> 00:20:12,960
+replace okay so that removed
+ 
+
+761
+00:20:12,960 --> 00:20:16,190
+replace okay so that removed
+everything so these are the only
+
+762
+00:20:16,190 --> 00:20:16,200
+everything so these are the only
+ 
+
+763
+00:20:16,200 --> 00:20:18,789
+everything so these are the only
+parameters which we care
+
+764
+00:20:18,789 --> 00:20:18,799
+parameters which we care
+ 
+
+765
+00:20:18,799 --> 00:20:23,390
+parameters which we care
+about
+
+766
+00:20:23,390 --> 00:20:23,400
+
+ 
+
+767
+00:20:23,400 --> 00:20:26,350
+
+okay all right looking good so we can
+
+768
+00:20:26,350 --> 00:20:26,360
+okay all right looking good so we can
+ 
+
+769
+00:20:26,360 --> 00:20:28,310
+okay all right looking good so we can
+actually try one thing so we can try to
+
+770
+00:20:28,310 --> 00:20:28,320
+actually try one thing so we can try to
+ 
+
+771
+00:20:28,320 --> 00:20:30,190
+actually try one thing so we can try to
+duplicate this and try to create a new
+
+772
+00:20:30,190 --> 00:20:30,200
+duplicate this and try to create a new
+ 
+
+773
+00:20:30,200 --> 00:20:33,830
+duplicate this and try to create a new
+VM without touching the UI so I'm going
+
+774
+00:20:33,830 --> 00:20:33,840
+VM without touching the UI so I'm going
+ 
+
+775
+00:20:33,840 --> 00:20:37,149
+VM without touching the UI so I'm going
+to add a nios 2.
+
+776
+00:20:37,149 --> 00:20:37,159
+to add a nios 2.
+ 
+
+777
+00:20:37,159 --> 00:20:42,870
+to add a nios 2.
+DF and then use this as a
+
+778
+00:20:42,870 --> 00:20:42,880
+
+ 
+
+779
+00:20:42,880 --> 00:20:46,149
+
+template so this will be nxo
+
+780
+00:20:46,149 --> 00:20:46,159
+template so this will be nxo
+ 
+
+781
+00:20:46,159 --> 00:20:50,830
+template so this will be nxo
+2 and um we need to adjust the name to
+
+782
+00:20:50,830 --> 00:20:50,840
+2 and um we need to adjust the name to
+ 
+
+783
+00:20:50,840 --> 00:20:51,870
+2 and um we need to adjust the name to
+make it
+
+784
+00:20:51,870 --> 00:20:51,880
+make it
+ 
+
+785
+00:20:51,880 --> 00:20:55,190
+make it
+unique then we need to adjust the VM ID
+
+786
+00:20:55,190 --> 00:20:55,200
+unique then we need to adjust the VM ID
+ 
+
+787
+00:20:55,200 --> 00:20:57,750
+unique then we need to adjust the VM ID
+not sure if it's a parameter here no I
+
+788
+00:20:57,750 --> 00:20:57,760
+not sure if it's a parameter here no I
+ 
+
+789
+00:20:57,760 --> 00:20:59,310
+not sure if it's a parameter here no I
+can add a VM ID
+
+790
+00:20:59,310 --> 00:20:59,320
+can add a VM ID
+ 
+
+791
+00:20:59,320 --> 00:21:00,870
+can add a VM ID
+= to
+
+792
+00:21:00,870 --> 00:21:00,880
+= to
+ 
+
+793
+00:21:00,880 --> 00:21:05,190
+= to
+1.2 so the previous one was 100 I think
+
+794
+00:21:05,190 --> 00:21:05,200
+1.2 so the previous one was 100 I think
+ 
+
+795
+00:21:05,200 --> 00:21:06,870
+1.2 so the previous one was 100 I think
+yep so let's make it 1
+
+796
+00:21:06,870 --> 00:21:06,880
+yep so let's make it 1
+ 
+
+797
+00:21:06,880 --> 00:21:09,909
+yep so let's make it 1
+not2 then it will use the same ISO it
+
+798
+00:21:09,909 --> 00:21:09,919
+not2 then it will use the same ISO it
+ 
+
+799
+00:21:09,919 --> 00:21:12,830
+not2 then it will use the same ISO it
+will add a disk maybe let's keep the dis
+
+800
+00:21:12,830 --> 00:21:12,840
+will add a disk maybe let's keep the dis
+ 
+
+801
+00:21:12,840 --> 00:21:14,950
+will add a disk maybe let's keep the dis
+to 20
+
+802
+00:21:14,950 --> 00:21:14,960
+to 20
+ 
+
+803
+00:21:14,960 --> 00:21:17,269
+to 20
+GB we are testing
+
+804
+00:21:17,269 --> 00:21:17,279
+GB we are testing
+ 
+
+805
+00:21:17,279 --> 00:21:23,669
+GB we are testing
+anyway I think I probably added this
+
+806
+00:21:23,669 --> 00:21:23,679
+anyway I think I probably added this
+ 
+
+807
+00:21:23,679 --> 00:21:27,230
+anyway I think I probably added this
+okay Network keep it
+
+808
+00:21:27,230 --> 00:21:27,240
+okay Network keep it
+ 
+
+809
+00:21:27,240 --> 00:21:29,549
+okay Network keep it
+same and
+
+810
+00:21:29,549 --> 00:21:29,559
+same and
+ 
+
+811
+00:21:29,559 --> 00:21:33,950
+same and
+uh I guess I'm not supposed to provide
+
+812
+00:21:33,950 --> 00:21:33,960
+uh I guess I'm not supposed to provide
+ 
+
+813
+00:21:33,960 --> 00:21:39,470
+uh I guess I'm not supposed to provide
+this you know what I will just leave
+
+814
+00:21:39,470 --> 00:21:39,480
+this you know what I will just leave
+ 
+
+815
+00:21:39,480 --> 00:21:41,789
+this you know what I will just leave
+this
+
+816
+00:21:41,789 --> 00:21:41,799
+this
+ 
+
+817
+00:21:41,799 --> 00:21:44,190
+this
+details probably we only need the bridge
+
+818
+00:21:44,190 --> 00:21:44,200
+details probably we only need the bridge
+ 
+
+819
+00:21:44,200 --> 00:21:48,390
+details probably we only need the bridge
+and the
+
+820
+00:21:48,390 --> 00:21:48,400
+
+ 
+
+821
+00:21:48,400 --> 00:21:50,830
+
+model all
+
+822
+00:21:50,830 --> 00:21:50,840
+model all
+ 
+
+823
+00:21:50,840 --> 00:21:53,669
+model all
+right let's
+
+824
+00:21:53,669 --> 00:21:53,679
+right let's
+ 
+
+825
+00:21:53,679 --> 00:21:56,950
+right let's
+see terraform
+
+826
+00:21:56,950 --> 00:21:56,960
+see terraform
+ 
+
+827
+00:21:56,960 --> 00:21:59,350
+see terraform
+plan Okay so this will create a new
+
+828
+00:21:59,350 --> 00:21:59,360
+plan Okay so this will create a new
+ 
+
+829
+00:21:59,360 --> 00:22:02,230
+plan Okay so this will create a new
+virtual
+
+830
+00:22:02,230 --> 00:22:02,240
+
+ 
+
+831
+00:22:02,240 --> 00:22:05,990
+
+machine with the name nio
+
+832
+00:22:05,990 --> 00:22:06,000
+machine with the name nio
+ 
+
+833
+00:22:06,000 --> 00:22:10,470
+machine with the name nio
+2 name is here okay same memory same
+
+834
+00:22:10,470 --> 00:22:10,480
+2 name is here okay same memory same
+ 
+
+835
+00:22:10,480 --> 00:22:16,110
+2 name is here okay same memory same
+same CPUs all
+
+836
+00:22:16,110 --> 00:22:16,120
+
+ 
+
+837
+00:22:16,120 --> 00:22:19,230
+
+good okay
+
+838
+00:22:19,230 --> 00:22:19,240
+good okay
+ 
+
+839
+00:22:19,240 --> 00:22:24,190
+good okay
+apply and use Target node or agent
+
+840
+00:22:24,190 --> 00:22:24,200
+apply and use Target node or agent
+ 
+
+841
+00:22:24,200 --> 00:22:40,750
+apply and use Target node or agent
+nodes did we missed that agent
+
+842
+00:22:40,750 --> 00:22:40,760
+
+ 
+
+843
+00:22:40,760 --> 00:22:44,070
+
+H I'm going to do a Terra
+
+844
+00:22:44,070 --> 00:22:44,080
+H I'm going to do a Terra
+ 
+
+845
+00:22:44,080 --> 00:22:48,750
+H I'm going to do a Terra
+form fmt to format the code then we can
+
+846
+00:22:48,750 --> 00:22:48,760
+form fmt to format the code then we can
+ 
+
+847
+00:22:48,760 --> 00:22:53,350
+form fmt to format the code then we can
+apply
+
+848
+00:22:53,350 --> 00:22:53,360
+
+ 
+
+849
+00:22:53,360 --> 00:22:56,549
+
+again it's creating that's good news
+
+850
+00:22:56,549 --> 00:22:56,559
+again it's creating that's good news
+ 
+
+851
+00:22:56,559 --> 00:22:59,470
+again it's creating that's good news
+let's look at the UI
+
+852
+00:22:59,470 --> 00:22:59,480
+let's look at the UI
+ 
+
+853
+00:22:59,480 --> 00:23:03,470
+let's look at the UI
+okay as you can see now the O has
+
+854
+00:23:03,470 --> 00:23:03,480
+okay as you can see now the O has
+ 
+
+855
+00:23:03,480 --> 00:23:06,669
+okay as you can see now the O has
+started it's not started yet okay so it
+
+856
+00:23:06,669 --> 00:23:06,679
+started it's not started yet okay so it
+ 
+
+857
+00:23:06,679 --> 00:23:09,269
+started it's not started yet okay so it
+has created the virtual machine with the
+
+858
+00:23:09,269 --> 00:23:09,279
+has created the virtual machine with the
+ 
+
+859
+00:23:09,279 --> 00:23:10,310
+has created the virtual machine with the
+exact same
+
+860
+00:23:10,310 --> 00:23:10,320
+exact same
+ 
+
+861
+00:23:10,320 --> 00:23:13,029
+exact same
+settings you can see memory processors
+
+862
+00:23:13,029 --> 00:23:13,039
+settings you can see memory processors
+ 
+
+863
+00:23:13,039 --> 00:23:15,990
+settings you can see memory processors
+all good and it is using the CD ROM as
+
+864
+00:23:15,990 --> 00:23:16,000
+all good and it is using the CD ROM as
+ 
+
+865
+00:23:16,000 --> 00:23:18,149
+all good and it is using the CD ROM as
+well and the hard disk is also
+
+866
+00:23:18,149 --> 00:23:18,159
+well and the hard disk is also
+ 
+
+867
+00:23:18,159 --> 00:23:23,070
+well and the hard disk is also
+here so
+
+868
+00:23:23,070 --> 00:23:23,080
+
+ 
+
+869
+00:23:23,080 --> 00:23:26,909
+
+now let's also keep it started how do we
+
+870
+00:23:26,909 --> 00:23:26,919
+now let's also keep it started how do we
+ 
+
+871
+00:23:26,919 --> 00:23:30,470
+now let's also keep it started how do we
+start this
+
+872
+00:23:30,470 --> 00:23:30,480
+
+ 
+
+873
+00:23:30,480 --> 00:23:32,230
+
+okay if he set the on boot to true then
+
+874
+00:23:32,230 --> 00:23:32,240
+okay if he set the on boot to true then
+ 
+
+875
+00:23:32,240 --> 00:23:34,990
+okay if he set the on boot to true then
+it will start at the time of boot let's
+
+876
+00:23:34,990 --> 00:23:35,000
+it will start at the time of boot let's
+ 
+
+877
+00:23:35,000 --> 00:23:40,990
+it will start at the time of boot let's
+do that is it true okay it's already
+
+878
+00:23:40,990 --> 00:23:41,000
+
+ 
+
+879
+00:23:41,000 --> 00:23:44,390
+
+true VM State should be
+
+880
+00:23:44,390 --> 00:23:44,400
+true VM State should be
+ 
+
+881
+00:23:44,400 --> 00:23:46,029
+true VM State should be
+running
+
+882
+00:23:46,029 --> 00:23:46,039
+running
+ 
+
+883
+00:23:46,039 --> 00:23:49,029
+running
+okay BM state is now stopped so let's
+
+884
+00:23:49,029 --> 00:23:49,039
+okay BM state is now stopped so let's
+ 
+
+885
+00:23:49,039 --> 00:23:50,190
+okay BM state is now stopped so let's
+keep
+
+886
+00:23:50,190 --> 00:23:50,200
+keep
+ 
+
+887
+00:23:50,200 --> 00:23:53,789
+keep
+it change it to running so we are going
+
+888
+00:23:53,789 --> 00:23:53,799
+it change it to running so we are going
+ 
+
+889
+00:23:53,799 --> 00:24:00,549
+it change it to running so we are going
+to start both the instances
+
+890
+00:24:00,549 --> 00:24:00,559
+
+ 
+
+891
+00:24:00,559 --> 00:24:02,950
+
+okay
+
+892
+00:24:02,950 --> 00:24:02,960
+okay
+ 
+
+893
+00:24:02,960 --> 00:24:05,950
+okay
+apply okay so you can see that uh it's
+
+894
+00:24:05,950 --> 00:24:05,960
+apply okay so you can see that uh it's
+ 
+
+895
+00:24:05,960 --> 00:24:08,909
+apply okay so you can see that uh it's
+now changing the Status to running so
+
+896
+00:24:08,909 --> 00:24:08,919
+now changing the Status to running so
+ 
+
+897
+00:24:08,919 --> 00:24:13,149
+now changing the Status to running so
+this is going to start both the virual
+
+898
+00:24:13,149 --> 00:24:13,159
+
+ 
+
+899
+00:24:13,159 --> 00:24:16,390
+
+machines okay it is started so let's
+
+900
+00:24:16,390 --> 00:24:16,400
+machines okay it is started so let's
+ 
+
+901
+00:24:16,400 --> 00:24:17,830
+machines okay it is started so let's
+check the
+
+902
+00:24:17,830 --> 00:24:17,840
+check the
+ 
+
+903
+00:24:17,840 --> 00:24:21,390
+check the
+console so this time let's go let's
+
+904
+00:24:21,390 --> 00:24:21,400
+console so this time let's go let's
+ 
+
+905
+00:24:21,400 --> 00:24:34,430
+console so this time let's go let's
+start it
+
+906
+00:24:34,430 --> 00:24:34,440
+
+ 
+
+907
+00:24:34,440 --> 00:24:37,990
+
+perfect let's check
+
+908
+00:24:37,990 --> 00:24:38,000
+perfect let's check
+ 
+
+909
+00:24:38,000 --> 00:24:40,710
+perfect let's check
+the so here you can see that we have the
+
+910
+00:24:40,710 --> 00:24:40,720
+the so here you can see that we have the
+ 
+
+911
+00:24:40,720 --> 00:24:43,470
+the so here you can see that we have the
+20 GB disc attached and also the
+
+912
+00:24:43,470 --> 00:24:43,480
+20 GB disc attached and also the
+ 
+
+913
+00:24:43,480 --> 00:24:47,029
+20 GB disc attached and also the
+iso so once we install
+
+914
+00:24:47,029 --> 00:24:47,039
+iso so once we install
+ 
+
+915
+00:24:47,039 --> 00:24:50,149
+iso so once we install
+the once we install the Nyx o into this
+
+916
+00:24:50,149 --> 00:24:50,159
+the once we install the Nyx o into this
+ 
+
+917
+00:24:50,159 --> 00:24:53,350
+the once we install the Nyx o into this
+disk we can get rid of the iso
+
+918
+00:24:53,350 --> 00:24:53,360
+disk we can get rid of the iso
+ 
+
+919
+00:24:53,360 --> 00:24:56,830
+disk we can get rid of the iso
+well let's go back to a checklist so we
+
+920
+00:24:56,830 --> 00:24:56,840
+well let's go back to a checklist so we
+ 
+
+921
+00:24:56,840 --> 00:24:59,510
+well let's go back to a checklist so we
+have the terraform set up and we Alo got
+
+922
+00:24:59,510 --> 00:24:59,520
+have the terraform set up and we Alo got
+ 
+
+923
+00:24:59,520 --> 00:25:01,510
+have the terraform set up and we Alo got
+the nxo watching machine
+
+924
+00:25:01,510 --> 00:25:01,520
+the nxo watching machine
+ 
+
+925
+00:25:01,520 --> 00:25:04,310
+the nxo watching machine
+running so that's it for this video in
+
+926
+00:25:04,310 --> 00:25:04,320
+running so that's it for this video in
+ 
+
+927
+00:25:04,320 --> 00:25:07,389
+running so that's it for this video in
+the next video we will optimize it and
+
+928
+00:25:07,389 --> 00:25:07,399
+the next video we will optimize it and
+ 
+
+929
+00:25:07,399 --> 00:25:09,669
+the next video we will optimize it and
+start setting up our game server using
+
+930
+00:25:09,669 --> 00:25:09,679
+start setting up our game server using
+ 
+
+931
+00:25:09,679 --> 00:25:13,000
+start setting up our game server using
+NYX o
+

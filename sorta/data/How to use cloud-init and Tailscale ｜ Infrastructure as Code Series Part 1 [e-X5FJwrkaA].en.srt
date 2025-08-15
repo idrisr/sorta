@@ -1,0 +1,2575 @@
+1
+00:00:00,240 --> 00:00:02,110
+
+hi I'm Alex from tail scale and welcome
+
+2
+00:00:02,110 --> 00:00:02,120
+hi I'm Alex from tail scale and welcome
+ 
+
+3
+00:00:02,120 --> 00:00:03,590
+hi I'm Alex from tail scale and welcome
+into today's video where we're going to
+
+4
+00:00:03,590 --> 00:00:03,600
+into today's video where we're going to
+ 
+
+5
+00:00:03,600 --> 00:00:05,910
+into today's video where we're going to
+talk about cloud in it this is a
+
+6
+00:00:05,910 --> 00:00:05,920
+talk about cloud in it this is a
+ 
+
+7
+00:00:05,920 --> 00:00:08,110
+talk about cloud in it this is a
+technology that lets you preconfig
+
+8
+00:00:08,110 --> 00:00:08,120
+technology that lets you preconfig
+ 
+
+9
+00:00:08,120 --> 00:00:09,230
+technology that lets you preconfig
+virtual machines that you're going to
+
+10
+00:00:09,230 --> 00:00:09,240
+virtual machines that you're going to
+ 
+
+11
+00:00:09,240 --> 00:00:11,190
+virtual machines that you're going to
+spin up in the cloud just by providing a
+
+12
+00:00:11,190 --> 00:00:11,200
+spin up in the cloud just by providing a
+ 
+
+13
+00:00:11,200 --> 00:00:13,910
+spin up in the cloud just by providing a
+few lines of text in this video which is
+
+14
+00:00:13,910 --> 00:00:13,920
+few lines of text in this video which is
+ 
+
+15
+00:00:13,920 --> 00:00:15,829
+few lines of text in this video which is
+the first in a series that we're going
+
+16
+00:00:15,829 --> 00:00:15,839
+the first in a series that we're going
+ 
+
+17
+00:00:15,839 --> 00:00:17,790
+the first in a series that we're going
+to put together over the next few weeks
+
+18
+00:00:17,790 --> 00:00:17,800
+to put together over the next few weeks
+ 
+
+19
+00:00:17,800 --> 00:00:19,269
+to put together over the next few weeks
+we're going to manually configure a
+
+20
+00:00:19,269 --> 00:00:19,279
+we're going to manually configure a
+ 
+
+21
+00:00:19,279 --> 00:00:21,870
+we're going to manually configure a
+virtual machine on digital ocean in the
+
+22
+00:00:21,870 --> 00:00:21,880
+virtual machine on digital ocean in the
+ 
+
+23
+00:00:21,880 --> 00:00:23,029
+virtual machine on digital ocean in the
+next video we're going to cover
+
+24
+00:00:23,029 --> 00:00:23,039
+next video we're going to cover
+ 
+
+25
+00:00:23,039 --> 00:00:24,950
+next video we're going to cover
+deploying that machine with terraform
+
+26
+00:00:24,950 --> 00:00:24,960
+deploying that machine with terraform
+ 
+
+27
+00:00:24,960 --> 00:00:27,150
+deploying that machine with terraform
+and after that we'll move on to anible
+
+28
+00:00:27,150 --> 00:00:27,160
+and after that we'll move on to anible
+ 
+
+29
+00:00:27,160 --> 00:00:28,429
+and after that we'll move on to anible
+so if you've been looking for a way to
+
+30
+00:00:28,429 --> 00:00:28,439
+so if you've been looking for a way to
+ 
+
+31
+00:00:28,439 --> 00:00:29,990
+so if you've been looking for a way to
+automatically preconfig your
+
+32
+00:00:29,990 --> 00:00:30,000
+automatically preconfig your
+ 
+
+33
+00:00:30,000 --> 00:00:31,990
+automatically preconfig your
+infrastructure to join your tailet then
+
+34
+00:00:31,990 --> 00:00:32,000
+infrastructure to join your tailet then
+ 
+
+35
+00:00:32,000 --> 00:00:34,069
+infrastructure to join your tailet then
+this is the video series for you as
+
+36
+00:00:34,069 --> 00:00:34,079
+this is the video series for you as
+ 
+
+37
+00:00:34,079 --> 00:00:36,190
+this is the video series for you as
+always all the resources and time Stamps
+
+38
+00:00:36,190 --> 00:00:36,200
+always all the resources and time Stamps
+ 
+
+39
+00:00:36,200 --> 00:00:38,869
+always all the resources and time Stamps
+will be down in the description down
+
+40
+00:00:38,869 --> 00:00:38,879
+will be down in the description down
+ 
+
+41
+00:00:38,879 --> 00:00:40,990
+will be down in the description down
+below so let's take a moment just to
+
+42
+00:00:40,990 --> 00:00:41,000
+below so let's take a moment just to
+ 
+
+43
+00:00:41,000 --> 00:00:43,470
+below so let's take a moment just to
+talk about what cloud init is first it's
+
+44
+00:00:43,470 --> 00:00:43,480
+talk about what cloud init is first it's
+ 
+
+45
+00:00:43,480 --> 00:00:45,670
+talk about what cloud init is first it's
+a tool used mostly by folks in the sort
+
+46
+00:00:45,670 --> 00:00:45,680
+a tool used mostly by folks in the sort
+ 
+
+47
+00:00:45,680 --> 00:00:48,110
+a tool used mostly by folks in the sort
+of devop space who want to automate the
+
+48
+00:00:48,110 --> 00:00:48,120
+of devop space who want to automate the
+ 
+
+49
+00:00:48,120 --> 00:00:50,869
+of devop space who want to automate the
+creation of infrastructure specifically
+
+50
+00:00:50,869 --> 00:00:50,879
+creation of infrastructure specifically
+ 
+
+51
+00:00:50,879 --> 00:00:52,709
+creation of infrastructure specifically
+virtual machines that they want to
+
+52
+00:00:52,709 --> 00:00:52,719
+virtual machines that they want to
+ 
+
+53
+00:00:52,719 --> 00:00:55,549
+virtual machines that they want to
+create certain users or perform or run
+
+54
+00:00:55,549 --> 00:00:55,559
+create certain users or perform or run
+ 
+
+55
+00:00:55,559 --> 00:00:56,950
+create certain users or perform or run
+certain scripts when the machine's
+
+56
+00:00:56,950 --> 00:00:56,960
+certain scripts when the machine's
+ 
+
+57
+00:00:56,960 --> 00:00:59,189
+certain scripts when the machine's
+created as part of the initial boot
+
+58
+00:00:59,189 --> 00:00:59,199
+created as part of the initial boot
+ 
+
+59
+00:00:59,199 --> 00:01:01,389
+created as part of the initial boot
+process cloudinit was originally a
+
+60
+00:01:01,389 --> 00:01:01,399
+process cloudinit was originally a
+ 
+
+61
+00:01:01,399 --> 00:01:03,310
+process cloudinit was originally a
+canonical project the company behind
+
+62
+00:01:03,310 --> 00:01:03,320
+canonical project the company behind
+ 
+
+63
+00:01:03,320 --> 00:01:05,789
+canonical project the company behind
+auntu but more recently it's now a fully
+
+64
+00:01:05,789 --> 00:01:05,799
+auntu but more recently it's now a fully
+ 
+
+65
+00:01:05,799 --> 00:01:07,990
+auntu but more recently it's now a fully
+open source project and distribution
+
+66
+00:01:07,990 --> 00:01:08,000
+open source project and distribution
+ 
+
+67
+00:01:08,000 --> 00:01:09,749
+open source project and distribution
+agnostic so in today's video I'm going
+
+68
+00:01:09,749 --> 00:01:09,759
+agnostic so in today's video I'm going
+ 
+
+69
+00:01:09,759 --> 00:01:10,950
+agnostic so in today's video I'm going
+to walk you through the process of
+
+70
+00:01:10,950 --> 00:01:10,960
+to walk you through the process of
+ 
+
+71
+00:01:10,960 --> 00:01:12,990
+to walk you through the process of
+creating a virtual machine or a droplet
+
+72
+00:01:12,990 --> 00:01:13,000
+creating a virtual machine or a droplet
+ 
+
+73
+00:01:13,000 --> 00:01:15,510
+creating a virtual machine or a droplet
+as they call it on digital ocean these
+
+74
+00:01:15,510 --> 00:01:15,520
+as they call it on digital ocean these
+ 
+
+75
+00:01:15,520 --> 00:01:17,630
+as they call it on digital ocean these
+droplets support the injection of cloud
+
+76
+00:01:17,630 --> 00:01:17,640
+droplets support the injection of cloud
+ 
+
+77
+00:01:17,640 --> 00:01:19,550
+droplets support the injection of cloud
+init configuration in What's called the
+
+78
+00:01:19,550 --> 00:01:19,560
+init configuration in What's called the
+ 
+
+79
+00:01:19,560 --> 00:01:22,030
+init configuration in What's called the
+user data field you can provide this
+
+80
+00:01:22,030 --> 00:01:22,040
+user data field you can provide this
+ 
+
+81
+00:01:22,040 --> 00:01:24,030
+user data field you can provide this
+text just by copying and pasting it into
+
+82
+00:01:24,030 --> 00:01:24,040
+text just by copying and pasting it into
+ 
+
+83
+00:01:24,040 --> 00:01:25,789
+text just by copying and pasting it into
+the digital ocean interface so let's
+
+84
+00:01:25,789 --> 00:01:25,799
+the digital ocean interface so let's
+ 
+
+85
+00:01:25,799 --> 00:01:27,789
+the digital ocean interface so let's
+jump in and take a look now I've already
+
+86
+00:01:27,789 --> 00:01:27,799
+jump in and take a look now I've already
+ 
+
+87
+00:01:27,799 --> 00:01:29,069
+jump in and take a look now I've already
+gone ahead and got logged into my
+
+88
+00:01:29,069 --> 00:01:29,079
+gone ahead and got logged into my
+ 
+
+89
+00:01:29,079 --> 00:01:31,550
+gone ahead and got logged into my
+digital ocean account over here and I'm
+
+90
+00:01:31,550 --> 00:01:31,560
+digital ocean account over here and I'm
+ 
+
+91
+00:01:31,560 --> 00:01:33,389
+digital ocean account over here and I'm
+going to click on the green create
+
+92
+00:01:33,389 --> 00:01:33,399
+going to click on the green create
+ 
+
+93
+00:01:33,399 --> 00:01:35,389
+going to click on the green create
+button up in the top right hand corner
+
+94
+00:01:35,389 --> 00:01:35,399
+button up in the top right hand corner
+ 
+
+95
+00:01:35,399 --> 00:01:37,950
+button up in the top right hand corner
+and create a droplet now there's a few
+
+96
+00:01:37,950 --> 00:01:37,960
+and create a droplet now there's a few
+ 
+
+97
+00:01:37,960 --> 00:01:40,030
+and create a droplet now there's a few
+things to pay attention to here first of
+
+98
+00:01:40,030 --> 00:01:40,040
+things to pay attention to here first of
+ 
+
+99
+00:01:40,040 --> 00:01:41,870
+things to pay attention to here first of
+all I should note we're going to do
+
+100
+00:01:41,870 --> 00:01:41,880
+all I should note we're going to do
+ 
+
+101
+00:01:41,880 --> 00:01:43,709
+all I should note we're going to do
+everything in this next few minutes
+
+102
+00:01:43,709 --> 00:01:43,719
+everything in this next few minutes
+ 
+
+103
+00:01:43,719 --> 00:01:45,709
+everything in this next few minutes
+manually going to do automation with
+
+104
+00:01:45,709 --> 00:01:45,719
+manually going to do automation with
+ 
+
+105
+00:01:45,719 --> 00:01:48,230
+manually going to do automation with
+terraform and anable later on in this
+
+106
+00:01:48,230 --> 00:01:48,240
+terraform and anable later on in this
+ 
+
+107
+00:01:48,240 --> 00:01:49,910
+terraform and anable later on in this
+video series but today everything is
+
+108
+00:01:49,910 --> 00:01:49,920
+video series but today everything is
+ 
+
+109
+00:01:49,920 --> 00:01:51,950
+video series but today everything is
+manual so we'll need to pick a region
+
+110
+00:01:51,950 --> 00:01:51,960
+manual so we'll need to pick a region
+ 
+
+111
+00:01:51,960 --> 00:01:53,109
+manual so we'll need to pick a region
+I'm just going to pick New York because
+
+112
+00:01:53,109 --> 00:01:53,119
+I'm just going to pick New York because
+ 
+
+113
+00:01:53,119 --> 00:01:54,469
+I'm just going to pick New York because
+that happens to be closest to my
+
+114
+00:01:54,469 --> 00:01:54,479
+that happens to be closest to my
+ 
+
+115
+00:01:54,479 --> 00:01:56,670
+that happens to be closest to my
+geographic location but where you put
+
+116
+00:01:56,670 --> 00:01:56,680
+geographic location but where you put
+ 
+
+117
+00:01:56,680 --> 00:01:58,910
+geographic location but where you put
+this kind of matters a little bit like I
+
+118
+00:01:58,910 --> 00:01:58,920
+this kind of matters a little bit like I
+ 
+
+119
+00:01:58,920 --> 00:02:00,469
+this kind of matters a little bit like I
+don't want to put it in Sy if I live in
+
+120
+00:02:00,469 --> 00:02:00,479
+don't want to put it in Sy if I live in
+ 
+
+121
+00:02:00,479 --> 00:02:02,709
+don't want to put it in Sy if I live in
+the Northern Hemisphere for example but
+
+122
+00:02:02,709 --> 00:02:02,719
+the Northern Hemisphere for example but
+ 
+
+123
+00:02:02,719 --> 00:02:04,749
+the Northern Hemisphere for example but
+any of these us data centers or a
+
+124
+00:02:04,749 --> 00:02:04,759
+any of these us data centers or a
+ 
+
+125
+00:02:04,759 --> 00:02:06,469
+any of these us data centers or a
+European one if you're in you know
+
+126
+00:02:06,469 --> 00:02:06,479
+European one if you're in you know
+ 
+
+127
+00:02:06,479 --> 00:02:08,389
+European one if you're in you know
+Europe or the UK or something should
+
+128
+00:02:08,389 --> 00:02:08,399
+Europe or the UK or something should
+ 
+
+129
+00:02:08,399 --> 00:02:11,309
+Europe or the UK or something should
+suffice in terms of latency so just pick
+
+130
+00:02:11,309 --> 00:02:11,319
+suffice in terms of latency so just pick
+ 
+
+131
+00:02:11,319 --> 00:02:12,949
+suffice in terms of latency so just pick
+something that makes sense to you in
+
+132
+00:02:12,949 --> 00:02:12,959
+something that makes sense to you in
+ 
+
+133
+00:02:12,959 --> 00:02:14,790
+something that makes sense to you in
+this list next we're going to want to go
+
+134
+00:02:14,790 --> 00:02:14,800
+this list next we're going to want to go
+ 
+
+135
+00:02:14,800 --> 00:02:16,949
+this list next we're going to want to go
+ahead and pick an OS I almost always
+
+136
+00:02:16,949 --> 00:02:16,959
+ahead and pick an OS I almost always
+ 
+
+137
+00:02:16,959 --> 00:02:19,390
+ahead and pick an OS I almost always
+just pick abun to's latest LTS which in
+
+138
+00:02:19,390 --> 00:02:19,400
+just pick abun to's latest LTS which in
+ 
+
+139
+00:02:19,400 --> 00:02:21,110
+just pick abun to's latest LTS which in
+this case is
+
+140
+00:02:21,110 --> 00:02:21,120
+this case is
+ 
+
+141
+00:02:21,120 --> 00:02:23,110
+this case is
+244 then I'm going to go ahead and
+
+142
+00:02:23,110 --> 00:02:23,120
+244 then I'm going to go ahead and
+ 
+
+143
+00:02:23,120 --> 00:02:25,910
+244 then I'm going to go ahead and
+select the type of droplet that I want
+
+144
+00:02:25,910 --> 00:02:25,920
+select the type of droplet that I want
+ 
+
+145
+00:02:25,920 --> 00:02:27,589
+select the type of droplet that I want
+to create in my case we don't need the
+
+146
+00:02:27,589 --> 00:02:27,599
+to create in my case we don't need the
+ 
+
+147
+00:02:27,599 --> 00:02:30,589
+to create in my case we don't need the
+$32 a month one or we going to need is a
+
+148
+00:02:30,589 --> 00:02:30,599
+$32 a month one or we going to need is a
+ 
+
+149
+00:02:30,599 --> 00:02:33,430
+$32 a month one or we going to need is a
+basic $6 a month droplet down here that
+
+150
+00:02:33,430 --> 00:02:33,440
+basic $6 a month droplet down here that
+ 
+
+151
+00:02:33,440 --> 00:02:36,190
+basic $6 a month droplet down here that
+will suffice for our needs today next up
+
+152
+00:02:36,190 --> 00:02:36,200
+will suffice for our needs today next up
+ 
+
+153
+00:02:36,200 --> 00:02:38,790
+will suffice for our needs today next up
+I've already created an SSH key on my
+
+154
+00:02:38,790 --> 00:02:38,800
+I've already created an SSH key on my
+ 
+
+155
+00:02:38,800 --> 00:02:40,869
+I've already created an SSH key on my
+digital ocean account although this is
+
+156
+00:02:40,869 --> 00:02:40,879
+digital ocean account although this is
+ 
+
+157
+00:02:40,879 --> 00:02:42,830
+digital ocean account although this is
+entirely unnecessary if you're using
+
+158
+00:02:42,830 --> 00:02:42,840
+entirely unnecessary if you're using
+ 
+
+159
+00:02:42,840 --> 00:02:45,869
+entirely unnecessary if you're using
+tail scale ssh what I will say is if you
+
+160
+00:02:45,869 --> 00:02:45,879
+tail scale ssh what I will say is if you
+ 
+
+161
+00:02:45,879 --> 00:02:48,229
+tail scale ssh what I will say is if you
+don't select an SSH key here and you go
+
+162
+00:02:48,229 --> 00:02:48,239
+don't select an SSH key here and you go
+ 
+
+163
+00:02:48,239 --> 00:02:49,869
+don't select an SSH key here and you go
+and try and connect to the virtual
+
+164
+00:02:49,869 --> 00:02:49,879
+and try and connect to the virtual
+ 
+
+165
+00:02:49,879 --> 00:02:52,350
+and try and connect to the virtual
+machine in the digital ocean console
+
+166
+00:02:52,350 --> 00:02:52,360
+machine in the digital ocean console
+ 
+
+167
+00:02:52,360 --> 00:02:54,110
+machine in the digital ocean console
+you'll be asked to create a password so
+
+168
+00:02:54,110 --> 00:02:54,120
+you'll be asked to create a password so
+ 
+
+169
+00:02:54,120 --> 00:02:56,070
+you'll be asked to create a password so
+it is advisable probably to just have an
+
+170
+00:02:56,070 --> 00:02:56,080
+it is advisable probably to just have an
+ 
+
+171
+00:02:56,080 --> 00:02:58,550
+it is advisable probably to just have an
+SSH key there because creating a root
+
+172
+00:02:58,550 --> 00:02:58,560
+SSH key there because creating a root
+ 
+
+173
+00:02:58,560 --> 00:03:00,790
+SSH key there because creating a root
+password manually feels a little bit
+
+174
+00:03:00,790 --> 00:03:00,800
+password manually feels a little bit
+ 
+
+175
+00:03:00,800 --> 00:03:02,830
+password manually feels a little bit
+Draconian all right so next we're going
+
+176
+00:03:02,830 --> 00:03:02,840
+Draconian all right so next we're going
+ 
+
+177
+00:03:02,840 --> 00:03:04,149
+Draconian all right so next we're going
+to give this one a name I'm just going
+
+178
+00:03:04,149 --> 00:03:04,159
+to give this one a name I'm just going
+ 
+
+179
+00:03:04,159 --> 00:03:06,710
+to give this one a name I'm just going
+to call this one banana and then under
+
+180
+00:03:06,710 --> 00:03:06,720
+to call this one banana and then under
+ 
+
+181
+00:03:06,720 --> 00:03:09,070
+to call this one banana and then under
+the advanced options just up here this
+
+182
+00:03:09,070 --> 00:03:09,080
+the advanced options just up here this
+ 
+
+183
+00:03:09,080 --> 00:03:10,710
+the advanced options just up here this
+is where the magic happens so if we
+
+184
+00:03:10,710 --> 00:03:10,720
+is where the magic happens so if we
+ 
+
+185
+00:03:10,720 --> 00:03:13,110
+is where the magic happens so if we
+click on this add initialization scripts
+
+186
+00:03:13,110 --> 00:03:13,120
+click on this add initialization scripts
+ 
+
+187
+00:03:13,120 --> 00:03:15,509
+click on this add initialization scripts
+option we want to paste in our Cloud
+
+188
+00:03:15,509 --> 00:03:15,519
+option we want to paste in our Cloud
+ 
+
+189
+00:03:15,519 --> 00:03:18,630
+option we want to paste in our Cloud
+init stanza into this text box so I'm
+
+190
+00:03:18,630 --> 00:03:18,640
+init stanza into this text box so I'm
+ 
+
+191
+00:03:18,640 --> 00:03:19,949
+init stanza into this text box so I'm
+going to jump back over to the tail
+
+192
+00:03:19,949 --> 00:03:19,959
+going to jump back over to the tail
+ 
+
+193
+00:03:19,959 --> 00:03:22,670
+going to jump back over to the tail
+scale knowledge base article scroll down
+
+194
+00:03:22,670 --> 00:03:22,680
+scale knowledge base article scroll down
+ 
+
+195
+00:03:22,680 --> 00:03:24,309
+scale knowledge base article scroll down
+a little bit and then just literally
+
+196
+00:03:24,309 --> 00:03:24,319
+a little bit and then just literally
+ 
+
+197
+00:03:24,319 --> 00:03:26,630
+a little bit and then just literally
+copy and paste this entire Cloud config
+
+198
+00:03:26,630 --> 00:03:26,640
+copy and paste this entire Cloud config
+ 
+
+199
+00:03:26,640 --> 00:03:29,509
+copy and paste this entire Cloud config
+block here you should note that this
+
+200
+00:03:29,509 --> 00:03:29,519
+block here you should note that this
+ 
+
+201
+00:03:29,519 --> 00:03:34,309
+block here you should note that this
+head here the hashtag Cloud config must
+
+202
+00:03:34,309 --> 00:03:34,319
+head here the hashtag Cloud config must
+ 
+
+203
+00:03:34,319 --> 00:03:36,830
+head here the hashtag Cloud config must
+remain intact this is a key word that
+
+204
+00:03:36,830 --> 00:03:36,840
+remain intact this is a key word that
+ 
+
+205
+00:03:36,840 --> 00:03:38,750
+remain intact this is a key word that
+must appear as part of the beginning of
+
+206
+00:03:38,750 --> 00:03:38,760
+must appear as part of the beginning of
+ 
+
+207
+00:03:38,760 --> 00:03:40,789
+must appear as part of the beginning of
+a cloudy knit stanza next we're going to
+
+208
+00:03:40,789 --> 00:03:40,799
+a cloudy knit stanza next we're going to
+ 
+
+209
+00:03:40,799 --> 00:03:42,869
+a cloudy knit stanza next we're going to
+need to go over to Tails scale.com and
+
+210
+00:03:42,869 --> 00:03:42,879
+need to go over to Tails scale.com and
+ 
+
+211
+00:03:42,879 --> 00:03:45,350
+need to go over to Tails scale.com and
+generate our orth key this is the case
+
+212
+00:03:45,350 --> 00:03:45,360
+generate our orth key this is the case
+ 
+
+213
+00:03:45,360 --> 00:03:47,309
+generate our orth key this is the case
+of just going to tale.com our admin
+
+214
+00:03:47,309 --> 00:03:47,319
+of just going to tale.com our admin
+ 
+
+215
+00:03:47,319 --> 00:03:50,429
+of just going to tale.com our admin
+console click on settings click on
+
+216
+00:03:50,429 --> 00:03:50,439
+console click on settings click on
+ 
+
+217
+00:03:50,439 --> 00:03:52,910
+console click on settings click on
+personal settings down here in keys I'm
+
+218
+00:03:52,910 --> 00:03:52,920
+personal settings down here in keys I'm
+ 
+
+219
+00:03:52,920 --> 00:03:54,789
+personal settings down here in keys I'm
+going to generate an or key I'm just
+
+220
+00:03:54,789 --> 00:03:54,799
+going to generate an or key I'm just
+ 
+
+221
+00:03:54,799 --> 00:03:56,550
+going to generate an or key I'm just
+going to call this one banana but the
+
+222
+00:03:56,550 --> 00:03:56,560
+going to call this one banana but the
+ 
+
+223
+00:03:56,560 --> 00:03:59,910
+going to call this one banana but the
+name is not important reusable yes why
+
+224
+00:03:59,910 --> 00:03:59,920
+name is not important reusable yes why
+ 
+
+225
+00:03:59,920 --> 00:04:02,509
+name is not important reusable yes why
+not because it's a demo ephemeral no I
+
+226
+00:04:02,509 --> 00:04:02,519
+not because it's a demo ephemeral no I
+ 
+
+227
+00:04:02,519 --> 00:04:04,069
+not because it's a demo ephemeral no I
+don't really care about that for this
+
+228
+00:04:04,069 --> 00:04:04,079
+don't really care about that for this
+ 
+
+229
+00:04:04,079 --> 00:04:06,030
+don't really care about that for this
+and tags if you want to you can go ahead
+
+230
+00:04:06,030 --> 00:04:06,040
+and tags if you want to you can go ahead
+ 
+
+231
+00:04:06,040 --> 00:04:07,949
+and tags if you want to you can go ahead
+and set up a tag this is defined in your
+
+232
+00:04:07,949 --> 00:04:07,959
+and set up a tag this is defined in your
+ 
+
+233
+00:04:07,959 --> 00:04:09,830
+and set up a tag this is defined in your
+acl's by the way if you don't see these
+
+234
+00:04:09,830 --> 00:04:09,840
+acl's by the way if you don't see these
+ 
+
+235
+00:04:09,840 --> 00:04:11,630
+acl's by the way if you don't see these
+tags you need to go ahead and create
+
+236
+00:04:11,630 --> 00:04:11,640
+tags you need to go ahead and create
+ 
+
+237
+00:04:11,640 --> 00:04:13,830
+tags you need to go ahead and create
+them in your acl's as it tells you down
+
+238
+00:04:13,830 --> 00:04:13,840
+them in your acl's as it tells you down
+ 
+
+239
+00:04:13,840 --> 00:04:16,629
+them in your acl's as it tells you down
+here and you do that by clicking on the
+
+240
+00:04:16,629 --> 00:04:16,639
+here and you do that by clicking on the
+ 
+
+241
+00:04:16,639 --> 00:04:19,069
+here and you do that by clicking on the
+access controls tab here and defining
+
+242
+00:04:19,069 --> 00:04:19,079
+access controls tab here and defining
+ 
+
+243
+00:04:19,079 --> 00:04:22,590
+access controls tab here and defining
+the tags in your acl's just here that
+
+244
+00:04:22,590 --> 00:04:22,600
+the tags in your acl's just here that
+ 
+
+245
+00:04:22,600 --> 00:04:24,310
+the tags in your acl's just here that
+isn't important for this demo so I'm I'm
+
+246
+00:04:24,310 --> 00:04:24,320
+isn't important for this demo so I'm I'm
+ 
+
+247
+00:04:24,320 --> 00:04:25,830
+isn't important for this demo so I'm I'm
+just going to leave that alone and then
+
+248
+00:04:25,830 --> 00:04:25,840
+just going to leave that alone and then
+ 
+
+249
+00:04:25,840 --> 00:04:28,189
+just going to leave that alone and then
+90 days that's plenty for what we want
+
+250
+00:04:28,189 --> 00:04:28,199
+90 days that's plenty for what we want
+ 
+
+251
+00:04:28,199 --> 00:04:31,350
+90 days that's plenty for what we want
+to do today so generate the key copy
+
+252
+00:04:31,350 --> 00:04:31,360
+to do today so generate the key copy
+ 
+
+253
+00:04:31,360 --> 00:04:33,550
+to do today so generate the key copy
+that to my clipboard go back to my
+
+254
+00:04:33,550 --> 00:04:33,560
+that to my clipboard go back to my
+ 
+
+255
+00:04:33,560 --> 00:04:36,550
+that to my clipboard go back to my
+digital ocean uh Tab and then just paste
+
+256
+00:04:36,550 --> 00:04:36,560
+digital ocean uh Tab and then just paste
+ 
+
+257
+00:04:36,560 --> 00:04:39,830
+digital ocean uh Tab and then just paste
+in this line just here oh no I need to
+
+258
+00:04:39,830 --> 00:04:39,840
+in this line just here oh no I need to
+ 
+
+259
+00:04:39,840 --> 00:04:43,230
+in this line just here oh no I need to
+leave the or key equals don't I there we
+
+260
+00:04:43,230 --> 00:04:43,240
+leave the or key equals don't I there we
+ 
+
+261
+00:04:43,240 --> 00:04:45,670
+leave the or key equals don't I there we
+go now there's a few things going on in
+
+262
+00:04:45,670 --> 00:04:45,680
+go now there's a few things going on in
+ 
+
+263
+00:04:45,680 --> 00:04:47,469
+go now there's a few things going on in
+this Cloud config file but we are
+
+264
+00:04:47,469 --> 00:04:47,479
+this Cloud config file but we are
+ 
+
+265
+00:04:47,479 --> 00:04:49,469
+this Cloud config file but we are
+largely done at this point you can see
+
+266
+00:04:49,469 --> 00:04:49,479
+largely done at this point you can see
+ 
+
+267
+00:04:49,479 --> 00:04:52,430
+largely done at this point you can see
+that first of all this Cloud config file
+
+268
+00:04:52,430 --> 00:04:52,440
+that first of all this Cloud config file
+ 
+
+269
+00:04:52,440 --> 00:04:54,670
+that first of all this Cloud config file
+under this run command option here it's
+
+270
+00:04:54,670 --> 00:04:54,680
+under this run command option here it's
+ 
+
+271
+00:04:54,680 --> 00:04:56,790
+under this run command option here it's
+downloading and installing tail scale
+
+272
+00:04:56,790 --> 00:04:56,800
+downloading and installing tail scale
+ 
+
+273
+00:04:56,800 --> 00:04:58,790
+downloading and installing tail scale
+then it's setting up ipv forwarding
+
+274
+00:04:58,790 --> 00:04:58,800
+then it's setting up ipv forwarding
+ 
+
+275
+00:04:58,800 --> 00:05:00,950
+then it's setting up ipv forwarding
+using CIS C L this is so that if you
+
+276
+00:05:00,950 --> 00:05:00,960
+using CIS C L this is so that if you
+ 
+
+277
+00:05:00,960 --> 00:05:03,550
+using CIS C L this is so that if you
+want to use this node as an exit node or
+
+278
+00:05:03,550 --> 00:05:03,560
+want to use this node as an exit node or
+ 
+
+279
+00:05:03,560 --> 00:05:06,070
+want to use this node as an exit node or
+do some kind of subnet routing the Linux
+
+280
+00:05:06,070 --> 00:05:06,080
+do some kind of subnet routing the Linux
+ 
+
+281
+00:05:06,080 --> 00:05:09,110
+do some kind of subnet routing the Linux
+kernel is able to forward TCP packets
+
+282
+00:05:09,110 --> 00:05:09,120
+kernel is able to forward TCP packets
+ 
+
+283
+00:05:09,120 --> 00:05:10,629
+kernel is able to forward TCP packets
+next up we're going to authenticate this
+
+284
+00:05:10,629 --> 00:05:10,639
+next up we're going to authenticate this
+ 
+
+285
+00:05:10,639 --> 00:05:12,830
+next up we're going to authenticate this
+node to our tail net and then enable
+
+286
+00:05:12,830 --> 00:05:12,840
+node to our tail net and then enable
+ 
+
+287
+00:05:12,840 --> 00:05:15,790
+node to our tail net and then enable
+tail scale SSH and finally request to
+
+288
+00:05:15,790 --> 00:05:15,800
+tail scale SSH and finally request to
+ 
+
+289
+00:05:15,800 --> 00:05:18,309
+tail scale SSH and finally request to
+advertise this node as an exit node now
+
+290
+00:05:18,309 --> 00:05:18,319
+advertise this node as an exit node now
+ 
+
+291
+00:05:18,319 --> 00:05:19,550
+advertise this node as an exit node now
+I'm going to go ahead and click on
+
+292
+00:05:19,550 --> 00:05:19,560
+I'm going to go ahead and click on
+ 
+
+293
+00:05:19,560 --> 00:05:21,469
+I'm going to go ahead and click on
+create drop plet and I'll be back in
+
+294
+00:05:21,469 --> 00:05:21,479
+create drop plet and I'll be back in
+ 
+
+295
+00:05:21,479 --> 00:05:22,710
+create drop plet and I'll be back in
+just a second when it's finished
+
+296
+00:05:22,710 --> 00:05:22,720
+just a second when it's finished
+ 
+
+297
+00:05:22,720 --> 00:05:24,550
+just a second when it's finished
+provisioning now on the right hand side
+
+298
+00:05:24,550 --> 00:05:24,560
+provisioning now on the right hand side
+ 
+
+299
+00:05:24,560 --> 00:05:25,790
+provisioning now on the right hand side
+over here I just want to click on
+
+300
+00:05:25,790 --> 00:05:25,800
+over here I just want to click on
+ 
+
+301
+00:05:25,800 --> 00:05:27,230
+over here I just want to click on
+console and this can take a couple of
+
+302
+00:05:27,230 --> 00:05:27,240
+console and this can take a couple of
+ 
+
+303
+00:05:27,240 --> 00:05:28,909
+console and this can take a couple of
+minutes for the VM to kind of boot up
+
+304
+00:05:28,909 --> 00:05:28,919
+minutes for the VM to kind of boot up
+ 
+
+305
+00:05:28,919 --> 00:05:30,430
+minutes for the VM to kind of boot up
+and warm up
+
+306
+00:05:30,430 --> 00:05:30,440
+and warm up
+ 
+
+307
+00:05:30,440 --> 00:05:32,670
+and warm up
+and once that has happened I can click
+
+308
+00:05:32,670 --> 00:05:32,680
+and once that has happened I can click
+ 
+
+309
+00:05:32,680 --> 00:05:34,150
+and once that has happened I can click
+on that console button and be dropped
+
+310
+00:05:34,150 --> 00:05:34,160
+on that console button and be dropped
+ 
+
+311
+00:05:34,160 --> 00:05:36,749
+on that console button and be dropped
+into a shell in my browser for this
+
+312
+00:05:36,749 --> 00:05:36,759
+into a shell in my browser for this
+ 
+
+313
+00:05:36,759 --> 00:05:38,749
+into a shell in my browser for this
+remote virtual machine and we should be
+
+314
+00:05:38,749 --> 00:05:38,759
+remote virtual machine and we should be
+ 
+
+315
+00:05:38,759 --> 00:05:40,670
+remote virtual machine and we should be
+able to see that tail scale is actually
+
+316
+00:05:40,670 --> 00:05:40,680
+able to see that tail scale is actually
+ 
+
+317
+00:05:40,680 --> 00:05:42,749
+able to see that tail scale is actually
+already installed on this VM because of
+
+318
+00:05:42,749 --> 00:05:42,759
+already installed on this VM because of
+ 
+
+319
+00:05:42,759 --> 00:05:44,350
+already installed on this VM because of
+the cloud init stuff that we set up
+
+320
+00:05:44,350 --> 00:05:44,360
+the cloud init stuff that we set up
+ 
+
+321
+00:05:44,360 --> 00:05:47,110
+the cloud init stuff that we set up
+earlier and as you can see banana is now
+
+322
+00:05:47,110 --> 00:05:47,120
+earlier and as you can see banana is now
+ 
+
+323
+00:05:47,120 --> 00:05:49,749
+earlier and as you can see banana is now
+a member of my tailet so if we go over
+
+324
+00:05:49,749 --> 00:05:49,759
+a member of my tailet so if we go over
+ 
+
+325
+00:05:49,759 --> 00:05:51,950
+a member of my tailet so if we go over
+here back to my tail scale console go to
+
+326
+00:05:51,950 --> 00:05:51,960
+here back to my tail scale console go to
+ 
+
+327
+00:05:51,960 --> 00:05:54,469
+here back to my tail scale console go to
+machines we can indeed see that banana
+
+328
+00:05:54,469 --> 00:05:54,479
+machines we can indeed see that banana
+ 
+
+329
+00:05:54,479 --> 00:05:57,670
+machines we can indeed see that banana
+has been set up also note that SSH has
+
+330
+00:05:57,670 --> 00:05:57,680
+has been set up also note that SSH has
+ 
+
+331
+00:05:57,680 --> 00:06:00,469
+has been set up also note that SSH has
+been requested and also has the exit
+
+332
+00:06:00,469 --> 00:06:00,479
+been requested and also has the exit
+ 
+
+333
+00:06:00,479 --> 00:06:02,950
+been requested and also has the exit
+node functionality as well so we could
+
+334
+00:06:02,950 --> 00:06:02,960
+node functionality as well so we could
+ 
+
+335
+00:06:02,960 --> 00:06:04,749
+node functionality as well so we could
+now use this virtual machine we didn't
+
+336
+00:06:04,749 --> 00:06:04,759
+now use this virtual machine we didn't
+ 
+
+337
+00:06:04,759 --> 00:06:07,070
+now use this virtual machine we didn't
+have to type anything well we have to
+
+338
+00:06:07,070 --> 00:06:07,080
+have to type anything well we have to
+ 
+
+339
+00:06:07,080 --> 00:06:08,550
+have to type anything well we have to
+copy and paste our or key but we didn't
+
+340
+00:06:08,550 --> 00:06:08,560
+copy and paste our or key but we didn't
+ 
+
+341
+00:06:08,560 --> 00:06:10,430
+copy and paste our or key but we didn't
+have to do any you know apt get install
+
+342
+00:06:10,430 --> 00:06:10,440
+have to do any you know apt get install
+ 
+
+343
+00:06:10,440 --> 00:06:12,670
+have to do any you know apt get install
+or curling scripts or what have you it
+
+344
+00:06:12,670 --> 00:06:12,680
+or curling scripts or what have you it
+ 
+
+345
+00:06:12,680 --> 00:06:15,309
+or curling scripts or what have you it
+was all handled by that cloud init stuff
+
+346
+00:06:15,309 --> 00:06:15,319
+was all handled by that cloud init stuff
+ 
+
+347
+00:06:15,319 --> 00:06:16,950
+was all handled by that cloud init stuff
+that we copied and pasted from the
+
+348
+00:06:16,950 --> 00:06:16,960
+that we copied and pasted from the
+ 
+
+349
+00:06:16,960 --> 00:06:18,990
+that we copied and pasted from the
+knowledge base with tail scale earlier
+
+350
+00:06:18,990 --> 00:06:19,000
+knowledge base with tail scale earlier
+ 
+
+351
+00:06:19,000 --> 00:06:20,710
+knowledge base with tail scale earlier
+you can append any other arguments that
+
+352
+00:06:20,710 --> 00:06:20,720
+you can append any other arguments that
+ 
+
+353
+00:06:20,720 --> 00:06:21,950
+you can append any other arguments that
+you would like here anything else that
+
+354
+00:06:21,950 --> 00:06:21,960
+you would like here anything else that
+ 
+
+355
+00:06:21,960 --> 00:06:23,710
+you would like here anything else that
+you would pass to the tail scale set
+
+356
+00:06:23,710 --> 00:06:23,720
+you would pass to the tail scale set
+ 
+
+357
+00:06:23,720 --> 00:06:25,990
+you would pass to the tail scale set
+command you can string these together
+
+358
+00:06:25,990 --> 00:06:26,000
+command you can string these together
+ 
+
+359
+00:06:26,000 --> 00:06:27,950
+command you can string these together
+into just one line if you would like to
+
+360
+00:06:27,950 --> 00:06:27,960
+into just one line if you would like to
+ 
+
+361
+00:06:27,960 --> 00:06:29,070
+into just one line if you would like to
+and it's worth noting that I'll put a
+
+362
+00:06:29,070 --> 00:06:29,080
+and it's worth noting that I'll put a
+ 
+
+363
+00:06:29,080 --> 00:06:31,029
+and it's worth noting that I'll put a
+link to this documentation down in the
+
+364
+00:06:31,029 --> 00:06:31,039
+link to this documentation down in the
+ 
+
+365
+00:06:31,039 --> 00:06:33,230
+link to this documentation down in the
+description down below now doing things
+
+366
+00:06:33,230 --> 00:06:33,240
+description down below now doing things
+ 
+
+367
+00:06:33,240 --> 00:06:35,230
+description down below now doing things
+manually isn't really the point of cloud
+
+368
+00:06:35,230 --> 00:06:35,240
+manually isn't really the point of cloud
+ 
+
+369
+00:06:35,240 --> 00:06:37,550
+manually isn't really the point of cloud
+in it we want to start automating this
+
+370
+00:06:37,550 --> 00:06:37,560
+in it we want to start automating this
+ 
+
+371
+00:06:37,560 --> 00:06:39,110
+in it we want to start automating this
+stuff and so in the next couple of
+
+372
+00:06:39,110 --> 00:06:39,120
+stuff and so in the next couple of
+ 
+
+373
+00:06:39,120 --> 00:06:40,550
+stuff and so in the next couple of
+videos we're going to show you how to do
+
+374
+00:06:40,550 --> 00:06:40,560
+videos we're going to show you how to do
+ 
+
+375
+00:06:40,560 --> 00:06:43,270
+videos we're going to show you how to do
+this using terraform and anable as well
+
+376
+00:06:43,270 --> 00:06:43,280
+this using terraform and anable as well
+ 
+
+377
+00:06:43,280 --> 00:06:44,830
+this using terraform and anable as well
+but here's a quick sneak peek at the
+
+378
+00:06:44,830 --> 00:06:44,840
+but here's a quick sneak peek at the
+ 
+
+379
+00:06:44,840 --> 00:06:46,790
+but here's a quick sneak peek at the
+terraform stuff so one of the key
+
+380
+00:06:46,790 --> 00:06:46,800
+terraform stuff so one of the key
+ 
+
+381
+00:06:46,800 --> 00:06:48,950
+terraform stuff so one of the key
+principles of infrastructures code is
+
+382
+00:06:48,950 --> 00:06:48,960
+principles of infrastructures code is
+ 
+
+383
+00:06:48,960 --> 00:06:50,909
+principles of infrastructures code is
+that we can Define our entire
+
+384
+00:06:50,909 --> 00:06:50,919
+that we can Define our entire
+ 
+
+385
+00:06:50,919 --> 00:06:53,629
+that we can Define our entire
+infrastructure in a text file or
+
+386
+00:06:53,629 --> 00:06:53,639
+infrastructure in a text file or
+ 
+
+387
+00:06:53,639 --> 00:06:54,990
+infrastructure in a text file or
+something that we can commit to a git
+
+388
+00:06:54,990 --> 00:06:55,000
+something that we can commit to a git
+ 
+
+389
+00:06:55,000 --> 00:06:57,230
+something that we can commit to a git
+repo somewhere put it in Source control
+
+390
+00:06:57,230 --> 00:06:57,240
+repo somewhere put it in Source control
+ 
+
+391
+00:06:57,240 --> 00:06:58,589
+repo somewhere put it in Source control
+I'll put a link in the description down
+
+392
+00:06:58,589 --> 00:06:58,599
+I'll put a link in the description down
+ 
+
+393
+00:06:58,599 --> 00:07:00,110
+I'll put a link in the description down
+below if you'd like to get started with
+
+394
+00:07:00,110 --> 00:07:00,120
+below if you'd like to get started with
+ 
+
+395
+00:07:00,120 --> 00:07:01,990
+below if you'd like to get started with
+terraform and also keep an eye out for
+
+396
+00:07:01,990 --> 00:07:02,000
+terraform and also keep an eye out for
+ 
+
+397
+00:07:02,000 --> 00:07:03,629
+terraform and also keep an eye out for
+the video that's coming in the next week
+
+398
+00:07:03,629 --> 00:07:03,639
+the video that's coming in the next week
+ 
+
+399
+00:07:03,639 --> 00:07:07,909
+the video that's coming in the next week
+or two to deploy a machine with tail
+
+400
+00:07:07,909 --> 00:07:07,919
+or two to deploy a machine with tail
+ 
+
+401
+00:07:07,919 --> 00:07:09,430
+or two to deploy a machine with tail
+scale pre-installed and Docker
+
+402
+00:07:09,430 --> 00:07:09,440
+scale pre-installed and Docker
+ 
+
+403
+00:07:09,440 --> 00:07:11,710
+scale pre-installed and Docker
+pre-installed in my case to digital
+
+404
+00:07:11,710 --> 00:07:11,720
+pre-installed in my case to digital
+ 
+
+405
+00:07:11,720 --> 00:07:14,070
+pre-installed in my case to digital
+ocean is just as simple as typing
+
+406
+00:07:14,070 --> 00:07:14,080
+ocean is just as simple as typing
+ 
+
+407
+00:07:14,080 --> 00:07:16,909
+ocean is just as simple as typing
+terraform apply and then enter a value
+
+408
+00:07:16,909 --> 00:07:16,919
+terraform apply and then enter a value
+ 
+
+409
+00:07:16,919 --> 00:07:19,629
+terraform apply and then enter a value
+yes in order to actually go ahead and
+
+410
+00:07:19,629 --> 00:07:19,639
+yes in order to actually go ahead and
+ 
+
+411
+00:07:19,639 --> 00:07:21,670
+yes in order to actually go ahead and
+have terraform perform those steps and
+
+412
+00:07:21,670 --> 00:07:21,680
+have terraform perform those steps and
+ 
+
+413
+00:07:21,680 --> 00:07:23,270
+have terraform perform those steps and
+so what we'll see if we jump back to
+
+414
+00:07:23,270 --> 00:07:23,280
+so what we'll see if we jump back to
+ 
+
+415
+00:07:23,280 --> 00:07:26,710
+so what we'll see if we jump back to
+digital ocean is we will see in my main
+
+416
+00:07:26,710 --> 00:07:26,720
+digital ocean is we will see in my main
+ 
+
+417
+00:07:26,720 --> 00:07:29,830
+digital ocean is we will see in my main
+Dev project over here we will see that
+
+418
+00:07:29,830 --> 00:07:29,840
+Dev project over here we will see that
+ 
+
+419
+00:07:29,840 --> 00:07:31,790
+Dev project over here we will see that
+now there is a new virtual machine being
+
+420
+00:07:31,790 --> 00:07:31,800
+now there is a new virtual machine being
+ 
+
+421
+00:07:31,800 --> 00:07:33,589
+now there is a new virtual machine being
+created by terraform note in the
+
+422
+00:07:33,589 --> 00:07:33,599
+created by terraform note in the
+ 
+
+423
+00:07:33,599 --> 00:07:35,790
+created by terraform note in the
+background down here it's still creating
+
+424
+00:07:35,790 --> 00:07:35,800
+background down here it's still creating
+ 
+
+425
+00:07:35,800 --> 00:07:38,589
+background down here it's still creating
+it says 10 seconds elapsed uh this is
+
+426
+00:07:38,589 --> 00:07:38,599
+it says 10 seconds elapsed uh this is
+ 
+
+427
+00:07:38,599 --> 00:07:41,110
+it says 10 seconds elapsed uh this is
+creating via the API terraform is
+
+428
+00:07:41,110 --> 00:07:41,120
+creating via the API terraform is
+ 
+
+429
+00:07:41,120 --> 00:07:43,350
+creating via the API terraform is
+creating on digital ocean a new virtual
+
+430
+00:07:43,350 --> 00:07:43,360
+creating on digital ocean a new virtual
+ 
+
+431
+00:07:43,360 --> 00:07:45,909
+creating on digital ocean a new virtual
+machine automatically with the cloud
+
+432
+00:07:45,909 --> 00:07:45,919
+machine automatically with the cloud
+ 
+
+433
+00:07:45,919 --> 00:07:49,270
+machine automatically with the cloud
+inet stuff pre-populated with my or key
+
+434
+00:07:49,270 --> 00:07:49,280
+inet stuff pre-populated with my or key
+ 
+
+435
+00:07:49,280 --> 00:07:51,830
+inet stuff pre-populated with my or key
+with my digital ocean API token it's
+
+436
+00:07:51,830 --> 00:07:51,840
+with my digital ocean API token it's
+ 
+
+437
+00:07:51,840 --> 00:07:53,990
+with my digital ocean API token it's
+able to go and create those resources
+
+438
+00:07:53,990 --> 00:07:54,000
+able to go and create those resources
+ 
+
+439
+00:07:54,000 --> 00:07:56,189
+able to go and create those resources
+for me in the cloud so what we could
+
+440
+00:07:56,189 --> 00:07:56,199
+for me in the cloud so what we could
+ 
+
+441
+00:07:56,199 --> 00:07:58,430
+for me in the cloud so what we could
+start to do with this is in part of CI
+
+442
+00:07:58,430 --> 00:07:58,440
+start to do with this is in part of CI
+ 
+
+443
+00:07:58,440 --> 00:08:00,110
+start to do with this is in part of CI
+environments we could actually start to
+
+444
+00:08:00,110 --> 00:08:00,120
+environments we could actually start to
+ 
+
+445
+00:08:00,120 --> 00:08:03,510
+environments we could actually start to
+sprinkle this stuff into GitHub actions
+
+446
+00:08:03,510 --> 00:08:03,520
+sprinkle this stuff into GitHub actions
+ 
+
+447
+00:08:03,520 --> 00:08:05,309
+sprinkle this stuff into GitHub actions
+or you know Jenkins workflows or
+
+448
+00:08:05,309 --> 00:08:05,319
+or you know Jenkins workflows or
+ 
+
+449
+00:08:05,319 --> 00:08:07,790
+or you know Jenkins workflows or
+whatever you're using for CI these days
+
+450
+00:08:07,790 --> 00:08:07,800
+whatever you're using for CI these days
+ 
+
+451
+00:08:07,800 --> 00:08:09,909
+whatever you're using for CI these days
+we can do this stuff programmatically
+
+452
+00:08:09,909 --> 00:08:09,919
+we can do this stuff programmatically
+ 
+
+453
+00:08:09,919 --> 00:08:11,070
+we can do this stuff programmatically
+and so I'd just like to double check
+
+454
+00:08:11,070 --> 00:08:11,080
+and so I'd just like to double check
+ 
+
+455
+00:08:11,080 --> 00:08:12,469
+and so I'd just like to double check
+that everything went okay with my
+
+456
+00:08:12,469 --> 00:08:12,479
+that everything went okay with my
+ 
+
+457
+00:08:12,479 --> 00:08:14,550
+that everything went okay with my
+automation one of the easiest ways to do
+
+458
+00:08:14,550 --> 00:08:14,560
+automation one of the easiest ways to do
+ 
+
+459
+00:08:14,560 --> 00:08:16,110
+automation one of the easiest ways to do
+this is to jump into the console of the
+
+460
+00:08:16,110 --> 00:08:16,120
+this is to jump into the console of the
+ 
+
+461
+00:08:16,120 --> 00:08:17,710
+this is to jump into the console of the
+virtual machine and just try and execute
+
+462
+00:08:17,710 --> 00:08:17,720
+virtual machine and just try and execute
+ 
+
+463
+00:08:17,720 --> 00:08:19,270
+virtual machine and just try and execute
+a couple of commands so I'm going to
+
+464
+00:08:19,270 --> 00:08:19,280
+a couple of commands so I'm going to
+ 
+
+465
+00:08:19,280 --> 00:08:21,430
+a couple of commands so I'm going to
+jump back to the console of the digital
+
+466
+00:08:21,430 --> 00:08:21,440
+jump back to the console of the digital
+ 
+
+467
+00:08:21,440 --> 00:08:24,830
+jump back to the console of the digital
+ocean droplet type tail scale status and
+
+468
+00:08:24,830 --> 00:08:24,840
+ocean droplet type tail scale status and
+ 
+
+469
+00:08:24,840 --> 00:08:26,350
+ocean droplet type tail scale status and
+we will see that this node is now
+
+470
+00:08:26,350 --> 00:08:26,360
+we will see that this node is now
+ 
+
+471
+00:08:26,360 --> 00:08:28,670
+we will see that this node is now
+already on my tailet and what this means
+
+472
+00:08:28,670 --> 00:08:28,680
+already on my tailet and what this means
+ 
+
+473
+00:08:28,680 --> 00:08:30,629
+already on my tailet and what this means
+is that this node that's in a data
+
+474
+00:08:30,629 --> 00:08:30,639
+is that this node that's in a data
+ 
+
+475
+00:08:30,639 --> 00:08:32,790
+is that this node that's in a data
+center in New York somewhere can now
+
+476
+00:08:32,790 --> 00:08:32,800
+center in New York somewhere can now
+ 
+
+477
+00:08:32,800 --> 00:08:35,029
+center in New York somewhere can now
+talk to any other node on my tailet as
+
+478
+00:08:35,029 --> 00:08:35,039
+talk to any other node on my tailet as
+ 
+
+479
+00:08:35,039 --> 00:08:37,550
+talk to any other node on my tailet as
+if it was in the same landan so I'm just
+
+480
+00:08:37,550 --> 00:08:37,560
+if it was in the same landan so I'm just
+ 
+
+481
+00:08:37,560 --> 00:08:40,310
+if it was in the same landan so I'm just
+going to do a ping uh MVP ballrick
+
+482
+00:08:40,310 --> 00:08:40,320
+going to do a ping uh MVP ballrick
+ 
+
+483
+00:08:40,320 --> 00:08:41,870
+going to do a ping uh MVP ballrick
+that's the laptop I'm using to record
+
+484
+00:08:41,870 --> 00:08:41,880
+that's the laptop I'm using to record
+ 
+
+485
+00:08:41,880 --> 00:08:45,110
+that's the laptop I'm using to record
+this demo for example so that uh digital
+
+486
+00:08:45,110 --> 00:08:45,120
+this demo for example so that uh digital
+ 
+
+487
+00:08:45,120 --> 00:08:47,430
+this demo for example so that uh digital
+otion droplet is now talking directly to
+
+488
+00:08:47,430 --> 00:08:47,440
+otion droplet is now talking directly to
+ 
+
+489
+00:08:47,440 --> 00:08:49,870
+otion droplet is now talking directly to
+my laptop over tail scale even though
+
+490
+00:08:49,870 --> 00:08:49,880
+my laptop over tail scale even though
+ 
+
+491
+00:08:49,880 --> 00:08:51,550
+my laptop over tail scale even though
+there's a residential firewall in the
+
+492
+00:08:51,550 --> 00:08:51,560
+there's a residential firewall in the
+ 
+
+493
+00:08:51,560 --> 00:08:54,509
+there's a residential firewall in the
+way with no ports open or anything it's
+
+494
+00:08:54,509 --> 00:08:54,519
+way with no ports open or anything it's
+ 
+
+495
+00:08:54,519 --> 00:08:57,230
+way with no ports open or anything it's
+it's I just love this stuff okay I also
+
+496
+00:08:57,230 --> 00:08:57,240
+it's I just love this stuff okay I also
+ 
+
+497
+00:08:57,240 --> 00:09:00,430
+it's I just love this stuff okay I also
+snuck into this cloudinit file a Docker
+
+498
+00:09:00,430 --> 00:09:00,440
+snuck into this cloudinit file a Docker
+ 
+
+499
+00:09:00,440 --> 00:09:02,230
+snuck into this cloudinit file a Docker
+install script as well so this node not
+
+500
+00:09:02,230 --> 00:09:02,240
+install script as well so this node not
+ 
+
+501
+00:09:02,240 --> 00:09:04,110
+install script as well so this node not
+only has tail scale pre-installed and
+
+502
+00:09:04,110 --> 00:09:04,120
+only has tail scale pre-installed and
+ 
+
+503
+00:09:04,120 --> 00:09:06,190
+only has tail scale pre-installed and
+pre-authenticated to my tail net it's
+
+504
+00:09:06,190 --> 00:09:06,200
+pre-authenticated to my tail net it's
+ 
+
+505
+00:09:06,200 --> 00:09:07,829
+pre-authenticated to my tail net it's
+also ready to run Docker containers out
+
+506
+00:09:07,829 --> 00:09:07,839
+also ready to run Docker containers out
+ 
+
+507
+00:09:07,839 --> 00:09:10,590
+also ready to run Docker containers out
+the box as well so hopefully you can see
+
+508
+00:09:10,590 --> 00:09:10,600
+the box as well so hopefully you can see
+ 
+
+509
+00:09:10,600 --> 00:09:12,630
+the box as well so hopefully you can see
+that terraform is incredibly powerful
+
+510
+00:09:12,630 --> 00:09:12,640
+that terraform is incredibly powerful
+ 
+
+511
+00:09:12,640 --> 00:09:14,150
+that terraform is incredibly powerful
+and we will dig into that in the next
+
+512
+00:09:14,150 --> 00:09:14,160
+and we will dig into that in the next
+ 
+
+513
+00:09:14,160 --> 00:09:16,069
+and we will dig into that in the next
+video but for now thank you so much for
+
+514
+00:09:16,069 --> 00:09:16,079
+video but for now thank you so much for
+ 
+
+515
+00:09:16,079 --> 00:09:20,640
+video but for now thank you so much for
+watching I've been Alex from tail scale
+

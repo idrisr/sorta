@@ -1,0 +1,1974 @@
+1
+00:00:00,000 --> 00:00:02,330
+
+Hello everyone friends in this video
+
+2
+00:00:02,330 --> 00:00:02,340
+Hello everyone friends in this video
+ 
+
+3
+00:00:02,340 --> 00:00:04,309
+Hello everyone friends in this video
+tutorial we will analyze such an
+
+4
+00:00:04,309 --> 00:00:04,319
+tutorial we will analyze such an
+ 
+
+5
+00:00:04,319 --> 00:00:06,950
+tutorial we will analyze such an
+opportunity as working with
+
+6
+00:00:06,950 --> 00:00:06,960
+opportunity as working with
+ 
+
+7
+00:00:06,960 --> 00:00:10,490
+opportunity as working with
+pseudo graphics namely forwarding
+
+8
+00:00:10,490 --> 00:00:10,500
+pseudo graphics namely forwarding
+ 
+
+9
+00:00:10,500 --> 00:00:15,200
+pseudo graphics namely forwarding
+using the console to our guest
+
+10
+00:00:15,200 --> 00:00:15,210
+using the console to our guest
+ 
+
+11
+00:00:15,210 --> 00:00:18,650
+using the console to our guest
+operating system there is an option
+
+12
+00:00:18,650 --> 00:00:18,660
+operating system there is an option
+ 
+
+13
+00:00:18,660 --> 00:00:20,710
+operating system there is an option
+called wish console
+
+14
+00:00:20,710 --> 00:00:20,720
+called wish console
+ 
+
+15
+00:00:20,720 --> 00:00:23,090
+called wish console
+which is responsible for the ability to
+
+16
+00:00:23,090 --> 00:00:23,100
+which is responsible for the ability to
+ 
+
+17
+00:00:23,100 --> 00:00:24,710
+which is responsible for the ability to
+connect just to the Crystal
+
+18
+00:00:24,710 --> 00:00:24,720
+connect just to the Crystal
+ 
+
+19
+00:00:24,720 --> 00:00:26,779
+connect just to the Crystal
+operating system why is this
+
+20
+00:00:26,779 --> 00:00:26,789
+operating system why is this
+ 
+
+21
+00:00:26,789 --> 00:00:27,560
+operating system why is this
+required
+
+22
+00:00:27,560 --> 00:00:27,570
+required
+ 
+
+23
+00:00:27,570 --> 00:00:29,450
+required
+suppose you have some
+
+24
+00:00:29,450 --> 00:00:29,460
+suppose you have some
+ 
+
+25
+00:00:29,460 --> 00:00:32,060
+suppose you have some
+hypervisor located not on the territory of
+
+26
+00:00:32,060 --> 00:00:32,070
+hypervisor located not on the territory of
+ 
+
+27
+00:00:32,070 --> 00:00:36,729
+hypervisor located not on the territory of
+your city of your country and you
+
+28
+00:00:36,729 --> 00:00:36,739
+your city of your country and you
+ 
+
+29
+00:00:36,739 --> 00:00:39,650
+your city of your country and you
+set up some script which
+
+30
+00:00:39,650 --> 00:00:39,660
+set up some script which
+ 
+
+31
+00:00:39,660 --> 00:00:43,030
+set up some script which
+used firewall rules where you
+
+32
+00:00:43,030 --> 00:00:43,040
+used firewall rules where you
+ 
+
+33
+00:00:43,040 --> 00:00:46,760
+used firewall rules where you
+made a mistake and let's say you prohibited
+
+34
+00:00:46,760 --> 00:00:46,770
+made a mistake and let's say you prohibited
+ 
+
+35
+00:00:46,770 --> 00:00:49,510
+made a mistake and let's say you prohibited
+access to your guest operating
+
+36
+00:00:49,510 --> 00:00:49,520
+access to your guest operating
+ 
+
+37
+00:00:49,520 --> 00:00:53,540
+access to your guest operating
+system let's say port 22 or ran out of
+
+38
+00:00:53,540 --> 00:00:53,550
+system let's say port 22 or ran out of
+ 
+
+39
+00:00:53,550 --> 00:00:54,889
+system let's say port 22 or ran out of
+space on the hard drive
+
+40
+00:00:54,889 --> 00:00:54,899
+space on the hard drive
+ 
+
+41
+00:00:54,899 --> 00:00:57,400
+space on the hard drive
+well let's say there are a lot of options in order to
+
+42
+00:00:57,400 --> 00:00:57,410
+well let's say there are a lot of options in order to
+ 
+
+43
+00:00:57,410 --> 00:01:00,319
+well let's say there are a lot of options in order to
+fix this situation we need to either
+
+44
+00:01:00,319 --> 00:01:00,329
+fix this situation we need to either
+ 
+
+45
+00:01:00,329 --> 00:01:02,270
+fix this situation we need to either
+call there technical support there
+
+46
+00:01:02,270 --> 00:01:02,280
+call there technical support there
+ 
+
+47
+00:01:02,280 --> 00:01:05,329
+call there technical support there
+call the administrator so that he
+
+48
+00:01:05,329 --> 00:01:05,339
+call the administrator so that he
+ 
+
+49
+00:01:05,339 --> 00:01:08,300
+call the administrator so that he
+fixes this situation and was to go to the
+
+50
+00:01:08,300 --> 00:01:08,310
+fixes this situation and was to go to the
+ 
+
+51
+00:01:08,310 --> 00:01:10,670
+fixes this situation and was to go to the
+office if it is somewhere on the territory of your
+
+52
+00:01:10,670 --> 00:01:10,680
+office if it is somewhere on the territory of your
+ 
+
+53
+00:01:10,680 --> 00:01:13,429
+office if it is somewhere on the territory of your
+city you are sitting at night well that is a whole
+
+54
+00:01:13,429 --> 00:01:13,439
+city you are sitting at night well that is a whole
+ 
+
+55
+00:01:13,439 --> 00:01:16,310
+city you are sitting at night well that is a whole
+hemorrhoid to protect yourself from such
+
+56
+00:01:16,310 --> 00:01:16,320
+hemorrhoid to protect yourself from such
+ 
+
+57
+00:01:16,320 --> 00:01:20,480
+hemorrhoid to protect yourself from such
+manipulations and let's say you have
+
+58
+00:01:20,480 --> 00:01:20,490
+manipulations and let's say you have
+ 
+
+59
+00:01:20,490 --> 00:01:23,660
+manipulations and let's say you have
+access to your hypervisor then
+
+60
+00:01:23,660 --> 00:01:23,670
+access to your hypervisor then
+ 
+
+61
+00:01:23,670 --> 00:01:26,300
+access to your hypervisor then
+accordingly no problems in working
+
+62
+00:01:26,300 --> 00:01:26,310
+accordingly no problems in working
+ 
+
+63
+00:01:26,310 --> 00:01:30,380
+accordingly no problems in working
+with apse graphics namely connecting
+
+64
+00:01:30,380 --> 00:01:30,390
+with apse graphics namely connecting
+ 
+
+65
+00:01:30,390 --> 00:01:32,120
+with apse graphics namely connecting
+using wish console you should not have
+
+66
+00:01:32,120 --> 00:01:32,130
+using wish console you should not have
+ 
+
+67
+00:01:32,130 --> 00:01:34,460
+using wish console you should not have
+let me show you
+
+68
+00:01:34,460 --> 00:01:34,470
+let me show you
+ 
+
+69
+00:01:34,470 --> 00:01:37,880
+let me show you
+how  these options
+
+70
+00:01:37,880 --> 00:01:37,890
+how  these options
+ 
+
+71
+00:01:37,890 --> 00:01:40,010
+how  these options
+where should be located what are they
+
+72
+00:01:40,010 --> 00:01:40,020
+where should be located what are they
+ 
+
+73
+00:01:40,020 --> 00:01:41,660
+where should be located what are they
+called actually
+
+74
+00:01:41,660 --> 00:01:41,670
+called actually
+ 
+
+75
+00:01:41,670 --> 00:01:46,850
+called actually
+we lead up to the sheet as we see I
+
+76
+00:01:46,850 --> 00:01:46,860
+we lead up to the sheet as we see I
+ 
+
+77
+00:01:46,860 --> 00:01:48,740
+we lead up to the sheet as we see I
+have one operating
+
+78
+00:01:48,740 --> 00:01:48,750
+have one operating
+ 
+
+79
+00:01:48,750 --> 00:01:51,260
+have one operating
+system running actually it is not important
+
+80
+00:01:51,260 --> 00:01:51,270
+system running actually it is not important
+ 
+
+81
+00:01:51,270 --> 00:01:53,330
+system running actually it is not important
+we can use both on switched off
+
+82
+00:01:53,330 --> 00:01:53,340
+we can use both on switched off
+ 
+
+83
+00:01:53,340 --> 00:01:55,010
+we can use both on switched off
+operating systems pre-
+
+84
+00:01:55,010 --> 00:01:55,020
+operating systems pre-
+ 
+
+85
+00:01:55,020 --> 00:01:58,459
+operating systems pre-
+prepare also they and on
+
+86
+00:01:58,459 --> 00:01:58,469
+prepare also they and on
+ 
+
+87
+00:01:58,469 --> 00:02:02,270
+prepare also they and on
+switched on there are two configuration
+
+88
+00:02:02,270 --> 00:02:02,280
+switched on there are two configuration
+ 
+
+89
+00:02:02,280 --> 00:02:04,700
+switched on there are two configuration
+parameters that are responsible for just
+
+90
+00:02:04,700 --> 00:02:04,710
+parameters that are responsible for just
+ 
+
+91
+00:02:04,710 --> 00:02:06,610
+parameters that are responsible for just
+working with psy this is
+
+92
+00:02:06,610 --> 00:02:06,620
+working with psy this is
+ 
+
+93
+00:02:06,620 --> 00:02:10,150
+working with psy this is
+called graphics stalemate is called 1 this is a series of
+
+94
+00:02:10,150 --> 00:02:10,160
+called graphics stalemate is called 1 this is a series of
+ 
+
+95
+00:02:10,160 --> 00:02:12,720
+called graphics stalemate is called 1 this is a series of
+that by 2 console give them this business we
+
+96
+00:02:12,720 --> 00:02:12,730
+that by 2 console give them this business we
+ 
+
+97
+00:02:12,730 --> 00:02:16,300
+that by 2 console give them this business we
+will demonstrate we lead a lump edit and I
+
+98
+00:02:16,300 --> 00:02:16,310
+will demonstrate we lead a lump edit and I
+ 
+
+99
+00:02:16,310 --> 00:02:16,960
+will demonstrate we lead a lump edit and I
+will indicate
+
+100
+00:02:16,960 --> 00:02:16,970
+will indicate
+ 
+
+101
+00:02:16,970 --> 00:02:19,210
+will indicate
+12 so as not to write this long
+
+102
+00:02:19,210 --> 00:02:19,220
+12 so as not to write this long
+ 
+
+103
+00:02:19,220 --> 00:02:22,870
+12 so as not to write this long
+name what is accordingly 10 we are
+
+104
+00:02:22,870 --> 00:02:22,880
+name what is accordingly 10 we are
+ 
+
+105
+00:02:22,880 --> 00:02:27,730
+name what is accordingly 10 we are
+now leading serial type these
+
+106
+00:02:27,730 --> 00:02:27,740
+now leading serial type these
+ 
+
+107
+00:02:27,740 --> 00:02:29,950
+now leading serial type these
+options are included by default after
+
+108
+00:02:29,950 --> 00:02:29,960
+options are included by default after
+ 
+
+109
+00:02:29,960 --> 00:02:31,780
+options are included by default after
+installing any distribution of
+
+110
+00:02:31,780 --> 00:02:31,790
+installing any distribution of
+ 
+
+111
+00:02:31,790 --> 00:02:33,760
+installing any distribution of
+independence windows operating
+
+112
+00:02:33,760 --> 00:02:33,770
+independence windows operating
+ 
+
+113
+00:02:33,770 --> 00:02:36,070
+independence windows operating
+system unix operating system linux
+
+114
+00:02:36,070 --> 00:02:36,080
+system unix operating system linux
+ 
+
+115
+00:02:36,080 --> 00:02:37,660
+system unix operating system linux
+operating system that is any
+
+116
+00:02:37,660 --> 00:02:37,670
+operating system that is any
+ 
+
+117
+00:02:37,670 --> 00:02:39,370
+operating system that is any
+operating system these these
+
+118
+00:02:39,370 --> 00:02:39,380
+operating system these these
+ 
+
+119
+00:02:39,380 --> 00:02:43,180
+operating system these these
+options are included by default in your
+
+120
+00:02:43,180 --> 00:02:43,190
+options are included by default in your
+ 
+
+121
+00:02:43,190 --> 00:02:44,560
+options are included by default in your
+configuration file of
+
+122
+00:02:44,560 --> 00:02:44,570
+configuration file of
+ 
+
+123
+00:02:44,570 --> 00:02:47,910
+configuration file of
+your guest pepper skills environment
+
+124
+00:02:47,910 --> 00:02:47,920
+your guest pepper skills environment
+ 
+
+125
+00:02:47,920 --> 00:02:50,680
+your guest pepper skills environment
+accordingly the type series and is responsible for
+
+126
+00:02:50,680 --> 00:02:50,690
+accordingly the type series and is responsible for
+ 
+
+127
+00:02:50,690 --> 00:02:55,480
+accordingly the type series and is responsible for
+apses graphics that is and some no some
+
+128
+00:02:55,480 --> 00:02:55,490
+apses graphics that is and some no some
+ 
+
+129
+00:02:55,490 --> 00:02:58,150
+apses graphics that is and some no some
+console utility that allows you to
+
+130
+00:02:58,150 --> 00:02:58,160
+console utility that allows you to
+ 
+
+131
+00:02:58,160 --> 00:03:00,100
+console utility that allows you to
+use just forwarding of all
+
+132
+00:03:00,100 --> 00:03:00,110
+use just forwarding of all
+ 
+
+133
+00:03:00,110 --> 00:03:02,530
+use just forwarding of all
+graphical interfaces but the type console
+
+134
+00:03:02,530 --> 00:03:02,540
+graphical interfaces but the type console
+ 
+
+135
+00:03:02,540 --> 00:03:04,660
+graphical interfaces but the type console
+accordingly allows the wedge
+
+136
+00:03:04,660 --> 00:03:04,670
+accordingly allows the wedge
+ 
+
+137
+00:03:04,670 --> 00:03:06,700
+accordingly allows the wedge
+console command to implement this technology
+
+138
+00:03:06,700 --> 00:03:06,710
+console command to implement this technology
+ 
+
+139
+00:03:06,710 --> 00:03:10,090
+console command to implement this technology
+well let me demonstrate how with
+
+140
+00:03:10,090 --> 00:03:10,100
+well let me demonstrate how with
+ 
+
+141
+00:03:10,100 --> 00:03:12,970
+well let me demonstrate how with
+these options if  we have no settings not
+
+142
+00:03:12,970 --> 00:03:12,980
+these options if  we have no settings not
+ 
+
+143
+00:03:12,980 --> 00:03:15,400
+these options if  we have no settings not
+configured hypervisor namely guest
+
+144
+00:03:15,400 --> 00:03:15,410
+configured hypervisor namely guest
+ 
+
+145
+00:03:15,410 --> 00:03:16,360
+configured hypervisor namely guest
+operating system
+
+146
+00:03:16,360 --> 00:03:16,370
+operating system
+ 
+
+147
+00:03:16,370 --> 00:03:20,170
+operating system
+if we lead up console again
+
+148
+00:03:20,170 --> 00:03:20,180
+if we lead up console again
+ 
+
+149
+00:03:20,180 --> 00:03:22,630
+if we lead up console again
+number 2 I will put and if I start we
+
+150
+00:03:22,630 --> 00:03:22,640
+number 2 I will put and if I start we
+ 
+
+151
+00:03:22,640 --> 00:03:24,790
+number 2 I will put and if I start we
+press enter it breaks through as you can see
+
+152
+00:03:24,790 --> 00:03:24,800
+press enter it breaks through as you can see
+ 
+
+153
+00:03:24,800 --> 00:03:29,290
+press enter it breaks through as you can see
+no manipulations with this turntable does not
+
+154
+00:03:29,290 --> 00:03:29,300
+no manipulations with this turntable does not
+ 
+
+155
+00:03:29,300 --> 00:03:33,910
+no manipulations with this turntable does not
+happen if everything is good then in our
+
+156
+00:03:33,910 --> 00:03:33,920
+happen if everything is good then in our
+ 
+
+157
+00:03:33,920 --> 00:03:38,020
+happen if everything is good then in our
+case it should dad we should get it
+
+158
+00:03:38,020 --> 00:03:38,030
+case it should dad we should get it
+ 
+
+159
+00:03:38,030 --> 00:03:40,420
+case it should dad we should get it
+login and password and our guest person
+
+160
+00:03:40,420 --> 00:03:40,430
+login and password and our guest person
+ 
+
+161
+00:03:40,430 --> 00:03:43,780
+login and password and our guest person
+tizen let him sit I will demonstrate in
+
+162
+00:03:43,780 --> 00:03:43,790
+tizen let him sit I will demonstrate in
+ 
+
+163
+00:03:43,790 --> 00:03:46,150
+tizen let him sit I will demonstrate in
+our case it is also necessary to configure the
+
+164
+00:03:46,150 --> 00:03:46,160
+our case it is also necessary to configure the
+ 
+
+165
+00:03:46,160 --> 00:03:49,180
+our case it is also necessary to configure the
+parameter responsible for just working with the
+
+166
+00:03:49,180 --> 00:03:49,190
+parameter responsible for just working with the
+ 
+
+167
+00:03:49,190 --> 00:03:53,070
+parameter responsible for just working with the
+console yes this option is called
+
+168
+00:03:53,070 --> 00:03:53,080
+console yes this option is called
+ 
+
+169
+00:03:53,080 --> 00:03:54,910
+console yes this option is called
+console
+
+170
+00:03:54,910 --> 00:03:54,920
+console
+ 
+
+171
+00:03:54,920 --> 00:03:56,910
+console
+it should be registered in the
+
+172
+00:03:56,910 --> 00:03:56,920
+it should be registered in the
+ 
+
+173
+00:03:56,920 --> 00:03:58,780
+it should be registered in the
+configuration file roughly
+
+174
+00:03:58,780 --> 00:03:58,790
+configuration file roughly
+ 
+
+175
+00:03:58,790 --> 00:04:00,580
+configuration file roughly
+let's connect to the guest
+
+176
+00:04:00,580 --> 00:04:00,590
+let's connect to the guest
+ 
+
+177
+00:04:00,590 --> 00:04:05,140
+let's connect to the guest
+operating system status and 219 to
+
+178
+00:04:05,140 --> 00:04:05,150
+operating system status and 219 to
+ 
+
+179
+00:04:05,150 --> 00:04:08,440
+operating system status and 219 to
+bring the books lieutenant 123 123
+
+180
+00:04:08,440 --> 00:04:08,450
+bring the books lieutenant 123 123
+ 
+
+181
+00:04:08,450 --> 00:04:11,800
+bring the books lieutenant 123 123
+and as we see we have now got to how
+
+182
+00:04:11,800 --> 00:04:11,810
+and as we see we have now got to how
+ 
+
+183
+00:04:11,810 --> 00:04:14,379
+and as we see we have now got to how
+our guest person system and now
+
+184
+00:04:14,379 --> 00:04:14,389
+our guest person system and now
+ 
+
+185
+00:04:14,389 --> 00:04:18,249
+our guest person system and now
+if you want to use pink you
+
+186
+00:04:18,249 --> 00:04:18,259
+if you want to use pink you
+ 
+
+187
+00:04:18,259 --> 00:04:21,069
+if you want to use pink you
+need to register it in the group.  kfg
+
+188
+00:04:21,069 --> 00:04:21,079
+need to register it in the group.  kfg
+ 
+
+189
+00:04:21,079 --> 00:04:23,409
+need to register it in the group.  kfg
+located in the home directory but
+
+190
+00:04:23,409 --> 00:04:23,419
+located in the home directory but
+ 
+
+191
+00:04:23,419 --> 00:04:27,310
+located in the home directory but
+or if you use let's say so
+
+192
+00:04:27,310 --> 00:04:27,320
+or if you use let's say so
+ 
+
+193
+00:04:27,320 --> 00:04:29,950
+or if you use let's say so
+often update your production
+
+194
+00:04:29,950 --> 00:04:29,960
+often update your production
+ 
+
+195
+00:04:29,960 --> 00:04:32,529
+often update your production
+environment then it is better of course to specify this
+
+196
+00:04:32,529 --> 00:04:32,539
+environment then it is better of course to specify this
+ 
+
+197
+00:04:32,539 --> 00:04:36,189
+environment then it is better of course to specify this
+option in the configuration file where
+
+198
+00:04:36,189 --> 00:04:36,199
+option in the configuration file where
+ 
+
+199
+00:04:36,199 --> 00:04:38,610
+option in the configuration file where
+all the default parameters for your
+
+200
+00:04:38,610 --> 00:04:38,620
+all the default parameters for your
+ 
+
+201
+00:04:38,620 --> 00:04:40,779
+all the default parameters for your
+roughly well let me demonstrate this to you
+
+202
+00:04:40,779 --> 00:04:40,789
+roughly well let me demonstrate this to you
+ 
+
+203
+00:04:40,789 --> 00:04:44,490
+roughly well let me demonstrate this to you
+vim this is c default and
+
+204
+00:04:44,490 --> 00:04:44,500
+vim this is c default and
+ 
+
+205
+00:04:44,500 --> 00:04:47,650
+vim this is c default and
+actually groups we need on those
+
+206
+00:04:47,650 --> 00:04:47,660
+actually groups we need on those
+ 
+
+207
+00:04:47,660 --> 00:04:50,620
+actually groups we need on those
+parameter responsible for groups cmd line
+
+208
+00:04:50,620 --> 00:04:50,630
+parameter responsible for groups cmd line
+ 
+
+209
+00:04:50,630 --> 00:04:53,320
+parameter responsible for groups cmd line
+linux and specify here the
+
+210
+00:04:53,320 --> 00:04:53,330
+linux and specify here the
+ 
+
+211
+00:04:53,330 --> 00:05:02,260
+linux and specify here the
+console option equal to 1 of 0 as you
+
+212
+00:05:02,260 --> 00:05:02,270
+console option equal to 1 of 0 as you
+ 
+
+213
+00:05:02,270 --> 00:05:04,779
+console option equal to 1 of 0 as you
+remember port 0 and accordingly the
+
+214
+00:05:04,779 --> 00:05:04,789
+remember port 0 and accordingly the
+ 
+
+215
+00:05:04,789 --> 00:05:10,540
+remember port 0 and accordingly the
+data transfer rate 115 115 200 in such a
+
+216
+00:05:10,540 --> 00:05:10,550
+data transfer rate 115 115 200 in such a
+ 
+
+217
+00:05:10,550 --> 00:05:14,710
+data transfer rate 115 115 200 in such a
+not complicated at all not complicated way
+
+218
+00:05:14,710 --> 00:05:14,720
+not complicated at all not complicated way
+ 
+
+219
+00:05:14,720 --> 00:05:17,680
+not complicated at all not complicated way
+we have now configured our
+
+220
+00:05:17,680 --> 00:05:17,690
+we have now configured our
+ 
+
+221
+00:05:17,690 --> 00:05:19,950
+we have now configured our
+console now we just have to
+
+222
+00:05:19,950 --> 00:05:19,960
+console now we just have to
+ 
+
+223
+00:05:19,960 --> 00:05:22,360
+console now we just have to
+apply the parameters for our kernel we
+
+224
+00:05:22,360 --> 00:05:22,370
+apply the parameters for our kernel we
+ 
+
+225
+00:05:22,370 --> 00:05:27,670
+apply the parameters for our kernel we
+lead to the boy group 2 m to the config with the
+
+226
+00:05:27,670 --> 00:05:27,680
+lead to the boy group 2 m to the config with the
+ 
+
+227
+00:05:27,680 --> 00:05:31,499
+lead to the boy group 2 m to the config with the
+key about what does on put on put
+
+228
+00:05:31,499 --> 00:05:31,509
+key about what does on put on put
+ 
+
+229
+00:05:31,509 --> 00:05:32,680
+key about what does on put on put
+group2
+
+230
+00:05:32,680 --> 00:05:32,690
+group2
+ 
+
+231
+00:05:32,690 --> 00:05:36,550
+group2
+groups mean.  cafe g we press enter
+
+232
+00:05:36,550 --> 00:05:36,560
+groups mean.  cafe g we press enter
+ 
+
+233
+00:05:36,560 --> 00:05:38,469
+groups mean.  cafe g we press enter
+accordingly our
+
+234
+00:05:38,469 --> 00:05:38,479
+accordingly our
+ 
+
+235
+00:05:38,479 --> 00:05:40,629
+accordingly our
+configuration file is rewritten now we can
+
+236
+00:05:40,629 --> 00:05:40,639
+configuration file is rewritten now we can
+ 
+
+237
+00:05:40,639 --> 00:05:44,159
+configuration file is rewritten now we can
+make sure that everything is fine with us
+
+238
+00:05:44,159 --> 00:05:44,169
+make sure that everything is fine with us
+ 
+
+239
+00:05:44,169 --> 00:05:49,300
+make sure that everything is fine with us
+console is equal to yours for example yes and
+
+240
+00:05:49,300 --> 00:05:49,310
+console is equal to yours for example yes and
+ 
+
+241
+00:05:49,310 --> 00:05:55,170
+console is equal to yours for example yes and
+but group2 groups.  cafe and as we see
+
+242
+00:05:55,170 --> 00:05:55,180
+but group2 groups.  cafe and as we see
+ 
+
+243
+00:05:55,180 --> 00:05:58,149
+but group2 groups.  cafe and as we see
+this option got not just into the
+
+244
+00:05:58,149 --> 00:05:58,159
+this option got not just into the
+ 
+
+245
+00:05:58,159 --> 00:06:00,570
+this option got not just into the
+parameters of launching our operating
+
+246
+00:06:00,570 --> 00:06:00,580
+parameters of launching our operating
+ 
+
+247
+00:06:00,580 --> 00:06:01,779
+parameters of launching our operating
+system
+
+248
+00:06:01,779 --> 00:06:01,789
+system
+ 
+
+249
+00:06:01,789 --> 00:06:04,110
+system
+after which we can actually
+
+250
+00:06:04,110 --> 00:06:04,120
+after which we can actually
+ 
+
+251
+00:06:04,120 --> 00:06:08,290
+after which we can actually
+reboot and try now after
+
+252
+00:06:08,290 --> 00:06:08,300
+reboot and try now after
+ 
+
+253
+00:06:08,300 --> 00:06:09,610
+reboot and try now after
+that open
+
+254
+00:06:09,610 --> 00:06:09,620
+that open
+ 
+
+255
+00:06:09,620 --> 00:06:15,430
+that open
+but not top df wear was zero now we will
+
+256
+00:06:15,430 --> 00:06:15,440
+but not top df wear was zero now we will
+ 
+
+257
+00:06:15,440 --> 00:06:17,440
+but not top df wear was zero now we will
+make sure that our system is fully
+
+258
+00:06:17,440 --> 00:06:17,450
+make sure that our system is fully
+ 
+
+259
+00:06:17,450 --> 00:06:19,810
+make sure that our system is fully
+loaded we will not allow any errors
+
+260
+00:06:19,810 --> 00:06:19,820
+loaded we will not allow any errors
+ 
+
+261
+00:06:19,820 --> 00:06:22,029
+loaded we will not allow any errors
+namely since I am a guest
+
+262
+00:06:22,029 --> 00:06:22,039
+namely since I am a guest
+ 
+
+263
+00:06:22,039 --> 00:06:23,589
+namely since I am a guest
+operating system of work via
+
+264
+00:06:23,589 --> 00:06:23,599
+operating system of work via
+ 
+
+265
+00:06:23,599 --> 00:06:26,589
+operating system of work via
+dhcp requests will be possible at the server api
+
+266
+00:06:26,589 --> 00:06:26,599
+dhcp requests will be possible at the server api
+ 
+
+267
+00:06:26,599 --> 00:06:28,839
+dhcp requests will be possible at the server api
+address we see that in this case we
+
+268
+00:06:28,839 --> 00:06:28,849
+address we see that in this case we
+ 
+
+269
+00:06:28,849 --> 00:06:34,959
+address we see that in this case we
+received api addresses of our virtual glasses and
+
+270
+00:06:34,959 --> 00:06:34,969
+received api addresses of our virtual glasses and
+ 
+
+271
+00:06:34,969 --> 00:06:39,159
+received api addresses of our virtual glasses and
+now we can connect via
+
+272
+00:06:39,159 --> 00:06:39,169
+now we can connect via
+ 
+
+273
+00:06:39,169 --> 00:06:40,300
+now we can connect via
+ssh
+
+274
+00:06:40,300 --> 00:06:40,310
+ssh
+ 
+
+275
+00:06:40,310 --> 00:06:43,300
+ssh
+as we see everything is fine everything works and
+
+276
+00:06:43,300 --> 00:06:43,310
+as we see everything is fine everything works and
+ 
+
+277
+00:06:43,310 --> 00:06:46,050
+as we see everything is fine everything works and
+now we can
+
+278
+00:06:46,050 --> 00:06:46,060
+now we can
+ 
+
+279
+00:06:46,060 --> 00:06:50,019
+now we can
+play around with you namely let's kill that
+
+280
+00:06:50,019 --> 00:06:50,029
+play around with you namely let's kill that
+ 
+
+281
+00:06:50,029 --> 00:06:53,769
+play around with you namely let's kill that
+forest h-service and on this everything will be fine with us
+
+282
+00:06:53,769 --> 00:06:53,779
+forest h-service and on this everything will be fine with us
+ 
+
+283
+00:06:53,779 --> 00:06:58,570
+forest h-service and on this everything will be fine with us
+that give up from what ktr stop
+
+284
+00:06:58,570 --> 00:06:58,580
+that give up from what ktr stop
+ 
+
+285
+00:06:58,580 --> 00:07:00,149
+that give up from what ktr stop
+sshd
+
+286
+00:07:00,149 --> 00:07:00,159
+sshd
+ 
+
+287
+00:07:00,159 --> 00:07:03,700
+sshd
+excellent in our case we are all at bide
+
+288
+00:07:03,700 --> 00:07:03,710
+excellent in our case we are all at bide
+ 
+
+289
+00:07:03,710 --> 00:07:06,969
+excellent in our case we are all at bide
+and now we can exit accordingly
+
+290
+00:07:06,969 --> 00:07:06,979
+and now we can exit accordingly
+ 
+
+291
+00:07:06,979 --> 00:07:08,620
+and now we can exit accordingly
+if I now try again to
+
+292
+00:07:08,620 --> 00:07:08,630
+if I now try again to
+ 
+
+293
+00:07:08,630 --> 00:07:11,110
+if I now try again to
+connect to this turntable they
+
+294
+00:07:11,110 --> 00:07:11,120
+connect to this turntable they
+ 
+
+295
+00:07:11,120 --> 00:07:13,899
+connect to this turntable they
+tell me that connect reviews so that
+
+296
+00:07:13,899 --> 00:07:13,909
+tell me that connect reviews so that
+ 
+
+297
+00:07:13,909 --> 00:07:17,379
+tell me that connect reviews so that
+means that well and the old port is unavailable that is
+
+298
+00:07:17,379 --> 00:07:17,389
+means that well and the old port is unavailable that is
+ 
+
+299
+00:07:17,389 --> 00:07:19,750
+means that well and the old port is unavailable that is
+us h-service something happened to it
+
+300
+00:07:19,750 --> 00:07:19,760
+us h-service something happened to it
+ 
+
+301
+00:07:19,760 --> 00:07:23,860
+us h-service something happened to it
+and now we can in with the help of k
+
+302
+00:07:23,860 --> 00:07:23,870
+and now we can in with the help of k
+ 
+
+303
+00:07:23,870 --> 00:07:27,189
+and now we can in with the help of k
+boys in wish console as we remember
+
+304
+00:07:27,189 --> 00:07:27,199
+boys in wish console as we remember
+ 
+
+305
+00:07:27,199 --> 00:07:31,350
+boys in wish console as we remember
+from so again in view wish console
+
+306
+00:07:31,350 --> 00:07:31,360
+from so again in view wish console
+ 
+
+307
+00:07:31,360 --> 00:07:35,550
+from so again in view wish console
+id  2 we press again the center we
+
+308
+00:07:35,550 --> 00:07:35,560
+id  2 we press again the center we
+ 
+
+309
+00:07:35,560 --> 00:07:39,100
+id  2 we press again the center we
+get our apses graphics where the system
+
+310
+00:07:39,100 --> 00:07:39,110
+get our apses graphics where the system
+ 
+
+311
+00:07:39,110 --> 00:07:41,829
+get our apses graphics where the system
+offers to enter a login respectively
+
+312
+00:07:41,829 --> 00:07:41,839
+offers to enter a login respectively
+ 
+
+313
+00:07:41,839 --> 00:07:42,540
+offers to enter a login respectively
+password
+
+314
+00:07:42,540 --> 00:07:42,550
+password
+ 
+
+315
+00:07:42,550 --> 00:07:47,079
+password
+let's make sure that we have csa demons the
+
+316
+00:07:47,079 --> 00:07:47,089
+let's make sure that we have csa demons the
+ 
+
+317
+00:07:47,089 --> 00:07:50,829
+let's make sure that we have csa demons the
+cocktail of active with hd
+
+318
+00:07:50,829 --> 00:07:50,839
+cocktail of active with hd
+ 
+
+319
+00:07:50,839 --> 00:07:54,610
+cocktail of active with hd
+we see that inactive let's check that
+
+320
+00:07:54,610 --> 00:07:54,620
+we see that inactive let's check that
+ 
+
+321
+00:07:54,620 --> 00:08:00,380
+we see that inactive let's check that
+api and sasha and tha 0ov
+
+322
+00:08:00,380 --> 00:08:00,390
+api and sasha and tha 0ov
+ 
+
+323
+00:08:00,390 --> 00:08:07,160
+api and sasha and tha 0ov
+let it be 192 168 print packs 2
+
+324
+00:08:07,160 --> 00:08:07,170
+let it be 192 168 print packs 2
+ 
+
+325
+00:08:07,170 --> 00:08:09,710
+let it be 192 168 print packs 2
+here is our api address to which we
+
+326
+00:08:09,710 --> 00:08:09,720
+here is our api address to which we
+ 
+
+327
+00:08:09,720 --> 00:08:13,570
+here is our api address to which we
+actually now tried to connect well
+
+328
+00:08:13,570 --> 00:08:13,580
+actually now tried to connect well
+ 
+
+329
+00:08:13,580 --> 00:08:17,590
+actually now tried to connect well
+let's run the service of the catelli systems
+
+330
+00:08:17,590 --> 00:08:17,600
+let's run the service of the catelli systems
+ 
+
+331
+00:08:17,600 --> 00:08:18,740
+let's run the service of the catelli systems
+
+332
+00:08:18,740 --> 00:08:18,750
+
+ 
+
+333
+00:08:18,750 --> 00:08:23,960
+
+start sshd make sure that we have access
+
+334
+00:08:23,960 --> 00:08:23,970
+start sshd make sure that we have access
+ 
+
+335
+00:08:23,970 --> 00:08:29,470
+start sshd make sure that we have access
+from the sinks typhus parasite okay and now let's make
+
+336
+00:08:29,470 --> 00:08:29,480
+from the sinks typhus parasite okay and now let's make
+ 
+
+337
+00:08:29,480 --> 00:08:32,060
+from the sinks typhus parasite okay and now let's make
+sure that in the service we have to dry on
+
+338
+00:08:32,060 --> 00:08:32,070
+sure that in the service we have to dry on
+ 
+
+339
+00:08:32,070 --> 00:08:33,170
+sure that in the service we have to dry on
+2 old ports
+
+340
+00:08:33,170 --> 00:08:33,180
+2 old ports
+ 
+
+341
+00:08:33,180 --> 00:08:35,150
+2 old ports
+in case I will not use to the
+
+342
+00:08:35,150 --> 00:08:35,160
+in case I will not use to the
+ 
+
+343
+00:08:35,160 --> 00:08:36,200
+in case I will not use to the
+boy on the quotes but I
+
+344
+00:08:36,200 --> 00:08:36,210
+boy on the quotes but I
+ 
+
+345
+00:08:36,210 --> 00:08:40,100
+boy on the quotes but I
+will demonstrate one of the included in the
+
+346
+00:08:40,100 --> 00:08:40,110
+will demonstrate one of the included in the
+ 
+
+347
+00:08:40,110 --> 00:08:44,030
+will demonstrate one of the included in the
+package and the first round service
+
+348
+00:08:44,030 --> 00:08:44,040
+package and the first round service
+ 
+
+349
+00:08:44,040 --> 00:08:48,290
+package and the first round service
+called the ussr with is responsible just for
+
+350
+00:08:48,290 --> 00:08:48,300
+called the ussr with is responsible just for
+ 
+
+351
+00:08:48,300 --> 00:08:53,680
+called the ussr with is responsible just for
+viewing all socket connections as for
+
+352
+00:08:53,680 --> 00:08:53,690
+viewing all socket connections as for
+ 
+
+353
+00:08:53,690 --> 00:08:57,320
+viewing all socket connections as for
+dp therapy and beer 4 and beer 6 and so on further
+
+354
+00:08:57,320 --> 00:08:57,330
+dp therapy and beer 4 and beer 6 and so on further
+ 
+
+355
+00:08:57,330 --> 00:09:01,760
+dp therapy and beer 4 and beer 6 and so on further
+further s4 from what does a beer
+
+356
+00:09:01,760 --> 00:09:01,770
+further s4 from what does a beer
+ 
+
+357
+00:09:01,770 --> 00:09:07,120
+further s4 from what does a beer
+4 mean the key you denoting tise pi the key
+
+358
+00:09:07,120 --> 00:09:07,130
+4 mean the key you denoting tise pi the key
+ 
+
+359
+00:09:07,130 --> 00:09:13,400
+4 mean the key you denoting tise pi the key
+means show all the services that are
+
+360
+00:09:13,400 --> 00:09:13,410
+means show all the services that are
+ 
+
+361
+00:09:13,410 --> 00:09:15,520
+means show all the services that are
+listened to and accordingly the key and
+
+362
+00:09:15,520 --> 00:09:15,530
+listened to and accordingly the key and
+ 
+
+363
+00:09:15,530 --> 00:09:17,930
+listened to and accordingly the key and
+display exactly in  hourly values
+
+364
+00:09:17,930 --> 00:09:17,940
+display exactly in  hourly values
+ 
+
+365
+00:09:17,940 --> 00:09:22,850
+display exactly in  hourly values
+okay as we see we have by stan dries
+
+366
+00:09:22,850 --> 00:09:22,860
+okay as we see we have by stan dries
+ 
+
+367
+00:09:22,860 --> 00:09:26,780
+okay as we see we have by stan dries
+port 22 actually ssh is available to us
+
+368
+00:09:26,780 --> 00:09:26,790
+port 22 actually ssh is available to us
+ 
+
+369
+00:09:26,790 --> 00:09:29,960
+port 22 actually ssh is available to us
+now we can log out with you and
+
+370
+00:09:29,960 --> 00:09:29,970
+now we can log out with you and
+ 
+
+371
+00:09:29,970 --> 00:09:34,640
+now we can log out with you and
+this is just press the counter with a bracket and
+
+372
+00:09:34,640 --> 00:09:34,650
+this is just press the counter with a bracket and
+ 
+
+373
+00:09:34,650 --> 00:09:37,130
+this is just press the counter with a bracket and
+we are out now if
+
+374
+00:09:37,130 --> 00:09:37,140
+we are out now if
+ 
+
+375
+00:09:37,140 --> 00:09:41,180
+we are out now if
+reset and now if we connect with you
+
+376
+00:09:41,180 --> 00:09:41,190
+reset and now if we connect with you
+ 
+
+377
+00:09:41,190 --> 00:09:45,410
+reset and now if we connect with you
+all worth 2 168 122 19 as we see
+
+378
+00:09:45,410 --> 00:09:45,420
+all worth 2 168 122 19 as we see
+ 
+
+379
+00:09:45,420 --> 00:09:49,940
+all worth 2 168 122 19 as we see
+we are all good here they are the last
+
+380
+00:09:49,940 --> 00:09:49,950
+we are all good here they are the last
+ 
+
+381
+00:09:49,950 --> 00:09:51,830
+we are all good here they are the last
+commands that we had with you in
+
+382
+00:09:51,830 --> 00:09:51,840
+commands that we had with you in
+ 
+
+383
+00:09:51,840 --> 00:09:54,740
+commands that we had with you in
+this case what friends if you
+
+384
+00:09:54,740 --> 00:09:54,750
+this case what friends if you
+ 
+
+385
+00:09:54,750 --> 00:09:58,130
+this case what friends if you
+have questions about working with the console
+
+386
+00:09:58,130 --> 00:09:58,140
+have questions about working with the console
+ 
+
+387
+00:09:58,140 --> 00:09:59,720
+have questions about working with the console
+if
+
+388
+00:09:59,720 --> 00:09:59,730
+if
+ 
+
+389
+00:09:59,730 --> 00:10:02,790
+if
+some things are not clear to you write in the
+
+390
+00:10:02,790 --> 00:10:02,800
+some things are not clear to you write in the
+ 
+
+391
+00:10:02,800 --> 00:10:05,460
+some things are not clear to you write in the
+comments but I tell you
+
+392
+00:10:05,460 --> 00:10:05,470
+comments but I tell you
+ 
+
+393
+00:10:05,470 --> 00:10:08,640
+comments but I tell you
+subscribe put likes and as
+
+394
+00:10:08,640 --> 00:10:08,650
+subscribe put likes and as
+ 
+
+395
+00:10:08,650 --> 00:10:12,210
+subscribe put likes and as
+always bye bye
+

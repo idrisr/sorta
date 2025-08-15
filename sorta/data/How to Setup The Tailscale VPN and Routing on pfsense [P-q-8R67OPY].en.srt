@@ -1,0 +1,5085 @@
+1
+00:00:00,480 --> 00:00:02,310
+
+tom here from lauren systems and as of
+
+2
+00:00:02,310 --> 00:00:02,320
+tom here from lauren systems and as of
+ 
+
+3
+00:00:02,320 --> 00:00:05,030
+tom here from lauren systems and as of
+july 2022 tail scale has been added as a
+
+4
+00:00:05,030 --> 00:00:05,040
+july 2022 tail scale has been added as a
+ 
+
+5
+00:00:05,040 --> 00:00:07,269
+july 2022 tail scale has been added as a
+package for pf sense plus and pf sense
+
+6
+00:00:07,269 --> 00:00:07,279
+package for pf sense plus and pf sense
+ 
+
+7
+00:00:07,279 --> 00:00:09,350
+package for pf sense plus and pf sense
+ce i'll leave a link down below to the
+
+8
+00:00:09,350 --> 00:00:09,360
+ce i'll leave a link down below to the
+ 
+
+9
+00:00:09,360 --> 00:00:10,870
+ce i'll leave a link down below to the
+netgate announcement that also has an
+
+10
+00:00:10,870 --> 00:00:10,880
+netgate announcement that also has an
+ 
+
+11
+00:00:10,880 --> 00:00:12,709
+netgate announcement that also has an
+embedded video from christian mcdonald
+
+12
+00:00:12,709 --> 00:00:12,719
+embedded video from christian mcdonald
+ 
+
+13
+00:00:12,719 --> 00:00:15,030
+embedded video from christian mcdonald
+where he breaks down the tail scale how
+
+14
+00:00:15,030 --> 00:00:15,040
+where he breaks down the tail scale how
+ 
+
+15
+00:00:15,040 --> 00:00:16,470
+where he breaks down the tail scale how
+it works and a lot of the details that
+
+16
+00:00:16,470 --> 00:00:16,480
+it works and a lot of the details that
+ 
+
+17
+00:00:16,480 --> 00:00:18,470
+it works and a lot of the details that
+went into writing it because well he's
+
+18
+00:00:18,470 --> 00:00:18,480
+went into writing it because well he's
+ 
+
+19
+00:00:18,480 --> 00:00:20,230
+went into writing it because well he's
+the one that wrote it great video lots
+
+20
+00:00:20,230 --> 00:00:20,240
+the one that wrote it great video lots
+ 
+
+21
+00:00:20,240 --> 00:00:22,230
+the one that wrote it great video lots
+of information now what problem does
+
+22
+00:00:22,230 --> 00:00:22,240
+of information now what problem does
+ 
+
+23
+00:00:22,240 --> 00:00:24,230
+of information now what problem does
+tailscale solve well tailscale's an
+
+24
+00:00:24,230 --> 00:00:24,240
+tailscale solve well tailscale's an
+ 
+
+25
+00:00:24,240 --> 00:00:26,150
+tailscale solve well tailscale's an
+overlay network and i have a few videos
+
+26
+00:00:26,150 --> 00:00:26,160
+overlay network and i have a few videos
+ 
+
+27
+00:00:26,160 --> 00:00:27,429
+overlay network and i have a few videos
+where i've done on tailscale and other
+
+28
+00:00:27,429 --> 00:00:27,439
+where i've done on tailscale and other
+ 
+
+29
+00:00:27,439 --> 00:00:29,429
+where i've done on tailscale and other
+overlay networks also linked down below
+
+30
+00:00:29,429 --> 00:00:29,439
+overlay networks also linked down below
+ 
+
+31
+00:00:29,439 --> 00:00:31,429
+overlay networks also linked down below
+so if you'd like to dive into that topic
+
+32
+00:00:31,429 --> 00:00:31,439
+so if you'd like to dive into that topic
+ 
+
+33
+00:00:31,439 --> 00:00:33,350
+so if you'd like to dive into that topic
+the problem i see this really solving
+
+34
+00:00:33,350 --> 00:00:33,360
+the problem i see this really solving
+ 
+
+35
+00:00:33,360 --> 00:00:35,430
+the problem i see this really solving
+for a lot of people is with tail scale
+
+36
+00:00:35,430 --> 00:00:35,440
+for a lot of people is with tail scale
+ 
+
+37
+00:00:35,440 --> 00:00:37,990
+for a lot of people is with tail scale
+you load the tail scale client on mac
+
+38
+00:00:37,990 --> 00:00:38,000
+you load the tail scale client on mac
+ 
+
+39
+00:00:38,000 --> 00:00:39,910
+you load the tail scale client on mac
+linux windows devices but obviously
+
+40
+00:00:39,910 --> 00:00:39,920
+linux windows devices but obviously
+ 
+
+41
+00:00:39,920 --> 00:00:42,150
+linux windows devices but obviously
+there's some devices that may not be
+
+42
+00:00:42,150 --> 00:00:42,160
+there's some devices that may not be
+ 
+
+43
+00:00:42,160 --> 00:00:44,389
+there's some devices that may not be
+accessible to you to load tail scale on
+
+44
+00:00:44,389 --> 00:00:44,399
+accessible to you to load tail scale on
+ 
+
+45
+00:00:44,399 --> 00:00:46,869
+accessible to you to load tail scale on
+you know iot devices or camera systems
+
+46
+00:00:46,869 --> 00:00:46,879
+you know iot devices or camera systems
+ 
+
+47
+00:00:46,879 --> 00:00:50,069
+you know iot devices or camera systems
+etc by having it on pf sense this allows
+
+48
+00:00:50,069 --> 00:00:50,079
+etc by having it on pf sense this allows
+ 
+
+49
+00:00:50,079 --> 00:00:52,549
+etc by having it on pf sense this allows
+your tail scale name space that you set
+
+50
+00:00:52,549 --> 00:00:52,559
+your tail scale name space that you set
+ 
+
+51
+00:00:52,559 --> 00:00:55,270
+your tail scale name space that you set
+up to have apf sense in the mix that can
+
+52
+00:00:55,270 --> 00:00:55,280
+up to have apf sense in the mix that can
+ 
+
+53
+00:00:55,280 --> 00:00:57,830
+up to have apf sense in the mix that can
+advertise routes and this gives you the
+
+54
+00:00:57,830 --> 00:00:57,840
+advertise routes and this gives you the
+ 
+
+55
+00:00:57,840 --> 00:00:59,270
+advertise routes and this gives you the
+ability then to
+
+56
+00:00:59,270 --> 00:00:59,280
+ability then to
+ 
+
+57
+00:00:59,280 --> 00:01:02,310
+ability then to
+have access to all those non-tail scale
+
+58
+00:01:02,310 --> 00:01:02,320
+have access to all those non-tail scale
+ 
+
+59
+00:01:02,320 --> 00:01:03,990
+have access to all those non-tail scale
+devices that are on the network behind
+
+60
+00:01:03,990 --> 00:01:04,000
+devices that are on the network behind
+ 
+
+61
+00:01:04,000 --> 00:01:06,710
+devices that are on the network behind
+pfsense it also offers the opportunity
+
+62
+00:01:06,710 --> 00:01:06,720
+pfsense it also offers the opportunity
+ 
+
+63
+00:01:06,720 --> 00:01:08,469
+pfsense it also offers the opportunity
+for people who have been stuck with
+
+64
+00:01:08,469 --> 00:01:08,479
+for people who have been stuck with
+ 
+
+65
+00:01:08,479 --> 00:01:10,230
+for people who have been stuck with
+carrier-grade net and can't just put a
+
+66
+00:01:10,230 --> 00:01:10,240
+carrier-grade net and can't just put a
+ 
+
+67
+00:01:10,240 --> 00:01:12,630
+carrier-grade net and can't just put a
+vpn on pfsense because well no public ip
+
+68
+00:01:12,630 --> 00:01:12,640
+vpn on pfsense because well no public ip
+ 
+
+69
+00:01:12,640 --> 00:01:15,109
+vpn on pfsense because well no public ip
+address available for them and tailscale
+
+70
+00:01:15,109 --> 00:01:15,119
+address available for them and tailscale
+ 
+
+71
+00:01:15,119 --> 00:01:17,830
+address available for them and tailscale
+will facilitate routing through the cg
+
+72
+00:01:17,830 --> 00:01:17,840
+will facilitate routing through the cg
+ 
+
+73
+00:01:17,840 --> 00:01:20,070
+will facilitate routing through the cg
+nat space and still allow these devices
+
+74
+00:01:20,070 --> 00:01:20,080
+nat space and still allow these devices
+ 
+
+75
+00:01:20,080 --> 00:01:21,749
+nat space and still allow these devices
+let's say you have a laptop and you want
+
+76
+00:01:21,749 --> 00:01:21,759
+let's say you have a laptop and you want
+ 
+
+77
+00:01:21,759 --> 00:01:23,910
+let's say you have a laptop and you want
+to leave home but be able to still get
+
+78
+00:01:23,910 --> 00:01:23,920
+to leave home but be able to still get
+ 
+
+79
+00:01:23,920 --> 00:01:25,990
+to leave home but be able to still get
+to all your devices at home no problem
+
+80
+00:01:25,990 --> 00:01:26,000
+to all your devices at home no problem
+ 
+
+81
+00:01:26,000 --> 00:01:27,910
+to all your devices at home no problem
+half tail scale on laptop tailscon pf
+
+82
+00:01:27,910 --> 00:01:27,920
+half tail scale on laptop tailscon pf
+ 
+
+83
+00:01:27,920 --> 00:01:29,990
+half tail scale on laptop tailscon pf
+sense and that will bridge that access
+
+84
+00:01:29,990 --> 00:01:30,000
+sense and that will bridge that access
+ 
+
+85
+00:01:30,000 --> 00:01:32,069
+sense and that will bridge that access
+to all the devices behind there now
+
+86
+00:01:32,069 --> 00:01:32,079
+to all the devices behind there now
+ 
+
+87
+00:01:32,079 --> 00:01:34,230
+to all the devices behind there now
+tailscale has a lot of features but one
+
+88
+00:01:34,230 --> 00:01:34,240
+tailscale has a lot of features but one
+ 
+
+89
+00:01:34,240 --> 00:01:36,069
+tailscale has a lot of features but one
+of them is not going to be
+
+90
+00:01:36,069 --> 00:01:36,079
+of them is not going to be
+ 
+
+91
+00:01:36,079 --> 00:01:38,069
+of them is not going to be
+absolute the best performance speed even
+
+92
+00:01:38,069 --> 00:01:38,079
+absolute the best performance speed even
+ 
+
+93
+00:01:38,079 --> 00:01:39,749
+absolute the best performance speed even
+though it's based on wireguard and
+
+94
+00:01:39,749 --> 00:01:39,759
+though it's based on wireguard and
+ 
+
+95
+00:01:39,759 --> 00:01:41,190
+though it's based on wireguard and
+christian mcdonald addresses this in a
+
+96
+00:01:41,190 --> 00:01:41,200
+christian mcdonald addresses this in a
+ 
+
+97
+00:01:41,200 --> 00:01:42,710
+christian mcdonald addresses this in a
+video it's based on the wireguard go
+
+98
+00:01:42,710 --> 00:01:42,720
+video it's based on the wireguard go
+ 
+
+99
+00:01:42,720 --> 00:01:44,550
+video it's based on the wireguard go
+implementation so there are some speed
+
+100
+00:01:44,550 --> 00:01:44,560
+implementation so there are some speed
+ 
+
+101
+00:01:44,560 --> 00:01:47,030
+implementation so there are some speed
+limitations second it's not the same as
+
+102
+00:01:47,030 --> 00:01:47,040
+limitations second it's not the same as
+ 
+
+103
+00:01:47,040 --> 00:01:49,670
+limitations second it's not the same as
+using a privacy vpn this is a discussion
+
+104
+00:01:49,670 --> 00:01:49,680
+using a privacy vpn this is a discussion
+ 
+
+105
+00:01:49,680 --> 00:01:51,590
+using a privacy vpn this is a discussion
+people may go well can i just use it for
+
+106
+00:01:51,590 --> 00:01:51,600
+people may go well can i just use it for
+ 
+
+107
+00:01:51,600 --> 00:01:53,830
+people may go well can i just use it for
+all my vpn needs not necessarily i have
+
+108
+00:01:53,830 --> 00:01:53,840
+all my vpn needs not necessarily i have
+ 
+
+109
+00:01:53,840 --> 00:01:56,149
+all my vpn needs not necessarily i have
+a link down below for setting up openvpn
+
+110
+00:01:56,149 --> 00:01:56,159
+a link down below for setting up openvpn
+ 
+
+111
+00:01:56,159 --> 00:01:58,230
+a link down below for setting up openvpn
+as a privacy vpn with policy routing
+
+112
+00:01:58,230 --> 00:01:58,240
+as a privacy vpn with policy routing
+ 
+
+113
+00:01:58,240 --> 00:02:00,230
+as a privacy vpn with policy routing
+it's not as much a policy routing type
+
+114
+00:02:00,230 --> 00:02:00,240
+it's not as much a policy routing type
+ 
+
+115
+00:02:00,240 --> 00:02:02,389
+it's not as much a policy routing type
+of vpn it is more a connectivity
+
+116
+00:02:02,389 --> 00:02:02,399
+of vpn it is more a connectivity
+ 
+
+117
+00:02:02,399 --> 00:02:04,870
+of vpn it is more a connectivity
+solution with the overlay network so
+
+118
+00:02:04,870 --> 00:02:04,880
+solution with the overlay network so
+ 
+
+119
+00:02:04,880 --> 00:02:06,389
+solution with the overlay network so
+we're going to dive into how simple it
+
+120
+00:02:06,389 --> 00:02:06,399
+we're going to dive into how simple it
+ 
+
+121
+00:02:06,399 --> 00:02:07,910
+we're going to dive into how simple it
+is to set up what you need to get going
+
+122
+00:02:07,910 --> 00:02:07,920
+is to set up what you need to get going
+ 
+
+123
+00:02:07,920 --> 00:02:09,430
+is to set up what you need to get going
+with it and just a couple of parameters
+
+124
+00:02:09,430 --> 00:02:09,440
+with it and just a couple of parameters
+ 
+
+125
+00:02:09,440 --> 00:02:11,029
+with it and just a couple of parameters
+and a few security thoughts about it
+
+126
+00:02:11,029 --> 00:02:11,039
+and a few security thoughts about it
+ 
+
+127
+00:02:11,039 --> 00:02:12,390
+and a few security thoughts about it
+before we dive into the details of this
+
+128
+00:02:12,390 --> 00:02:12,400
+before we dive into the details of this
+ 
+
+129
+00:02:12,400 --> 00:02:14,630
+before we dive into the details of this
+video let's first are you an individual
+
+130
+00:02:14,630 --> 00:02:14,640
+video let's first are you an individual
+ 
+
+131
+00:02:14,640 --> 00:02:16,150
+video let's first are you an individual
+or company looking for support on a
+
+132
+00:02:16,150 --> 00:02:16,160
+or company looking for support on a
+ 
+
+133
+00:02:16,160 --> 00:02:17,670
+or company looking for support on a
+network engineering storage or
+
+134
+00:02:17,670 --> 00:02:17,680
+network engineering storage or
+ 
+
+135
+00:02:17,680 --> 00:02:19,589
+network engineering storage or
+virtualization project is your company
+
+136
+00:02:19,589 --> 00:02:19,599
+virtualization project is your company
+ 
+
+137
+00:02:19,599 --> 00:02:21,270
+virtualization project is your company
+or internal i.t team looking for someone
+
+138
+00:02:21,270 --> 00:02:21,280
+or internal i.t team looking for someone
+ 
+
+139
+00:02:21,280 --> 00:02:22,790
+or internal i.t team looking for someone
+to proactively monitor your system's
+
+140
+00:02:22,790 --> 00:02:22,800
+to proactively monitor your system's
+ 
+
+141
+00:02:22,800 --> 00:02:24,949
+to proactively monitor your system's
+security or offer strategic guidance to
+
+142
+00:02:24,949 --> 00:02:24,959
+security or offer strategic guidance to
+ 
+
+143
+00:02:24,959 --> 00:02:27,110
+security or offer strategic guidance to
+keep your it systems operating smoothly
+
+144
+00:02:27,110 --> 00:02:27,120
+keep your it systems operating smoothly
+ 
+
+145
+00:02:27,120 --> 00:02:28,790
+keep your it systems operating smoothly
+not only would we love to help consult
+
+146
+00:02:28,790 --> 00:02:28,800
+not only would we love to help consult
+ 
+
+147
+00:02:28,800 --> 00:02:30,790
+not only would we love to help consult
+on your project we also offer fully
+
+148
+00:02:30,790 --> 00:02:30,800
+on your project we also offer fully
+ 
+
+149
+00:02:30,800 --> 00:02:32,790
+on your project we also offer fully
+managed or co-managed i.t service plans
+
+150
+00:02:32,790 --> 00:02:32,800
+managed or co-managed i.t service plans
+ 
+
+151
+00:02:32,800 --> 00:02:34,229
+managed or co-managed i.t service plans
+for businesses in need of it
+
+152
+00:02:34,229 --> 00:02:34,239
+for businesses in need of it
+ 
+
+153
+00:02:34,239 --> 00:02:36,630
+for businesses in need of it
+administration or it teams in need of
+
+154
+00:02:36,630 --> 00:02:36,640
+administration or it teams in need of
+ 
+
+155
+00:02:36,640 --> 00:02:38,630
+administration or it teams in need of
+additional support with our expert
+
+156
+00:02:38,630 --> 00:02:38,640
+additional support with our expert
+ 
+
+157
+00:02:38,640 --> 00:02:40,550
+additional support with our expert
+install team we can also assist you with
+
+158
+00:02:40,550 --> 00:02:40,560
+install team we can also assist you with
+ 
+
+159
+00:02:40,560 --> 00:02:42,390
+install team we can also assist you with
+all of your structured cabling and wi-fi
+
+160
+00:02:42,390 --> 00:02:42,400
+all of your structured cabling and wi-fi
+ 
+
+161
+00:02:42,400 --> 00:02:44,630
+all of your structured cabling and wi-fi
+planning projects if any of this piques
+
+162
+00:02:44,630 --> 00:02:44,640
+planning projects if any of this piques
+ 
+
+163
+00:02:44,640 --> 00:02:46,470
+planning projects if any of this piques
+your interest fill out our hire us form
+
+164
+00:02:46,470 --> 00:02:46,480
+your interest fill out our hire us form
+ 
+
+165
+00:02:46,480 --> 00:02:48,550
+your interest fill out our hire us form
+at laurentsystems.com so we can start
+
+166
+00:02:48,550 --> 00:02:48,560
+at laurentsystems.com so we can start
+ 
+
+167
+00:02:48,560 --> 00:02:50,390
+at laurentsystems.com so we can start
+crafting a solution that works for you
+
+168
+00:02:50,390 --> 00:02:50,400
+crafting a solution that works for you
+ 
+
+169
+00:02:50,400 --> 00:02:51,830
+crafting a solution that works for you
+if you're not interested in hiring us
+
+170
+00:02:51,830 --> 00:02:51,840
+if you're not interested in hiring us
+ 
+
+171
+00:02:51,840 --> 00:02:52,869
+if you're not interested in hiring us
+but you're looking for other ways you
+
+172
+00:02:52,869 --> 00:02:52,879
+but you're looking for other ways you
+ 
+
+173
+00:02:52,879 --> 00:02:54,229
+but you're looking for other ways you
+want to support this channel there's
+
+174
+00:02:54,229 --> 00:02:54,239
+want to support this channel there's
+ 
+
+175
+00:02:54,239 --> 00:02:55,670
+want to support this channel there's
+affiliate links down below to get your
+
+176
+00:02:55,670 --> 00:02:55,680
+affiliate links down below to get your
+ 
+
+177
+00:02:55,680 --> 00:02:56,949
+affiliate links down below to get your
+deals and discounts on products and
+
+178
+00:02:56,949 --> 00:02:56,959
+deals and discounts on products and
+ 
+
+179
+00:02:56,959 --> 00:02:59,110
+deals and discounts on products and
+services we talk about on this channel
+
+180
+00:02:59,110 --> 00:02:59,120
+services we talk about on this channel
+ 
+
+181
+00:02:59,120 --> 00:03:01,190
+services we talk about on this channel
+and now back to our content the first
+
+182
+00:03:01,190 --> 00:03:01,200
+and now back to our content the first
+ 
+
+183
+00:03:01,200 --> 00:03:02,949
+and now back to our content the first
+place i want to start is the netgate
+
+184
+00:03:02,949 --> 00:03:02,959
+place i want to start is the netgate
+ 
+
+185
+00:03:02,959 --> 00:03:04,949
+place i want to start is the netgate
+blog post because
+
+186
+00:03:04,949 --> 00:03:04,959
+blog post because
+ 
+
+187
+00:03:04,959 --> 00:03:06,710
+blog post because
+the video that's embedded in here by
+
+188
+00:03:06,710 --> 00:03:06,720
+the video that's embedded in here by
+ 
+
+189
+00:03:06,720 --> 00:03:08,309
+the video that's embedded in here by
+christian mcdonald the developer at
+
+190
+00:03:08,309 --> 00:03:08,319
+christian mcdonald the developer at
+ 
+
+191
+00:03:08,319 --> 00:03:09,990
+christian mcdonald the developer at
+netgate who put this plugin together
+
+192
+00:03:09,990 --> 00:03:10,000
+netgate who put this plugin together
+ 
+
+193
+00:03:10,000 --> 00:03:11,910
+netgate who put this plugin together
+covers how to set up two pf senses that
+
+194
+00:03:11,910 --> 00:03:11,920
+covers how to set up two pf senses that
+ 
+
+195
+00:03:11,920 --> 00:03:14,229
+covers how to set up two pf senses that
+do not have publicly routable wan
+
+196
+00:03:14,229 --> 00:03:14,239
+do not have publicly routable wan
+ 
+
+197
+00:03:14,239 --> 00:03:17,509
+do not have publicly routable wan
+addresses but allows for the connection
+
+198
+00:03:17,509 --> 00:03:17,519
+addresses but allows for the connection
+ 
+
+199
+00:03:17,519 --> 00:03:20,790
+addresses but allows for the connection
+of these devices as a site-to-site vpn
+
+200
+00:03:20,790 --> 00:03:20,800
+of these devices as a site-to-site vpn
+ 
+
+201
+00:03:20,800 --> 00:03:21,990
+of these devices as a site-to-site vpn
+so that's well covered and well
+
+202
+00:03:21,990 --> 00:03:22,000
+so that's well covered and well
+ 
+
+203
+00:03:22,000 --> 00:03:23,430
+so that's well covered and well
+documented along with a lot of other
+
+204
+00:03:23,430 --> 00:03:23,440
+documented along with a lot of other
+ 
+
+205
+00:03:23,440 --> 00:03:24,710
+documented along with a lot of other
+details so i do encourage you to watch
+
+206
+00:03:24,710 --> 00:03:24,720
+details so i do encourage you to watch
+ 
+
+207
+00:03:24,720 --> 00:03:26,309
+details so i do encourage you to watch
+christian video if that's the setup
+
+208
+00:03:26,309 --> 00:03:26,319
+christian video if that's the setup
+ 
+
+209
+00:03:26,319 --> 00:03:28,309
+christian video if that's the setup
+today we're going to focus on a setup
+
+210
+00:03:28,309 --> 00:03:28,319
+today we're going to focus on a setup
+ 
+
+211
+00:03:28,319 --> 00:03:30,630
+today we're going to focus on a setup
+that is just for connectivity now before
+
+212
+00:03:30,630 --> 00:03:30,640
+that is just for connectivity now before
+ 
+
+213
+00:03:30,640 --> 00:03:32,470
+that is just for connectivity now before
+we go any further i will mention yes i'm
+
+214
+00:03:32,470 --> 00:03:32,480
+we go any further i will mention yes i'm
+ 
+
+215
+00:03:32,480 --> 00:03:35,030
+we go any further i will mention yes i'm
+aware and yes i've tested head scale
+
+216
+00:03:35,030 --> 00:03:35,040
+aware and yes i've tested head scale
+ 
+
+217
+00:03:35,040 --> 00:03:37,990
+aware and yes i've tested head scale
+head scale is a open source alternative
+
+218
+00:03:37,990 --> 00:03:38,000
+head scale is a open source alternative
+ 
+
+219
+00:03:38,000 --> 00:03:40,390
+head scale is a open source alternative
+to tail scale so tail scale has a open
+
+220
+00:03:40,390 --> 00:03:40,400
+to tail scale so tail scale has a open
+ 
+
+221
+00:03:40,400 --> 00:03:42,470
+to tail scale so tail scale has a open
+source client the protocol they use is
+
+222
+00:03:42,470 --> 00:03:42,480
+source client the protocol they use is
+ 
+
+223
+00:03:42,480 --> 00:03:43,830
+source client the protocol they use is
+wire guard so everything about them is
+
+224
+00:03:43,830 --> 00:03:43,840
+wire guard so everything about them is
+ 
+
+225
+00:03:43,840 --> 00:03:46,070
+wire guard so everything about them is
+open source except for the coordination
+
+226
+00:03:46,070 --> 00:03:46,080
+open source except for the coordination
+ 
+
+227
+00:03:46,080 --> 00:03:48,309
+open source except for the coordination
+server and the back end head scale is an
+
+228
+00:03:48,309 --> 00:03:48,319
+server and the back end head scale is an
+ 
+
+229
+00:03:48,319 --> 00:03:51,270
+server and the back end head scale is an
+implementation of tail scale that's
+
+230
+00:03:51,270 --> 00:03:51,280
+implementation of tail scale that's
+ 
+
+231
+00:03:51,280 --> 00:03:54,149
+implementation of tail scale that's
+basically open source it does lack a
+
+232
+00:03:54,149 --> 00:03:54,159
+basically open source it does lack a
+ 
+
+233
+00:03:54,159 --> 00:03:56,390
+basically open source it does lack a
+proper ui it doesn't have a nice web
+
+234
+00:03:56,390 --> 00:03:56,400
+proper ui it doesn't have a nice web
+ 
+
+235
+00:03:56,400 --> 00:03:57,830
+proper ui it doesn't have a nice web
+interface on there to make it easy to
+
+236
+00:03:57,830 --> 00:03:57,840
+interface on there to make it easy to
+ 
+
+237
+00:03:57,840 --> 00:03:58,789
+interface on there to make it easy to
+manage
+
+238
+00:03:58,789 --> 00:03:58,799
+manage
+ 
+
+239
+00:03:58,799 --> 00:04:00,070
+manage
+they have documentation how to get it
+
+240
+00:04:00,070 --> 00:04:00,080
+they have documentation how to get it
+ 
+
+241
+00:04:00,080 --> 00:04:01,589
+they have documentation how to get it
+set up i did go through and set it up
+
+242
+00:04:01,589 --> 00:04:01,599
+set up i did go through and set it up
+ 
+
+243
+00:04:01,599 --> 00:04:03,190
+set up i did go through and set it up
+and make sure it works fine with pfsense
+
+244
+00:04:03,190 --> 00:04:03,200
+and make sure it works fine with pfsense
+ 
+
+245
+00:04:03,200 --> 00:04:05,110
+and make sure it works fine with pfsense
+and all the other devices but i am not
+
+246
+00:04:05,110 --> 00:04:05,120
+and all the other devices but i am not
+ 
+
+247
+00:04:05,120 --> 00:04:06,630
+and all the other devices but i am not
+using it for the demo because well it
+
+248
+00:04:06,630 --> 00:04:06,640
+using it for the demo because well it
+ 
+
+249
+00:04:06,640 --> 00:04:07,830
+using it for the demo because well it
+would add a little bit of extra
+
+250
+00:04:07,830 --> 00:04:07,840
+would add a little bit of extra
+ 
+
+251
+00:04:07,840 --> 00:04:09,589
+would add a little bit of extra
+complexity but i'll possibly do a
+
+252
+00:04:09,589 --> 00:04:09,599
+complexity but i'll possibly do a
+ 
+
+253
+00:04:09,599 --> 00:04:11,670
+complexity but i'll possibly do a
+separate video on this if people have
+
+254
+00:04:11,670 --> 00:04:11,680
+separate video on this if people have
+ 
+
+255
+00:04:11,680 --> 00:04:12,949
+separate video on this if people have
+trouble getting it set up their
+
+256
+00:04:12,949 --> 00:04:12,959
+trouble getting it set up their
+ 
+
+257
+00:04:12,959 --> 00:04:14,630
+trouble getting it set up their
+documentation is kind of basic but they
+
+258
+00:04:14,630 --> 00:04:14,640
+documentation is kind of basic but they
+ 
+
+259
+00:04:14,640 --> 00:04:16,310
+documentation is kind of basic but they
+do have commands you can go through and
+
+260
+00:04:16,310 --> 00:04:16,320
+do have commands you can go through and
+ 
+
+261
+00:04:16,320 --> 00:04:17,749
+do have commands you can go through and
+figure out how it works along with some
+
+262
+00:04:17,749 --> 00:04:17,759
+figure out how it works along with some
+ 
+
+263
+00:04:17,759 --> 00:04:19,270
+figure out how it works along with some
+example configs
+
+264
+00:04:19,270 --> 00:04:19,280
+example configs
+ 
+
+265
+00:04:19,280 --> 00:04:21,270
+example configs
+now the obvious prerequisite for this
+
+266
+00:04:21,270 --> 00:04:21,280
+now the obvious prerequisite for this
+ 
+
+267
+00:04:21,280 --> 00:04:22,550
+now the obvious prerequisite for this
+video is going to be that you have a
+
+268
+00:04:22,550 --> 00:04:22,560
+video is going to be that you have a
+ 
+
+269
+00:04:22,560 --> 00:04:24,629
+video is going to be that you have a
+tailscale account set up you can sign up
+
+270
+00:04:24,629 --> 00:04:24,639
+tailscale account set up you can sign up
+ 
+
+271
+00:04:24,639 --> 00:04:27,510
+tailscale account set up you can sign up
+for free as of july of 2022 they allow
+
+272
+00:04:27,510 --> 00:04:27,520
+for free as of july of 2022 they allow
+ 
+
+273
+00:04:27,520 --> 00:04:31,189
+for free as of july of 2022 they allow
+you up to 20 devices for free and i
+
+274
+00:04:31,189 --> 00:04:31,199
+you up to 20 devices for free and i
+ 
+
+275
+00:04:31,199 --> 00:04:32,550
+you up to 20 devices for free and i
+mention it like that because one i want
+
+276
+00:04:32,550 --> 00:04:32,560
+mention it like that because one i want
+ 
+
+277
+00:04:32,560 --> 00:04:33,990
+mention it like that because one i want
+to save the date in case they change any
+
+278
+00:04:33,990 --> 00:04:34,000
+to save the date in case they change any
+ 
+
+279
+00:04:34,000 --> 00:04:36,550
+to save the date in case they change any
+of the policies on there but of note the
+
+280
+00:04:36,550 --> 00:04:36,560
+of the policies on there but of note the
+ 
+
+281
+00:04:36,560 --> 00:04:39,510
+of the policies on there but of note the
+devices this is thomson pf sense lts
+
+282
+00:04:39,510 --> 00:04:39,520
+devices this is thomson pf sense lts
+ 
+
+283
+00:04:39,520 --> 00:04:41,110
+devices this is thomson pf sense lts
+telescale pf sense lab and a few other
+
+284
+00:04:41,110 --> 00:04:41,120
+telescale pf sense lab and a few other
+ 
+
+285
+00:04:41,120 --> 00:04:42,390
+telescale pf sense lab and a few other
+things i have in there
+
+286
+00:04:42,390 --> 00:04:42,400
+things i have in there
+ 
+
+287
+00:04:42,400 --> 00:04:44,230
+things i have in there
+my tom home pf sense is one we're going
+
+288
+00:04:44,230 --> 00:04:44,240
+my tom home pf sense is one we're going
+ 
+
+289
+00:04:44,240 --> 00:04:46,710
+my tom home pf sense is one we're going
+to be focusing on but this counts as a
+
+290
+00:04:46,710 --> 00:04:46,720
+to be focusing on but this counts as a
+ 
+
+291
+00:04:46,720 --> 00:04:49,110
+to be focusing on but this counts as a
+device and i have it advertising the
+
+292
+00:04:49,110 --> 00:04:49,120
+device and i have it advertising the
+ 
+
+293
+00:04:49,120 --> 00:04:51,030
+device and i have it advertising the
+subnets behind it this allows
+
+294
+00:04:51,030 --> 00:04:51,040
+subnets behind it this allows
+ 
+
+295
+00:04:51,040 --> 00:04:53,110
+subnets behind it this allows
+connectivity to the devices behind it so
+
+296
+00:04:53,110 --> 00:04:53,120
+connectivity to the devices behind it so
+ 
+
+297
+00:04:53,120 --> 00:04:55,030
+connectivity to the devices behind it so
+if we look at the diagram here we can
+
+298
+00:04:55,030 --> 00:04:55,040
+if we look at the diagram here we can
+ 
+
+299
+00:04:55,040 --> 00:04:56,870
+if we look at the diagram here we can
+see like tom's phone this other lab
+
+300
+00:04:56,870 --> 00:04:56,880
+see like tom's phone this other lab
+ 
+
+301
+00:04:56,880 --> 00:04:59,110
+see like tom's phone this other lab
+server we have them across the internet
+
+302
+00:04:59,110 --> 00:04:59,120
+server we have them across the internet
+ 
+
+303
+00:04:59,120 --> 00:05:01,110
+server we have them across the internet
+they want to connect to townspf sense
+
+304
+00:05:01,110 --> 00:05:01,120
+they want to connect to townspf sense
+ 
+
+305
+00:05:01,120 --> 00:05:03,510
+they want to connect to townspf sense
+each of these is a single device these
+
+306
+00:05:03,510 --> 00:05:03,520
+each of these is a single device these
+ 
+
+307
+00:05:03,520 --> 00:05:05,189
+each of these is a single device these
+are not devices these are just extra
+
+308
+00:05:05,189 --> 00:05:05,199
+are not devices these are just extra
+ 
+
+309
+00:05:05,199 --> 00:05:07,430
+are not devices these are just extra
+routes that are advertised by my psns
+
+310
+00:05:07,430 --> 00:05:07,440
+routes that are advertised by my psns
+ 
+
+311
+00:05:07,440 --> 00:05:09,430
+routes that are advertised by my psns
+that allow like my phone whether it's
+
+312
+00:05:09,430 --> 00:05:09,440
+that allow like my phone whether it's
+ 
+
+313
+00:05:09,440 --> 00:05:11,430
+that allow like my phone whether it's
+connected to the 5g lte network wherever
+
+314
+00:05:11,430 --> 00:05:11,440
+connected to the 5g lte network wherever
+ 
+
+315
+00:05:11,440 --> 00:05:13,430
+connected to the 5g lte network wherever
+it is or this extra lab server i have at
+
+316
+00:05:13,430 --> 00:05:13,440
+it is or this extra lab server i have at
+ 
+
+317
+00:05:13,440 --> 00:05:16,150
+it is or this extra lab server i have at
+the office that i'll demo to talk to my
+
+318
+00:05:16,150 --> 00:05:16,160
+the office that i'll demo to talk to my
+ 
+
+319
+00:05:16,160 --> 00:05:18,629
+the office that i'll demo to talk to my
+pf sense and therefore pf sense then
+
+320
+00:05:18,629 --> 00:05:18,639
+pf sense and therefore pf sense then
+ 
+
+321
+00:05:18,639 --> 00:05:20,390
+pf sense and therefore pf sense then
+handles the routing between all the
+
+322
+00:05:20,390 --> 00:05:20,400
+handles the routing between all the
+ 
+
+323
+00:05:20,400 --> 00:05:21,670
+handles the routing between all the
+devices
+
+324
+00:05:21,670 --> 00:05:21,680
+devices
+ 
+
+325
+00:05:21,680 --> 00:05:23,110
+devices
+something worth noting as well when it
+
+326
+00:05:23,110 --> 00:05:23,120
+something worth noting as well when it
+ 
+
+327
+00:05:23,120 --> 00:05:25,830
+something worth noting as well when it
+comes to access controls the access
+
+328
+00:05:25,830 --> 00:05:25,840
+comes to access controls the access
+ 
+
+329
+00:05:25,840 --> 00:05:27,990
+comes to access controls the access
+controls is how you control all the
+
+330
+00:05:27,990 --> 00:05:28,000
+controls is how you control all the
+ 
+
+331
+00:05:28,000 --> 00:05:31,350
+controls is how you control all the
+devices here and their ability to talk
+
+332
+00:05:31,350 --> 00:05:31,360
+devices here and their ability to talk
+ 
+
+333
+00:05:31,360 --> 00:05:33,430
+devices here and their ability to talk
+to each other the default routing rules
+
+334
+00:05:33,430 --> 00:05:33,440
+to each other the default routing rules
+ 
+
+335
+00:05:33,440 --> 00:05:35,110
+to each other the default routing rules
+are yes they can all talk and yes when
+
+336
+00:05:35,110 --> 00:05:35,120
+are yes they can all talk and yes when
+ 
+
+337
+00:05:35,120 --> 00:05:37,110
+are yes they can all talk and yes when
+you advertise routes any of these
+
+338
+00:05:37,110 --> 00:05:37,120
+you advertise routes any of these
+ 
+
+339
+00:05:37,120 --> 00:05:39,670
+you advertise routes any of these
+devices can talk to these particular
+
+340
+00:05:39,670 --> 00:05:39,680
+devices can talk to these particular
+ 
+
+341
+00:05:39,680 --> 00:05:41,990
+devices can talk to these particular
+devices that are set up behind there the
+
+342
+00:05:41,990 --> 00:05:42,000
+devices that are set up behind there the
+ 
+
+343
+00:05:42,000 --> 00:05:44,550
+devices that are set up behind there the
+rules have to be done inside of tail
+
+344
+00:05:44,550 --> 00:05:44,560
+rules have to be done inside of tail
+ 
+
+345
+00:05:44,560 --> 00:05:46,230
+rules have to be done inside of tail
+scale so you don't control any of the
+
+346
+00:05:46,230 --> 00:05:46,240
+scale so you don't control any of the
+ 
+
+347
+00:05:46,240 --> 00:05:47,990
+scale so you don't control any of the
+rules inside of pfsense for very
+
+348
+00:05:47,990 --> 00:05:48,000
+rules inside of pfsense for very
+ 
+
+349
+00:05:48,000 --> 00:05:50,390
+rules inside of pfsense for very
+specific routing information with the
+
+350
+00:05:50,390 --> 00:05:50,400
+specific routing information with the
+ 
+
+351
+00:05:50,400 --> 00:05:52,150
+specific routing information with the
+limited exception that we'll get to when
+
+352
+00:05:52,150 --> 00:05:52,160
+limited exception that we'll get to when
+ 
+
+353
+00:05:52,160 --> 00:05:53,590
+limited exception that we'll get to when
+we talk about the firewall rules a bit
+
+354
+00:05:53,590 --> 00:05:53,600
+we talk about the firewall rules a bit
+ 
+
+355
+00:05:53,600 --> 00:05:55,749
+we talk about the firewall rules a bit
+later in the video but for the most part
+
+356
+00:05:55,749 --> 00:05:55,759
+later in the video but for the most part
+ 
+
+357
+00:05:55,759 --> 00:05:57,749
+later in the video but for the most part
+it's relatively easy to set up it's easy
+
+358
+00:05:57,749 --> 00:05:57,759
+it's relatively easy to set up it's easy
+ 
+
+359
+00:05:57,759 --> 00:05:59,990
+it's relatively easy to set up it's easy
+to add these devices and we'll start by
+
+360
+00:05:59,990 --> 00:06:00,000
+to add these devices and we'll start by
+ 
+
+361
+00:06:00,000 --> 00:06:01,430
+to add these devices and we'll start by
+deleting a device because we already
+
+362
+00:06:01,430 --> 00:06:01,440
+deleting a device because we already
+ 
+
+363
+00:06:01,440 --> 00:06:02,870
+deleting a device because we already
+have this one configured but we're going
+
+364
+00:06:02,870 --> 00:06:02,880
+have this one configured but we're going
+ 
+
+365
+00:06:02,880 --> 00:06:05,110
+have this one configured but we're going
+to delete my pfsense lab and show you
+
+366
+00:06:05,110 --> 00:06:05,120
+to delete my pfsense lab and show you
+ 
+
+367
+00:06:05,120 --> 00:06:07,749
+to delete my pfsense lab and show you
+how to add apf sense to it that part's
+
+368
+00:06:07,749 --> 00:06:07,759
+how to add apf sense to it that part's
+ 
+
+369
+00:06:07,759 --> 00:06:09,670
+how to add apf sense to it that part's
+really simple and pretty easy to get
+
+370
+00:06:09,670 --> 00:06:09,680
+really simple and pretty easy to get
+ 
+
+371
+00:06:09,680 --> 00:06:10,950
+really simple and pretty easy to get
+started with now this is the pf
+
+372
+00:06:10,950 --> 00:06:10,960
+started with now this is the pf
+ 
+
+373
+00:06:10,960 --> 00:06:12,469
+started with now this is the pf
+synthetic lab and i want to start by
+
+374
+00:06:12,469 --> 00:06:12,479
+synthetic lab and i want to start by
+ 
+
+375
+00:06:12,479 --> 00:06:15,189
+synthetic lab and i want to start by
+actually log out and clean this will
+
+376
+00:06:15,189 --> 00:06:15,199
+actually log out and clean this will
+ 
+
+377
+00:06:15,199 --> 00:06:17,270
+actually log out and clean this will
+forcibly disconnect this particular pf
+
+378
+00:06:17,270 --> 00:06:17,280
+forcibly disconnect this particular pf
+ 
+
+379
+00:06:17,280 --> 00:06:19,189
+forcibly disconnect this particular pf
+sense so now tail scale is not running
+
+380
+00:06:19,189 --> 00:06:19,199
+sense so now tail scale is not running
+ 
+
+381
+00:06:19,199 --> 00:06:20,469
+sense so now tail scale is not running
+and don't worry these keys aren't
+
+382
+00:06:20,469 --> 00:06:20,479
+and don't worry these keys aren't
+ 
+
+383
+00:06:20,479 --> 00:06:22,629
+and don't worry these keys aren't
+reusable but this is all a demo account
+
+384
+00:06:22,629 --> 00:06:22,639
+reusable but this is all a demo account
+ 
+
+385
+00:06:22,639 --> 00:06:25,029
+reusable but this is all a demo account
+anyways so we've gone into tail scale
+
+386
+00:06:25,029 --> 00:06:25,039
+anyways so we've gone into tail scale
+ 
+
+387
+00:06:25,039 --> 00:06:26,390
+anyways so we've gone into tail scale
+and we leave this the same this is what
+
+388
+00:06:26,390 --> 00:06:26,400
+and we leave this the same this is what
+ 
+
+389
+00:06:26,400 --> 00:06:27,670
+and we leave this the same this is what
+you would change if you were using
+
+390
+00:06:27,670 --> 00:06:27,680
+you would change if you were using
+ 
+
+391
+00:06:27,680 --> 00:06:29,110
+you would change if you were using
+something other than tail scale such as
+
+392
+00:06:29,110 --> 00:06:29,120
+something other than tail scale such as
+ 
+
+393
+00:06:29,120 --> 00:06:30,950
+something other than tail scale such as
+head scales a coordination server so you
+
+394
+00:06:30,950 --> 00:06:30,960
+head scales a coordination server so you
+ 
+
+395
+00:06:30,960 --> 00:06:32,550
+head scales a coordination server so you
+leave the login server the same and you
+
+396
+00:06:32,550 --> 00:06:32,560
+leave the login server the same and you
+ 
+
+397
+00:06:32,560 --> 00:06:35,270
+leave the login server the same and you
+just put in the pre-authorization key
+
+398
+00:06:35,270 --> 00:06:35,280
+just put in the pre-authorization key
+ 
+
+399
+00:06:35,280 --> 00:06:37,990
+just put in the pre-authorization key
+so right now status is not running so we
+
+400
+00:06:37,990 --> 00:06:38,000
+so right now status is not running so we
+ 
+
+401
+00:06:38,000 --> 00:06:39,029
+so right now status is not running so we
+look at the settings even though it's
+
+402
+00:06:39,029 --> 00:06:39,039
+look at the settings even though it's
+ 
+
+403
+00:06:39,039 --> 00:06:40,629
+look at the settings even though it's
+enabled tail scale is not working
+
+404
+00:06:40,629 --> 00:06:40,639
+enabled tail scale is not working
+ 
+
+405
+00:06:40,639 --> 00:06:43,110
+enabled tail scale is not working
+because we forced a log out and clean
+
+406
+00:06:43,110 --> 00:06:43,120
+because we forced a log out and clean
+ 
+
+407
+00:06:43,120 --> 00:06:44,790
+because we forced a log out and clean
+now if we go back over to tail scale and
+
+408
+00:06:44,790 --> 00:06:44,800
+now if we go back over to tail scale and
+ 
+
+409
+00:06:44,800 --> 00:06:46,150
+now if we go back over to tail scale and
+look at the machines
+
+410
+00:06:46,150 --> 00:06:46,160
+look at the machines
+ 
+
+411
+00:06:46,160 --> 00:06:47,670
+look at the machines
+you can see that it's offline so we'll
+
+412
+00:06:47,670 --> 00:06:47,680
+you can see that it's offline so we'll
+ 
+
+413
+00:06:47,680 --> 00:06:48,950
+you can see that it's offline so we'll
+go ahead and just delete it so this is
+
+414
+00:06:48,950 --> 00:06:48,960
+go ahead and just delete it so this is
+ 
+
+415
+00:06:48,960 --> 00:06:50,309
+go ahead and just delete it so this is
+pfsenselab and we're going to go ahead
+
+416
+00:06:50,309 --> 00:06:50,319
+pfsenselab and we're going to go ahead
+ 
+
+417
+00:06:50,319 --> 00:06:52,230
+pfsenselab and we're going to go ahead
+and remove it so we can add it again so
+
+418
+00:06:52,230 --> 00:06:52,240
+and remove it so we can add it again so
+ 
+
+419
+00:06:52,240 --> 00:06:54,070
+and remove it so we can add it again so
+we've deleted it here then we go over to
+
+420
+00:06:54,070 --> 00:06:54,080
+we've deleted it here then we go over to
+ 
+
+421
+00:06:54,080 --> 00:06:55,110
+we've deleted it here then we go over to
+settings
+
+422
+00:06:55,110 --> 00:06:55,120
+settings
+ 
+
+423
+00:06:55,120 --> 00:06:56,790
+settings
+and we want to
+
+424
+00:06:56,790 --> 00:06:56,800
+and we want to
+ 
+
+425
+00:06:56,800 --> 00:06:58,550
+and we want to
+go to keys
+
+426
+00:06:58,550 --> 00:06:58,560
+go to keys
+ 
+
+427
+00:06:58,560 --> 00:07:01,110
+go to keys
+and we want to generate an auth key
+
+428
+00:07:01,110 --> 00:07:01,120
+and we want to generate an auth key
+ 
+
+429
+00:07:01,120 --> 00:07:03,270
+and we want to generate an auth key
+we don't want this key to be reusable
+
+430
+00:07:03,270 --> 00:07:03,280
+we don't want this key to be reusable
+ 
+
+431
+00:07:03,280 --> 00:07:04,710
+we don't want this key to be reusable
+you could if there's some use case you
+
+432
+00:07:04,710 --> 00:07:04,720
+you could if there's some use case you
+ 
+
+433
+00:07:04,720 --> 00:07:06,629
+you could if there's some use case you
+have for it but it's easy enough to
+
+434
+00:07:06,629 --> 00:07:06,639
+have for it but it's easy enough to
+ 
+
+435
+00:07:06,639 --> 00:07:07,670
+have for it but it's easy enough to
+create a key so we don't want a
+
+436
+00:07:07,670 --> 00:07:07,680
+create a key so we don't want a
+ 
+
+437
+00:07:07,680 --> 00:07:09,909
+create a key so we don't want a
+removable ephemeral machines alchemy key
+
+438
+00:07:09,909 --> 00:07:09,919
+removable ephemeral machines alchemy key
+ 
+
+439
+00:07:09,919 --> 00:07:11,589
+removable ephemeral machines alchemy key
+will automatically be removed after
+
+440
+00:07:11,589 --> 00:07:11,599
+will automatically be removed after
+ 
+
+441
+00:07:11,599 --> 00:07:13,430
+will automatically be removed after
+going offline as in do you want to be
+
+442
+00:07:13,430 --> 00:07:13,440
+going offline as in do you want to be
+ 
+
+443
+00:07:13,440 --> 00:07:15,749
+going offline as in do you want to be
+temporary probably not tags well you can
+
+444
+00:07:15,749 --> 00:07:15,759
+temporary probably not tags well you can
+ 
+
+445
+00:07:15,759 --> 00:07:17,589
+temporary probably not tags well you can
+create tags to automatically put and
+
+446
+00:07:17,589 --> 00:07:17,599
+create tags to automatically put and
+ 
+
+447
+00:07:17,599 --> 00:07:18,790
+create tags to automatically put and
+apply different things to this
+
+448
+00:07:18,790 --> 00:07:18,800
+apply different things to this
+ 
+
+449
+00:07:18,800 --> 00:07:20,230
+apply different things to this
+particular key but we'll go with
+
+450
+00:07:20,230 --> 00:07:20,240
+particular key but we'll go with
+ 
+
+451
+00:07:20,240 --> 00:07:21,589
+particular key but we'll go with
+generate key
+
+452
+00:07:21,589 --> 00:07:21,599
+generate key
+ 
+
+453
+00:07:21,599 --> 00:07:23,350
+generate key
+then we're going to hit copy and we know
+
+454
+00:07:23,350 --> 00:07:23,360
+then we're going to hit copy and we know
+ 
+
+455
+00:07:23,360 --> 00:07:25,110
+then we're going to hit copy and we know
+the key is copied
+
+456
+00:07:25,110 --> 00:07:25,120
+the key is copied
+ 
+
+457
+00:07:25,120 --> 00:07:27,110
+the key is copied
+go back over here
+
+458
+00:07:27,110 --> 00:07:27,120
+go back over here
+ 
+
+459
+00:07:27,120 --> 00:07:28,230
+go back over here
+paste
+
+460
+00:07:28,230 --> 00:07:28,240
+paste
+ 
+
+461
+00:07:28,240 --> 00:07:31,909
+paste
+then we just hit save
+
+462
+00:07:31,909 --> 00:07:31,919
+
+ 
+
+463
+00:07:31,919 --> 00:07:33,510
+
+see it's enabled
+
+464
+00:07:33,510 --> 00:07:33,520
+see it's enabled
+ 
+
+465
+00:07:33,520 --> 00:07:36,390
+see it's enabled
+and then hit save again here
+
+466
+00:07:36,390 --> 00:07:36,400
+and then hit save again here
+ 
+
+467
+00:07:36,400 --> 00:07:38,230
+and then hit save again here
+tails count on refresher check status
+
+468
+00:07:38,230 --> 00:07:38,240
+tails count on refresher check status
+ 
+
+469
+00:07:38,240 --> 00:07:41,670
+tails count on refresher check status
+page we go over to the status page here
+
+470
+00:07:41,670 --> 00:07:41,680
+page we go over to the status page here
+ 
+
+471
+00:07:41,680 --> 00:07:43,909
+page we go over to the status page here
+it's online and ready to go it's pretty
+
+472
+00:07:43,909 --> 00:07:43,919
+it's online and ready to go it's pretty
+ 
+
+473
+00:07:43,919 --> 00:07:45,909
+it's online and ready to go it's pretty
+much instant in real time i did not have
+
+474
+00:07:45,909 --> 00:07:45,919
+much instant in real time i did not have
+ 
+
+475
+00:07:45,919 --> 00:07:48,390
+much instant in real time i did not have
+to edit any of that matter of fact the
+
+476
+00:07:48,390 --> 00:07:48,400
+to edit any of that matter of fact the
+ 
+
+477
+00:07:48,400 --> 00:07:49,830
+to edit any of that matter of fact the
+key already went away because it's been
+
+478
+00:07:49,830 --> 00:07:49,840
+key already went away because it's been
+ 
+
+479
+00:07:49,840 --> 00:07:52,469
+key already went away because it's been
+used the pfsense lab
+
+480
+00:07:52,469 --> 00:07:52,479
+used the pfsense lab
+ 
+
+481
+00:07:52,479 --> 00:07:54,230
+used the pfsense lab
+is already showing up and showing
+
+482
+00:07:54,230 --> 00:07:54,240
+is already showing up and showing
+ 
+
+483
+00:07:54,240 --> 00:07:56,629
+is already showing up and showing
+connected it's pretty much instant when
+
+484
+00:07:56,629 --> 00:07:56,639
+connected it's pretty much instant when
+ 
+
+485
+00:07:56,639 --> 00:07:57,350
+connected it's pretty much instant when
+you
+
+486
+00:07:57,350 --> 00:07:57,360
+you
+ 
+
+487
+00:07:57,360 --> 00:07:59,189
+you
+add a device inside of here for it to
+
+488
+00:07:59,189 --> 00:07:59,199
+add a device inside of here for it to
+ 
+
+489
+00:07:59,199 --> 00:08:01,350
+add a device inside of here for it to
+show up not just for pfsense but for any
+
+490
+00:08:01,350 --> 00:08:01,360
+show up not just for pfsense but for any
+ 
+
+491
+00:08:01,360 --> 00:08:02,629
+show up not just for pfsense but for any
+other ones there's not much of really a
+
+492
+00:08:02,629 --> 00:08:02,639
+other ones there's not much of really a
+ 
+
+493
+00:08:02,639 --> 00:08:04,950
+other ones there's not much of really a
+delay and down here if we scroll down a
+
+494
+00:08:04,950 --> 00:08:04,960
+delay and down here if we scroll down a
+ 
+
+495
+00:08:04,960 --> 00:08:06,469
+delay and down here if we scroll down a
+little further on the status i've
+
+496
+00:08:06,469 --> 00:08:06,479
+little further on the status i've
+ 
+
+497
+00:08:06,479 --> 00:08:07,670
+little further on the status i've
+blurred out the bottom where it has my
+
+498
+00:08:07,670 --> 00:08:07,680
+blurred out the bottom where it has my
+ 
+
+499
+00:08:07,680 --> 00:08:09,270
+blurred out the bottom where it has my
+public ip address but it's giving you
+
+500
+00:08:09,270 --> 00:08:09,280
+public ip address but it's giving you
+ 
+
+501
+00:08:09,280 --> 00:08:10,390
+public ip address but it's giving you
+all the information about that is
+
+502
+00:08:10,390 --> 00:08:10,400
+all the information about that is
+ 
+
+503
+00:08:10,400 --> 00:08:11,990
+all the information about that is
+connected and it can see all the other
+
+504
+00:08:11,990 --> 00:08:12,000
+connected and it can see all the other
+ 
+
+505
+00:08:12,000 --> 00:08:14,390
+connected and it can see all the other
+devices that are within this namespace
+
+506
+00:08:14,390 --> 00:08:14,400
+devices that are within this namespace
+ 
+
+507
+00:08:14,400 --> 00:08:16,230
+devices that are within this namespace
+of tail scale that it can talk to so
+
+508
+00:08:16,230 --> 00:08:16,240
+of tail scale that it can talk to so
+ 
+
+509
+00:08:16,240 --> 00:08:17,589
+of tail scale that it can talk to so
+these are all the other devices that are
+
+510
+00:08:17,589 --> 00:08:17,599
+these are all the other devices that are
+ 
+
+511
+00:08:17,599 --> 00:08:20,070
+these are all the other devices that are
+online of course talk to by default is
+
+512
+00:08:20,070 --> 00:08:20,080
+online of course talk to by default is
+ 
+
+513
+00:08:20,080 --> 00:08:21,510
+online of course talk to by default is
+all these rules are open you can talk to
+
+514
+00:08:21,510 --> 00:08:21,520
+all these rules are open you can talk to
+ 
+
+515
+00:08:21,520 --> 00:08:23,909
+all these rules are open you can talk to
+any of these devices but if you change
+
+516
+00:08:23,909 --> 00:08:23,919
+any of these devices but if you change
+ 
+
+517
+00:08:23,919 --> 00:08:25,510
+any of these devices but if you change
+the ecl rules they will still just show
+
+518
+00:08:25,510 --> 00:08:25,520
+the ecl rules they will still just show
+ 
+
+519
+00:08:25,520 --> 00:08:27,350
+the ecl rules they will still just show
+up here but you know you'd have control
+
+520
+00:08:27,350 --> 00:08:27,360
+up here but you know you'd have control
+ 
+
+521
+00:08:27,360 --> 00:08:29,830
+up here but you know you'd have control
+over the inner routings between these
+
+522
+00:08:29,830 --> 00:08:29,840
+over the inner routings between these
+ 
+
+523
+00:08:29,840 --> 00:08:32,389
+over the inner routings between these
+now in terms of settings over here this
+
+524
+00:08:32,389 --> 00:08:32,399
+now in terms of settings over here this
+ 
+
+525
+00:08:32,399 --> 00:08:34,070
+now in terms of settings over here this
+is where do you want to accept subnets
+
+526
+00:08:34,070 --> 00:08:34,080
+is where do you want to accept subnets
+ 
+
+527
+00:08:34,080 --> 00:08:35,589
+is where do you want to accept subnets
+that other routes advertise this is
+
+528
+00:08:35,589 --> 00:08:35,599
+that other routes advertise this is
+ 
+
+529
+00:08:35,599 --> 00:08:36,870
+that other routes advertise this is
+where you can get in a more advanced and
+
+530
+00:08:36,870 --> 00:08:36,880
+where you can get in a more advanced and
+ 
+
+531
+00:08:36,880 --> 00:08:38,149
+where you can get in a more advanced and
+this is covered in christian's video and
+
+532
+00:08:38,149 --> 00:08:38,159
+this is covered in christian's video and
+ 
+
+533
+00:08:38,159 --> 00:08:39,589
+this is covered in christian's video and
+it's pretty simple you just accept the
+
+534
+00:08:39,589 --> 00:08:39,599
+it's pretty simple you just accept the
+ 
+
+535
+00:08:39,599 --> 00:08:40,389
+it's pretty simple you just accept the
+route
+
+536
+00:08:40,389 --> 00:08:40,399
+route
+ 
+
+537
+00:08:40,399 --> 00:08:41,190
+route
+and
+
+538
+00:08:41,190 --> 00:08:41,200
+and
+ 
+
+539
+00:08:41,200 --> 00:08:42,469
+and
+then add
+
+540
+00:08:42,469 --> 00:08:42,479
+then add
+ 
+
+541
+00:08:42,479 --> 00:08:44,230
+then add
+go over here to the routes and for
+
+542
+00:08:44,230 --> 00:08:44,240
+go over here to the routes and for
+ 
+
+543
+00:08:44,240 --> 00:08:47,269
+go over here to the routes and for
+example in my system it's the 192.168.11
+
+544
+00:08:47,269 --> 00:08:47,279
+example in my system it's the 192.168.11
+ 
+
+545
+00:08:47,279 --> 00:08:49,350
+example in my system it's the 192.168.11
+network and if we go to this lab pf
+
+546
+00:08:49,350 --> 00:08:49,360
+network and if we go to this lab pf
+ 
+
+547
+00:08:49,360 --> 00:08:51,110
+network and if we go to this lab pf
+sense the main screen here
+
+548
+00:08:51,110 --> 00:08:51,120
+sense the main screen here
+ 
+
+549
+00:08:51,120 --> 00:08:53,110
+sense the main screen here
+that network does not exist over here so
+
+550
+00:08:53,110 --> 00:08:53,120
+that network does not exist over here so
+ 
+
+551
+00:08:53,120 --> 00:08:55,910
+that network does not exist over here so
+it has a three dot network 40 22
+
+552
+00:08:55,910 --> 00:08:55,920
+it has a three dot network 40 22
+ 
+
+553
+00:08:55,920 --> 00:08:58,630
+it has a three dot network 40 22
+and a 10 dot network but we go over here
+
+554
+00:08:58,630 --> 00:08:58,640
+and a 10 dot network but we go over here
+ 
+
+555
+00:08:58,640 --> 00:09:01,590
+and a 10 dot network but we go over here
+to diagnostics then routes because we're
+
+556
+00:09:01,590 --> 00:09:01,600
+to diagnostics then routes because we're
+ 
+
+557
+00:09:01,600 --> 00:09:03,990
+to diagnostics then routes because we're
+accepting advertised routes there's my
+
+558
+00:09:03,990 --> 00:09:04,000
+accepting advertised routes there's my
+ 
+
+559
+00:09:04,000 --> 00:09:05,829
+accepting advertised routes there's my
+tail scale one nine two one six eight
+
+560
+00:09:05,829 --> 00:09:05,839
+tail scale one nine two one six eight
+ 
+
+561
+00:09:05,839 --> 00:09:07,829
+tail scale one nine two one six eight
+zero slash twenty four tail scale 0
+
+562
+00:09:07,829 --> 00:09:07,839
+zero slash twenty four tail scale 0
+ 
+
+563
+00:09:07,839 --> 00:09:12,230
+zero slash twenty four tail scale 0
+route combine that with firewall nat
+
+564
+00:09:12,230 --> 00:09:12,240
+route combine that with firewall nat
+ 
+
+565
+00:09:12,240 --> 00:09:13,750
+route combine that with firewall nat
+outbound
+
+566
+00:09:13,750 --> 00:09:13,760
+outbound
+ 
+
+567
+00:09:13,760 --> 00:09:15,750
+outbound
+and then we say we would like anything
+
+568
+00:09:15,750 --> 00:09:15,760
+and then we say we would like anything
+ 
+
+569
+00:09:15,760 --> 00:09:17,750
+and then we say we would like anything
+heading to that destination to go out
+
+570
+00:09:17,750 --> 00:09:17,760
+heading to that destination to go out
+ 
+
+571
+00:09:17,760 --> 00:09:19,430
+heading to that destination to go out
+tail scale this is covered as i said in
+
+572
+00:09:19,430 --> 00:09:19,440
+tail scale this is covered as i said in
+ 
+
+573
+00:09:19,440 --> 00:09:21,190
+tail scale this is covered as i said in
+christian's video this lets devices
+
+574
+00:09:21,190 --> 00:09:21,200
+christian's video this lets devices
+ 
+
+575
+00:09:21,200 --> 00:09:23,750
+christian's video this lets devices
+behind here talk to that other system
+
+576
+00:09:23,750 --> 00:09:23,760
+behind here talk to that other system
+ 
+
+577
+00:09:23,760 --> 00:09:25,430
+behind here talk to that other system
+it's probably the easiest i've ever set
+
+578
+00:09:25,430 --> 00:09:25,440
+it's probably the easiest i've ever set
+ 
+
+579
+00:09:25,440 --> 00:09:27,590
+it's probably the easiest i've ever set
+up a site-to-site vpn using tailscale it
+
+580
+00:09:27,590 --> 00:09:27,600
+up a site-to-site vpn using tailscale it
+ 
+
+581
+00:09:27,600 --> 00:09:29,430
+up a site-to-site vpn using tailscale it
+just makes it really really simple and
+
+582
+00:09:29,430 --> 00:09:29,440
+just makes it really really simple and
+ 
+
+583
+00:09:29,440 --> 00:09:30,949
+just makes it really really simple and
+if they do have public ip addresses
+
+584
+00:09:30,949 --> 00:09:30,959
+if they do have public ip addresses
+ 
+
+585
+00:09:30,959 --> 00:09:32,310
+if they do have public ip addresses
+tailskill will have these devices
+
+586
+00:09:32,310 --> 00:09:32,320
+tailskill will have these devices
+ 
+
+587
+00:09:32,320 --> 00:09:34,470
+tailskill will have these devices
+talking directly to each other now back
+
+588
+00:09:34,470 --> 00:09:34,480
+talking directly to each other now back
+ 
+
+589
+00:09:34,480 --> 00:09:36,790
+talking directly to each other now back
+over to my server now my system is
+
+590
+00:09:36,790 --> 00:09:36,800
+over to my server now my system is
+ 
+
+591
+00:09:36,800 --> 00:09:38,949
+over to my server now my system is
+already online keep configuration
+
+592
+00:09:38,949 --> 00:09:38,959
+already online keep configuration
+ 
+
+593
+00:09:38,959 --> 00:09:40,790
+already online keep configuration
+advertise this exit node this is an
+
+594
+00:09:40,790 --> 00:09:40,800
+advertise this exit node this is an
+ 
+
+595
+00:09:40,800 --> 00:09:42,630
+advertise this exit node this is an
+extra feature that's pretty cool that if
+
+596
+00:09:42,630 --> 00:09:42,640
+extra feature that's pretty cool that if
+ 
+
+597
+00:09:42,640 --> 00:09:44,310
+extra feature that's pretty cool that if
+you say i want to offer to be an extra
+
+598
+00:09:44,310 --> 00:09:44,320
+you say i want to offer to be an extra
+ 
+
+599
+00:09:44,320 --> 00:09:46,150
+you say i want to offer to be an extra
+node drop on internet traffic you can
+
+600
+00:09:46,150 --> 00:09:46,160
+node drop on internet traffic you can
+ 
+
+601
+00:09:46,160 --> 00:09:47,509
+node drop on internet traffic you can
+take and there's options in different
+
+602
+00:09:47,509 --> 00:09:47,519
+take and there's options in different
+ 
+
+603
+00:09:47,519 --> 00:09:49,430
+take and there's options in different
+tail scale clients to say hey route
+
+604
+00:09:49,430 --> 00:09:49,440
+tail scale clients to say hey route
+ 
+
+605
+00:09:49,440 --> 00:09:51,990
+tail scale clients to say hey route
+thinks through an advertised exit node
+
+606
+00:09:51,990 --> 00:09:52,000
+thinks through an advertised exit node
+ 
+
+607
+00:09:52,000 --> 00:09:53,990
+thinks through an advertised exit node
+what that means is for example with my
+
+608
+00:09:53,990 --> 00:09:54,000
+what that means is for example with my
+ 
+
+609
+00:09:54,000 --> 00:09:56,070
+what that means is for example with my
+phone i can actually have my phone
+
+610
+00:09:56,070 --> 00:09:56,080
+phone i can actually have my phone
+ 
+
+611
+00:09:56,080 --> 00:09:57,910
+phone i can actually have my phone
+routing all the traffic as if it's
+
+612
+00:09:57,910 --> 00:09:57,920
+routing all the traffic as if it's
+ 
+
+613
+00:09:57,920 --> 00:10:00,389
+routing all the traffic as if it's
+coming from my home this is also very
+
+614
+00:10:00,389 --> 00:10:00,399
+coming from my home this is also very
+ 
+
+615
+00:10:00,399 --> 00:10:02,069
+coming from my home this is also very
+handy if you are traveling with your
+
+616
+00:10:02,069 --> 00:10:02,079
+handy if you are traveling with your
+ 
+
+617
+00:10:02,079 --> 00:10:03,990
+handy if you are traveling with your
+laptop and you would like a vpn to wrap
+
+618
+00:10:03,990 --> 00:10:04,000
+laptop and you would like a vpn to wrap
+ 
+
+619
+00:10:04,000 --> 00:10:05,829
+laptop and you would like a vpn to wrap
+everything in tail scale does have an
+
+620
+00:10:05,829 --> 00:10:05,839
+everything in tail scale does have an
+ 
+
+621
+00:10:05,839 --> 00:10:07,590
+everything in tail scale does have an
+option for that as long as you have an
+
+622
+00:10:07,590 --> 00:10:07,600
+option for that as long as you have an
+ 
+
+623
+00:10:07,600 --> 00:10:09,509
+option for that as long as you have an
+exit node among the nodes and pfsense
+
+624
+00:10:09,509 --> 00:10:09,519
+exit node among the nodes and pfsense
+ 
+
+625
+00:10:09,519 --> 00:10:11,190
+exit node among the nodes and pfsense
+can act as an exit node by simply
+
+626
+00:10:11,190 --> 00:10:11,200
+can act as an exit node by simply
+ 
+
+627
+00:10:11,200 --> 00:10:13,590
+can act as an exit node by simply
+checking the box now this does not need
+
+628
+00:10:13,590 --> 00:10:13,600
+checking the box now this does not need
+ 
+
+629
+00:10:13,600 --> 00:10:15,509
+checking the box now this does not need
+to accept any routes because this is
+
+630
+00:10:15,509 --> 00:10:15,519
+to accept any routes because this is
+ 
+
+631
+00:10:15,519 --> 00:10:17,269
+to accept any routes because this is
+where the routes are coming from not
+
+632
+00:10:17,269 --> 00:10:17,279
+where the routes are coming from not
+ 
+
+633
+00:10:17,279 --> 00:10:19,750
+where the routes are coming from not
+going to so by doing this we don't have
+
+634
+00:10:19,750 --> 00:10:19,760
+going to so by doing this we don't have
+ 
+
+635
+00:10:19,760 --> 00:10:21,990
+going to so by doing this we don't have
+to put any special outbound net rules i
+
+636
+00:10:21,990 --> 00:10:22,000
+to put any special outbound net rules i
+ 
+
+637
+00:10:22,000 --> 00:10:24,389
+to put any special outbound net rules i
+only had to put in this route that
+
+638
+00:10:24,389 --> 00:10:24,399
+only had to put in this route that
+ 
+
+639
+00:10:24,399 --> 00:10:26,389
+only had to put in this route that
+already belongs to this network and say
+
+640
+00:10:26,389 --> 00:10:26,399
+already belongs to this network and say
+ 
+
+641
+00:10:26,399 --> 00:10:28,230
+already belongs to this network and say
+hey advertise this route if i wanted
+
+642
+00:10:28,230 --> 00:10:28,240
+hey advertise this route if i wanted
+ 
+
+643
+00:10:28,240 --> 00:10:30,389
+hey advertise this route if i wanted
+more you can advertise several different
+
+644
+00:10:30,389 --> 00:10:30,399
+more you can advertise several different
+ 
+
+645
+00:10:30,399 --> 00:10:31,670
+more you can advertise several different
+routes the only thing i really want
+
+646
+00:10:31,670 --> 00:10:31,680
+routes the only thing i really want
+ 
+
+647
+00:10:31,680 --> 00:10:34,230
+routes the only thing i really want
+access to is things on the 192.1680
+
+648
+00:10:34,230 --> 00:10:34,240
+access to is things on the 192.1680
+ 
+
+649
+00:10:34,240 --> 00:10:37,269
+access to is things on the 192.1680
+network it's called nsfw lan i have a
+
+650
+00:10:37,269 --> 00:10:37,279
+network it's called nsfw lan i have a
+ 
+
+651
+00:10:37,279 --> 00:10:39,110
+network it's called nsfw lan i have a
+video about setting up pf sense and i've
+
+652
+00:10:39,110 --> 00:10:39,120
+video about setting up pf sense and i've
+ 
+
+653
+00:10:39,120 --> 00:10:41,030
+video about setting up pf sense and i've
+covered why i call it that but
+
+654
+00:10:41,030 --> 00:10:41,040
+covered why i call it that but
+ 
+
+655
+00:10:41,040 --> 00:10:42,949
+covered why i call it that but
+essentially it's my untrusted network of
+
+656
+00:10:42,949 --> 00:10:42,959
+essentially it's my untrusted network of
+ 
+
+657
+00:10:42,959 --> 00:10:44,870
+essentially it's my untrusted network of
+devices where things like well and as i
+
+658
+00:10:44,870 --> 00:10:44,880
+devices where things like well and as i
+ 
+
+659
+00:10:44,880 --> 00:10:47,190
+devices where things like well and as i
+mentioned here we have the mb server or
+
+660
+00:10:47,190 --> 00:10:47,200
+mentioned here we have the mb server or
+ 
+
+661
+00:10:47,200 --> 00:10:49,509
+mentioned here we have the mb server or
+the trunas server now let's talk about
+
+662
+00:10:49,509 --> 00:10:49,519
+the trunas server now let's talk about
+ 
+
+663
+00:10:49,519 --> 00:10:53,190
+the trunas server now let's talk about
+pinging that server and this is the 192
+
+664
+00:10:53,190 --> 00:10:53,200
+pinging that server and this is the 192
+ 
+
+665
+00:10:53,200 --> 00:10:55,430
+pinging that server and this is the 192
+168 72.110
+
+666
+00:10:55,430 --> 00:10:55,440
+168 72.110
+ 
+
+667
+00:10:55,440 --> 00:10:57,430
+168 72.110
+so this is my little ubuntu lab server
+
+668
+00:10:57,430 --> 00:10:57,440
+so this is my little ubuntu lab server
+ 
+
+669
+00:10:57,440 --> 00:10:59,430
+so this is my little ubuntu lab server
+it's actually remote it is not local to
+
+670
+00:10:59,430 --> 00:10:59,440
+it's actually remote it is not local to
+ 
+
+671
+00:10:59,440 --> 00:11:01,829
+it's actually remote it is not local to
+me you can see it's not a 10 dot network
+
+672
+00:11:01,829 --> 00:11:01,839
+me you can see it's not a 10 dot network
+ 
+
+673
+00:11:01,839 --> 00:11:03,590
+me you can see it's not a 10 dot network
+and this network exists actually over at
+
+674
+00:11:03,590 --> 00:11:03,600
+and this network exists actually over at
+ 
+
+675
+00:11:03,600 --> 00:11:06,230
+and this network exists actually over at
+my office and tail scale is facilitating
+
+676
+00:11:06,230 --> 00:11:06,240
+my office and tail scale is facilitating
+ 
+
+677
+00:11:06,240 --> 00:11:08,150
+my office and tail scale is facilitating
+this individual device connecting
+
+678
+00:11:08,150 --> 00:11:08,160
+this individual device connecting
+ 
+
+679
+00:11:08,160 --> 00:11:10,550
+this individual device connecting
+through a tailed out coordination server
+
+680
+00:11:10,550 --> 00:11:10,560
+through a tailed out coordination server
+ 
+
+681
+00:11:10,560 --> 00:11:12,870
+through a tailed out coordination server
+and then getting connected to my pf
+
+682
+00:11:12,870 --> 00:11:12,880
+and then getting connected to my pf
+ 
+
+683
+00:11:12,880 --> 00:11:14,630
+and then getting connected to my pf
+sense and then having access to the
+
+684
+00:11:14,630 --> 00:11:14,640
+sense and then having access to the
+ 
+
+685
+00:11:14,640 --> 00:11:16,790
+sense and then having access to the
+routes so we can do things like ping 192
+
+686
+00:11:16,790 --> 00:11:16,800
+routes so we can do things like ping 192
+ 
+
+687
+00:11:16,800 --> 00:11:18,069
+routes so we can do things like ping 192
+168
+
+688
+00:11:18,069 --> 00:11:18,079
+168
+ 
+
+689
+00:11:18,079 --> 00:11:20,230
+168
+1.8
+
+690
+00:11:20,230 --> 00:11:20,240
+1.8
+ 
+
+691
+00:11:20,240 --> 00:11:22,630
+1.8
+easy enough to ping it or dot 30 which
+
+692
+00:11:22,630 --> 00:11:22,640
+easy enough to ping it or dot 30 which
+ 
+
+693
+00:11:22,640 --> 00:11:24,230
+easy enough to ping it or dot 30 which
+is the mb server
+
+694
+00:11:24,230 --> 00:11:24,240
+is the mb server
+ 
+
+695
+00:11:24,240 --> 00:11:26,230
+is the mb server
+now this is where things get a little
+
+696
+00:11:26,230 --> 00:11:26,240
+now this is where things get a little
+ 
+
+697
+00:11:26,240 --> 00:11:27,350
+now this is where things get a little
+tricky and i want to talk about the
+
+698
+00:11:27,350 --> 00:11:27,360
+tricky and i want to talk about the
+ 
+
+699
+00:11:27,360 --> 00:11:29,190
+tricky and i want to talk about the
+security concerns of this
+
+700
+00:11:29,190 --> 00:11:29,200
+security concerns of this
+ 
+
+701
+00:11:29,200 --> 00:11:30,790
+security concerns of this
+if we go under firewall then rules
+
+702
+00:11:30,790 --> 00:11:30,800
+if we go under firewall then rules
+ 
+
+703
+00:11:30,800 --> 00:11:32,790
+if we go under firewall then rules
+please note there are no rules here
+
+704
+00:11:32,790 --> 00:11:32,800
+please note there are no rules here
+ 
+
+705
+00:11:32,800 --> 00:11:34,230
+please note there are no rules here
+under tail scale
+
+706
+00:11:34,230 --> 00:11:34,240
+under tail scale
+ 
+
+707
+00:11:34,240 --> 00:11:36,470
+under tail scale
+let me explain the reason we're able to
+
+708
+00:11:36,470 --> 00:11:36,480
+let me explain the reason we're able to
+ 
+
+709
+00:11:36,480 --> 00:11:38,470
+let me explain the reason we're able to
+and we'll go ahead and open up pf top
+
+710
+00:11:38,470 --> 00:11:38,480
+and we'll go ahead and open up pf top
+ 
+
+711
+00:11:38,480 --> 00:11:43,030
+and we'll go ahead and open up pf top
+and we'll filter for host 192.168.1
+
+712
+00:11:43,030 --> 00:11:43,040
+
+ 
+
+713
+00:11:43,040 --> 00:11:44,710
+
+and then we're going to go and ping it
+
+714
+00:11:44,710 --> 00:11:44,720
+and then we're going to go and ping it
+ 
+
+715
+00:11:44,720 --> 00:11:49,590
+and then we're going to go and ping it
+again if we ping 192 168.1.8
+
+716
+00:11:49,590 --> 00:11:49,600
+again if we ping 192 168.1.8
+ 
+
+717
+00:11:49,600 --> 00:11:53,470
+again if we ping 192 168.1.8
+you'll see the icmp packets coming from
+
+718
+00:11:53,470 --> 00:11:53,480
+you'll see the icmp packets coming from
+ 
+
+719
+00:11:53,480 --> 00:11:57,269
+you'll see the icmp packets coming from
+192.168.11 and the reason why is because
+
+720
+00:11:57,269 --> 00:11:57,279
+192.168.11 and the reason why is because
+ 
+
+721
+00:11:57,279 --> 00:11:59,430
+192.168.11 and the reason why is because
+the way freebsd is going to handle the
+
+722
+00:11:59,430 --> 00:11:59,440
+the way freebsd is going to handle the
+ 
+
+723
+00:11:59,440 --> 00:12:01,430
+the way freebsd is going to handle the
+routing is it's going to send a packet
+
+724
+00:12:01,430 --> 00:12:01,440
+routing is it's going to send a packet
+ 
+
+725
+00:12:01,440 --> 00:12:04,230
+routing is it's going to send a packet
+from the subnet by which there is the
+
+726
+00:12:04,230 --> 00:12:04,240
+from the subnet by which there is the
+ 
+
+727
+00:12:04,240 --> 00:12:05,829
+from the subnet by which there is the
+most direct path which is going to be
+
+728
+00:12:05,829 --> 00:12:05,839
+most direct path which is going to be
+ 
+
+729
+00:12:05,839 --> 00:12:07,670
+most direct path which is going to be
+192.168.11.
+
+730
+00:12:07,670 --> 00:12:07,680
+192.168.11.
+ 
+
+731
+00:12:07,680 --> 00:12:09,190
+192.168.11.
+the routing is being handled internally
+
+732
+00:12:09,190 --> 00:12:09,200
+the routing is being handled internally
+ 
+
+733
+00:12:09,200 --> 00:12:11,590
+the routing is being handled internally
+by pf sense so by me pinging even though
+
+734
+00:12:11,590 --> 00:12:11,600
+by pf sense so by me pinging even though
+ 
+
+735
+00:12:11,600 --> 00:12:15,430
+by pf sense so by me pinging even though
+my origination ip address is this one
+
+736
+00:12:15,430 --> 00:12:15,440
+my origination ip address is this one
+ 
+
+737
+00:12:15,440 --> 00:12:19,590
+my origination ip address is this one
+here the 198 72.110
+
+738
+00:12:19,590 --> 00:12:19,600
+here the 198 72.110
+ 
+
+739
+00:12:19,600 --> 00:12:21,990
+here the 198 72.110
+that ip address isn't going to show up
+
+740
+00:12:21,990 --> 00:12:22,000
+that ip address isn't going to show up
+ 
+
+741
+00:12:22,000 --> 00:12:24,949
+that ip address isn't going to show up
+inside of here that ip address
+
+742
+00:12:24,949 --> 00:12:24,959
+inside of here that ip address
+ 
+
+743
+00:12:24,959 --> 00:12:27,030
+inside of here that ip address
+so if we go back to painting it is not
+
+744
+00:12:27,030 --> 00:12:27,040
+so if we go back to painting it is not
+ 
+
+745
+00:12:27,040 --> 00:12:29,430
+so if we go back to painting it is not
+the source because it's coming to the pf
+
+746
+00:12:29,430 --> 00:12:29,440
+the source because it's coming to the pf
+ 
+
+747
+00:12:29,440 --> 00:12:31,910
+the source because it's coming to the pf
+sense ip address that is attached to
+
+748
+00:12:31,910 --> 00:12:31,920
+sense ip address that is attached to
+ 
+
+749
+00:12:31,920 --> 00:12:33,750
+sense ip address that is attached to
+tailscale might be a little confusing
+
+750
+00:12:33,750 --> 00:12:33,760
+tailscale might be a little confusing
+ 
+
+751
+00:12:33,760 --> 00:12:35,110
+tailscale might be a little confusing
+but it's something to think about that
+
+752
+00:12:35,110 --> 00:12:35,120
+but it's something to think about that
+ 
+
+753
+00:12:35,120 --> 00:12:37,670
+but it's something to think about that
+the firewall rules do not apply to this
+
+754
+00:12:37,670 --> 00:12:37,680
+the firewall rules do not apply to this
+ 
+
+755
+00:12:37,680 --> 00:12:39,750
+the firewall rules do not apply to this
+traffic because it's handled inside a pf
+
+756
+00:12:39,750 --> 00:12:39,760
+traffic because it's handled inside a pf
+ 
+
+757
+00:12:39,760 --> 00:12:41,430
+traffic because it's handled inside a pf
+sensor in this way this is where you
+
+758
+00:12:41,430 --> 00:12:41,440
+sensor in this way this is where you
+ 
+
+759
+00:12:41,440 --> 00:12:43,509
+sensor in this way this is where you
+would need those acl rules that being
+
+760
+00:12:43,509 --> 00:12:43,519
+would need those acl rules that being
+ 
+
+761
+00:12:43,519 --> 00:12:45,590
+would need those acl rules that being
+said what traffic is handled that way
+
+762
+00:12:45,590 --> 00:12:45,600
+said what traffic is handled that way
+ 
+
+763
+00:12:45,600 --> 00:12:47,670
+said what traffic is handled that way
+and that traffic is going to be mypf
+
+764
+00:12:47,670 --> 00:12:47,680
+and that traffic is going to be mypf
+ 
+
+765
+00:12:47,680 --> 00:12:51,430
+and that traffic is going to be mypf
+census tail scale ip which is 192
+
+766
+00:12:51,430 --> 00:12:51,440
+census tail scale ip which is 192
+ 
+
+767
+00:12:51,440 --> 00:12:53,590
+census tail scale ip which is 192
+61 if i try to ping it there's no
+
+768
+00:12:53,590 --> 00:12:53,600
+61 if i try to ping it there's no
+ 
+
+769
+00:12:53,600 --> 00:12:55,509
+61 if i try to ping it there's no
+response if i were to try to get to the
+
+770
+00:12:55,509 --> 00:12:55,519
+response if i were to try to get to the
+ 
+
+771
+00:12:55,519 --> 00:12:57,190
+response if i were to try to get to the
+web interface there's no response so
+
+772
+00:12:57,190 --> 00:12:57,200
+web interface there's no response so
+ 
+
+773
+00:12:57,200 --> 00:12:58,629
+web interface there's no response so
+let's go ahead and add a rule under tail
+
+774
+00:12:58,629 --> 00:12:58,639
+let's go ahead and add a rule under tail
+ 
+
+775
+00:12:58,639 --> 00:13:00,470
+let's go ahead and add a rule under tail
+scale here going to add
+
+776
+00:13:00,470 --> 00:13:00,480
+scale here going to add
+ 
+
+777
+00:13:00,480 --> 00:13:01,750
+scale here going to add
+pass pass
+
+778
+00:13:01,750 --> 00:13:01,760
+pass pass
+ 
+
+779
+00:13:01,760 --> 00:13:02,949
+pass pass
+any
+
+780
+00:13:02,949 --> 00:13:02,959
+any
+ 
+
+781
+00:13:02,959 --> 00:13:04,470
+any
+so you just let it all go through this
+
+782
+00:13:04,470 --> 00:13:04,480
+so you just let it all go through this
+ 
+
+783
+00:13:04,480 --> 00:13:05,829
+so you just let it all go through this
+is a wide open rule here we're going to
+
+784
+00:13:05,829 --> 00:13:05,839
+is a wide open rule here we're going to
+ 
+
+785
+00:13:05,839 --> 00:13:07,110
+is a wide open rule here we're going to
+hit apply
+
+786
+00:13:07,110 --> 00:13:07,120
+hit apply
+ 
+
+787
+00:13:07,120 --> 00:13:09,910
+hit apply
+go back over here and now we can ping
+
+788
+00:13:09,910 --> 00:13:09,920
+go back over here and now we can ping
+ 
+
+789
+00:13:09,920 --> 00:13:12,389
+go back over here and now we can ping
+it's as simple as that the control it
+
+790
+00:13:12,389 --> 00:13:12,399
+it's as simple as that the control it
+ 
+
+791
+00:13:12,399 --> 00:13:14,230
+it's as simple as that the control it
+does have is over whether or not you're
+
+792
+00:13:14,230 --> 00:13:14,240
+does have is over whether or not you're
+ 
+
+793
+00:13:14,240 --> 00:13:16,150
+does have is over whether or not you're
+able to do something with tail scale
+
+794
+00:13:16,150 --> 00:13:16,160
+able to do something with tail scale
+ 
+
+795
+00:13:16,160 --> 00:13:18,790
+able to do something with tail scale
+within that ip address like for example
+
+796
+00:13:18,790 --> 00:13:18,800
+within that ip address like for example
+ 
+
+797
+00:13:18,800 --> 00:13:20,870
+within that ip address like for example
+the web admin interface is technically
+
+798
+00:13:20,870 --> 00:13:20,880
+the web admin interface is technically
+ 
+
+799
+00:13:20,880 --> 00:13:23,269
+the web admin interface is technically
+now accessible so if we change this and
+
+800
+00:13:23,269 --> 00:13:23,279
+now accessible so if we change this and
+ 
+
+801
+00:13:23,279 --> 00:13:24,550
+now accessible so if we change this and
+we don't have a browser on this system
+
+802
+00:13:24,550 --> 00:13:24,560
+we don't have a browser on this system
+ 
+
+803
+00:13:24,560 --> 00:13:26,710
+we don't have a browser on this system
+but if we did this in 104
+
+804
+00:13:26,710 --> 00:13:26,720
+but if we did this in 104
+ 
+
+805
+00:13:26,720 --> 00:13:29,670
+but if we did this in 104
+3 well i have access to it now so now
+
+806
+00:13:29,670 --> 00:13:29,680
+3 well i have access to it now so now
+ 
+
+807
+00:13:29,680 --> 00:13:31,590
+3 well i have access to it now so now
+i'm actually able to from all the other
+
+808
+00:13:31,590 --> 00:13:31,600
+i'm actually able to from all the other
+ 
+
+809
+00:13:31,600 --> 00:13:33,509
+i'm actually able to from all the other
+tail scale nodes be able to get into the
+
+810
+00:13:33,509 --> 00:13:33,519
+tail scale nodes be able to get into the
+ 
+
+811
+00:13:33,519 --> 00:13:35,509
+tail scale nodes be able to get into the
+web interface of pfsense that may be not
+
+812
+00:13:35,509 --> 00:13:35,519
+web interface of pfsense that may be not
+ 
+
+813
+00:13:35,519 --> 00:13:37,829
+web interface of pfsense that may be not
+ideal because they don't need access to
+
+814
+00:13:37,829 --> 00:13:37,839
+ideal because they don't need access to
+ 
+
+815
+00:13:37,839 --> 00:13:39,110
+ideal because they don't need access to
+that so we're going to go ahead and shut
+
+816
+00:13:39,110 --> 00:13:39,120
+that so we're going to go ahead and shut
+ 
+
+817
+00:13:39,120 --> 00:13:40,310
+that so we're going to go ahead and shut
+that down
+
+818
+00:13:40,310 --> 00:13:40,320
+that down
+ 
+
+819
+00:13:40,320 --> 00:13:41,910
+that down
+so it doesn't need any rules for this
+
+820
+00:13:41,910 --> 00:13:41,920
+so it doesn't need any rules for this
+ 
+
+821
+00:13:41,920 --> 00:13:45,389
+so it doesn't need any rules for this
+scenario but i can still get to
+
+822
+00:13:45,389 --> 00:13:45,399
+scenario but i can still get to
+ 
+
+823
+00:13:45,399 --> 00:13:47,910
+scenario but i can still get to
+192.168.1.8 so as i said it's coming out
+
+824
+00:13:47,910 --> 00:13:47,920
+192.168.1.8 so as i said it's coming out
+ 
+
+825
+00:13:47,920 --> 00:13:50,150
+192.168.1.8 so as i said it's coming out
+and routing as the pf sense now from an
+
+826
+00:13:50,150 --> 00:13:50,160
+and routing as the pf sense now from an
+ 
+
+827
+00:13:50,160 --> 00:13:52,069
+and routing as the pf sense now from an
+ease of use standpoint hands down tail
+
+828
+00:13:52,069 --> 00:13:52,079
+ease of use standpoint hands down tail
+ 
+
+829
+00:13:52,079 --> 00:13:54,230
+ease of use standpoint hands down tail
+scale is just simple it's probably the
+
+830
+00:13:54,230 --> 00:13:54,240
+scale is just simple it's probably the
+ 
+
+831
+00:13:54,240 --> 00:13:56,069
+scale is just simple it's probably the
+easiest if you follow christian's video
+
+832
+00:13:56,069 --> 00:13:56,079
+easiest if you follow christian's video
+ 
+
+833
+00:13:56,079 --> 00:13:57,670
+easiest if you follow christian's video
+on setting up site to site which is just
+
+834
+00:13:57,670 --> 00:13:57,680
+on setting up site to site which is just
+ 
+
+835
+00:13:57,680 --> 00:13:59,189
+on setting up site to site which is just
+adding those couple outbound net rules
+
+836
+00:13:59,189 --> 00:13:59,199
+adding those couple outbound net rules
+ 
+
+837
+00:13:59,199 --> 00:14:01,350
+adding those couple outbound net rules
+dropping in tail scale
+
+838
+00:14:01,350 --> 00:14:01,360
+dropping in tail scale
+ 
+
+839
+00:14:01,360 --> 00:14:03,750
+dropping in tail scale
+i've never set up a site-to-site vpn so
+
+840
+00:14:03,750 --> 00:14:03,760
+i've never set up a site-to-site vpn so
+ 
+
+841
+00:14:03,760 --> 00:14:05,990
+i've never set up a site-to-site vpn so
+fast it just makes it really easy to do
+
+842
+00:14:05,990 --> 00:14:06,000
+fast it just makes it really easy to do
+ 
+
+843
+00:14:06,000 --> 00:14:07,430
+fast it just makes it really easy to do
+especially because if you want to add
+
+844
+00:14:07,430 --> 00:14:07,440
+especially because if you want to add
+ 
+
+845
+00:14:07,440 --> 00:14:09,030
+especially because if you want to add
+things like a phone in the middle of it
+
+846
+00:14:09,030 --> 00:14:09,040
+things like a phone in the middle of it
+ 
+
+847
+00:14:09,040 --> 00:14:10,629
+things like a phone in the middle of it
+to also communicate with the devices
+
+848
+00:14:10,629 --> 00:14:10,639
+to also communicate with the devices
+ 
+
+849
+00:14:10,639 --> 00:14:12,870
+to also communicate with the devices
+well advertise the routes on both sides
+
+850
+00:14:12,870 --> 00:14:12,880
+well advertise the routes on both sides
+ 
+
+851
+00:14:12,880 --> 00:14:14,790
+well advertise the routes on both sides
+and add your phone and now the phone can
+
+852
+00:14:14,790 --> 00:14:14,800
+and add your phone and now the phone can
+ 
+
+853
+00:14:14,800 --> 00:14:16,790
+and add your phone and now the phone can
+actually talk to both sides of those pf
+
+854
+00:14:16,790 --> 00:14:16,800
+actually talk to both sides of those pf
+ 
+
+855
+00:14:16,800 --> 00:14:18,629
+actually talk to both sides of those pf
+senses provided on the routes conflicted
+
+856
+00:14:18,629 --> 00:14:18,639
+senses provided on the routes conflicted
+ 
+
+857
+00:14:18,639 --> 00:14:19,910
+senses provided on the routes conflicted
+with each other so that would be a
+
+858
+00:14:19,910 --> 00:14:19,920
+with each other so that would be a
+ 
+
+859
+00:14:19,920 --> 00:14:21,189
+with each other so that would be a
+different problem to start out as long
+
+860
+00:14:21,189 --> 00:14:21,199
+different problem to start out as long
+ 
+
+861
+00:14:21,199 --> 00:14:23,030
+different problem to start out as long
+as you have completely separate subnets
+
+862
+00:14:23,030 --> 00:14:23,040
+as you have completely separate subnets
+ 
+
+863
+00:14:23,040 --> 00:14:26,230
+as you have completely separate subnets
+on all the pf senses as in yes it's not
+
+864
+00:14:26,230 --> 00:14:26,240
+on all the pf senses as in yes it's not
+ 
+
+865
+00:14:26,240 --> 00:14:27,910
+on all the pf senses as in yes it's not
+just site to site but site to site to
+
+866
+00:14:27,910 --> 00:14:27,920
+just site to site but site to site to
+ 
+
+867
+00:14:27,920 --> 00:14:30,389
+just site to site but site to site to
+site to site hubspoke setup if you'd
+
+868
+00:14:30,389 --> 00:14:30,399
+site to site hubspoke setup if you'd
+ 
+
+869
+00:14:30,399 --> 00:14:31,990
+site to site hubspoke setup if you'd
+like there's a lot of opportunity and a
+
+870
+00:14:31,990 --> 00:14:32,000
+like there's a lot of opportunity and a
+ 
+
+871
+00:14:32,000 --> 00:14:33,990
+like there's a lot of opportunity and a
+lot of options here so i'm really happy
+
+872
+00:14:33,990 --> 00:14:34,000
+lot of options here so i'm really happy
+ 
+
+873
+00:14:34,000 --> 00:14:35,990
+lot of options here so i'm really happy
+the integrated tail scale in here i will
+
+874
+00:14:35,990 --> 00:14:36,000
+the integrated tail scale in here i will
+ 
+
+875
+00:14:36,000 --> 00:14:37,670
+the integrated tail scale in here i will
+work on if there's enough comments down
+
+876
+00:14:37,670 --> 00:14:37,680
+work on if there's enough comments down
+ 
+
+877
+00:14:37,680 --> 00:14:39,750
+work on if there's enough comments down
+below about doing a head scale video i
+
+878
+00:14:39,750 --> 00:14:39,760
+below about doing a head scale video i
+ 
+
+879
+00:14:39,760 --> 00:14:41,430
+below about doing a head scale video i
+kind of want to dive into it i really
+
+880
+00:14:41,430 --> 00:14:41,440
+kind of want to dive into it i really
+ 
+
+881
+00:14:41,440 --> 00:14:43,269
+kind of want to dive into it i really
+like the way headscale works it's quite
+
+882
+00:14:43,269 --> 00:14:43,279
+like the way headscale works it's quite
+ 
+
+883
+00:14:43,279 --> 00:14:44,949
+like the way headscale works it's quite
+simple because it doesn't need to join
+
+884
+00:14:44,949 --> 00:14:44,959
+simple because it doesn't need to join
+ 
+
+885
+00:14:44,959 --> 00:14:46,629
+simple because it doesn't need to join
+in and neither does tail scale by the
+
+886
+00:14:46,629 --> 00:14:46,639
+in and neither does tail scale by the
+ 
+
+887
+00:14:46,639 --> 00:14:49,350
+in and neither does tail scale by the
+way the routing that's being done is
+
+888
+00:14:49,350 --> 00:14:49,360
+way the routing that's being done is
+ 
+
+889
+00:14:49,360 --> 00:14:52,470
+way the routing that's being done is
+between the devices it only goes into
+
+890
+00:14:52,470 --> 00:14:52,480
+between the devices it only goes into
+ 
+
+891
+00:14:52,480 --> 00:14:54,310
+between the devices it only goes into
+relay mode where the traffic but
+
+892
+00:14:54,310 --> 00:14:54,320
+relay mode where the traffic but
+ 
+
+893
+00:14:54,320 --> 00:14:56,069
+relay mode where the traffic but
+unencrypted with a wire guard tunnel
+
+894
+00:14:56,069 --> 00:14:56,079
+unencrypted with a wire guard tunnel
+ 
+
+895
+00:14:56,079 --> 00:14:59,110
+unencrypted with a wire guard tunnel
+would pass through the external server
+
+896
+00:14:59,110 --> 00:14:59,120
+would pass through the external server
+ 
+
+897
+00:14:59,120 --> 00:15:00,949
+would pass through the external server
+under the circumstance where no way
+
+898
+00:15:00,949 --> 00:15:00,959
+under the circumstance where no way
+ 
+
+899
+00:15:00,959 --> 00:15:03,189
+under the circumstance where no way
+could it negotiate any of the udp hole
+
+900
+00:15:03,189 --> 00:15:03,199
+could it negotiate any of the udp hole
+ 
+
+901
+00:15:03,199 --> 00:15:05,189
+could it negotiate any of the udp hole
+punching essentially it is used in order
+
+902
+00:15:05,189 --> 00:15:05,199
+punching essentially it is used in order
+ 
+
+903
+00:15:05,199 --> 00:15:06,470
+punching essentially it is used in order
+to get the
+
+904
+00:15:06,470 --> 00:15:06,480
+to get the
+ 
+
+905
+00:15:06,480 --> 00:15:08,790
+to get the
+devices talking to each other but
+
+906
+00:15:08,790 --> 00:15:08,800
+devices talking to each other but
+ 
+
+907
+00:15:08,800 --> 00:15:10,710
+devices talking to each other but
+even without opening any ports all this
+
+908
+00:15:10,710 --> 00:15:10,720
+even without opening any ports all this
+ 
+
+909
+00:15:10,720 --> 00:15:12,470
+even without opening any ports all this
+works extremely smooth
+
+910
+00:15:12,470 --> 00:15:12,480
+works extremely smooth
+ 
+
+911
+00:15:12,480 --> 00:15:14,310
+works extremely smooth
+and i've talked before and i dove into
+
+912
+00:15:14,310 --> 00:15:14,320
+and i've talked before and i dove into
+ 
+
+913
+00:15:14,320 --> 00:15:16,310
+and i've talked before and i dove into
+with the other videos as i mentioned how
+
+914
+00:15:16,310 --> 00:15:16,320
+with the other videos as i mentioned how
+ 
+
+915
+00:15:16,320 --> 00:15:18,710
+with the other videos as i mentioned how
+udp hole punching works and i highly
+
+916
+00:15:18,710 --> 00:15:18,720
+udp hole punching works and i highly
+ 
+
+917
+00:15:18,720 --> 00:15:20,949
+udp hole punching works and i highly
+highly recommend you read the entire nat
+
+918
+00:15:20,949 --> 00:15:20,959
+highly recommend you read the entire nat
+ 
+
+919
+00:15:20,959 --> 00:15:23,670
+highly recommend you read the entire nat
+section of tailscale because it explains
+
+920
+00:15:23,670 --> 00:15:23,680
+section of tailscale because it explains
+ 
+
+921
+00:15:23,680 --> 00:15:25,910
+section of tailscale because it explains
+all the different varied versions of nat
+
+922
+00:15:25,910 --> 00:15:25,920
+all the different varied versions of nat
+ 
+
+923
+00:15:25,920 --> 00:15:27,430
+all the different varied versions of nat
+networking not as it relates to tail
+
+924
+00:15:27,430 --> 00:15:27,440
+networking not as it relates to tail
+ 
+
+925
+00:15:27,440 --> 00:15:29,749
+networking not as it relates to tail
+scale but just how nat works in general
+
+926
+00:15:29,749 --> 00:15:29,759
+scale but just how nat works in general
+ 
+
+927
+00:15:29,759 --> 00:15:31,430
+scale but just how nat works in general
+and it's actually a great lesson i think
+
+928
+00:15:31,430 --> 00:15:31,440
+and it's actually a great lesson i think
+ 
+
+929
+00:15:31,440 --> 00:15:33,749
+and it's actually a great lesson i think
+in network engineering and just a
+
+930
+00:15:33,749 --> 00:15:33,759
+in network engineering and just a
+ 
+
+931
+00:15:33,759 --> 00:15:35,509
+in network engineering and just a
+wonderful read for those who go i wonder
+
+932
+00:15:35,509 --> 00:15:35,519
+wonderful read for those who go i wonder
+ 
+
+933
+00:15:35,519 --> 00:15:37,350
+wonderful read for those who go i wonder
+how nat works and i wonder all the
+
+934
+00:15:37,350 --> 00:15:37,360
+how nat works and i wonder all the
+ 
+
+935
+00:15:37,360 --> 00:15:39,269
+how nat works and i wonder all the
+little different facets or how do you
+
+936
+00:15:39,269 --> 00:15:39,279
+little different facets or how do you
+ 
+
+937
+00:15:39,279 --> 00:15:40,550
+little different facets or how do you
+deal with something when it's double or
+
+938
+00:15:40,550 --> 00:15:40,560
+deal with something when it's double or
+ 
+
+939
+00:15:40,560 --> 00:15:42,389
+deal with something when it's double or
+triple netted and behind sieging hat or
+
+940
+00:15:42,389 --> 00:15:42,399
+triple netted and behind sieging hat or
+ 
+
+941
+00:15:42,399 --> 00:15:44,550
+triple netted and behind sieging hat or
+what if two devices were behind cgnat
+
+942
+00:15:44,550 --> 00:15:44,560
+what if two devices were behind cgnat
+ 
+
+943
+00:15:44,560 --> 00:15:46,389
+what if two devices were behind cgnat
+could it work tailscale is a solution
+
+944
+00:15:46,389 --> 00:15:46,399
+could it work tailscale is a solution
+ 
+
+945
+00:15:46,399 --> 00:15:48,710
+could it work tailscale is a solution
+for even devices that are
+
+946
+00:15:48,710 --> 00:15:48,720
+for even devices that are
+ 
+
+947
+00:15:48,720 --> 00:15:50,629
+for even devices that are
+on cgnat where it can see the
+
+948
+00:15:50,629 --> 00:15:50,639
+on cgnat where it can see the
+ 
+
+949
+00:15:50,639 --> 00:15:52,069
+on cgnat where it can see the
+coordination server and still talk and
+
+950
+00:15:52,069 --> 00:15:52,079
+coordination server and still talk and
+ 
+
+951
+00:15:52,079 --> 00:15:54,790
+coordination server and still talk and
+this is still functional inside of pf
+
+952
+00:15:54,790 --> 00:15:54,800
+this is still functional inside of pf
+ 
+
+953
+00:15:54,800 --> 00:15:56,230
+this is still functional inside of pf
+sense and
+
+954
+00:15:56,230 --> 00:15:56,240
+sense and
+ 
+
+955
+00:15:56,240 --> 00:15:57,670
+sense and
+it's basically the full feature tail
+
+956
+00:15:57,670 --> 00:15:57,680
+it's basically the full feature tail
+ 
+
+957
+00:15:57,680 --> 00:15:59,110
+it's basically the full feature tail
+scale client on there and whether you
+
+958
+00:15:59,110 --> 00:15:59,120
+scale client on there and whether you
+ 
+
+959
+00:15:59,120 --> 00:16:00,870
+scale client on there and whether you
+use head scale or tail scale it does
+
+960
+00:16:00,870 --> 00:16:00,880
+use head scale or tail scale it does
+ 
+
+961
+00:16:00,880 --> 00:16:02,870
+use head scale or tail scale it does
+work so leave your comments down below
+
+962
+00:16:02,870 --> 00:16:02,880
+work so leave your comments down below
+ 
+
+963
+00:16:02,880 --> 00:16:04,389
+work so leave your comments down below
+or head over to the forums for a more
+
+964
+00:16:04,389 --> 00:16:04,399
+or head over to the forums for a more
+ 
+
+965
+00:16:04,399 --> 00:16:06,470
+or head over to the forums for a more
+in-depth discussion and thank you for
+
+966
+00:16:06,470 --> 00:16:06,480
+in-depth discussion and thank you for
+ 
+
+967
+00:16:06,480 --> 00:16:08,230
+in-depth discussion and thank you for
+making it all the way to the end of this
+
+968
+00:16:08,230 --> 00:16:08,240
+making it all the way to the end of this
+ 
+
+969
+00:16:08,240 --> 00:16:10,230
+making it all the way to the end of this
+video if you've enjoyed the content
+
+970
+00:16:10,230 --> 00:16:10,240
+video if you've enjoyed the content
+ 
+
+971
+00:16:10,240 --> 00:16:12,150
+video if you've enjoyed the content
+please give us a thumbs up if you would
+
+972
+00:16:12,150 --> 00:16:12,160
+please give us a thumbs up if you would
+ 
+
+973
+00:16:12,160 --> 00:16:13,430
+please give us a thumbs up if you would
+like to see more content from this
+
+974
+00:16:13,430 --> 00:16:13,440
+like to see more content from this
+ 
+
+975
+00:16:13,440 --> 00:16:15,110
+like to see more content from this
+channel hit the subscribe button and the
+
+976
+00:16:15,110 --> 00:16:15,120
+channel hit the subscribe button and the
+ 
+
+977
+00:16:15,120 --> 00:16:17,269
+channel hit the subscribe button and the
+bell icon if you'd like to hire a short
+
+978
+00:16:17,269 --> 00:16:17,279
+bell icon if you'd like to hire a short
+ 
+
+979
+00:16:17,279 --> 00:16:19,749
+bell icon if you'd like to hire a short
+project head over to lawrences.com
+
+980
+00:16:19,749 --> 00:16:19,759
+project head over to lawrences.com
+ 
+
+981
+00:16:19,759 --> 00:16:21,590
+project head over to lawrences.com
+and click the hires button right at the
+
+982
+00:16:21,590 --> 00:16:21,600
+and click the hires button right at the
+ 
+
+983
+00:16:21,600 --> 00:16:23,269
+and click the hires button right at the
+top to help this channel out in other
+
+984
+00:16:23,269 --> 00:16:23,279
+top to help this channel out in other
+ 
+
+985
+00:16:23,279 --> 00:16:24,629
+top to help this channel out in other
+ways there's a join button here for
+
+986
+00:16:24,629 --> 00:16:24,639
+ways there's a join button here for
+ 
+
+987
+00:16:24,639 --> 00:16:26,389
+ways there's a join button here for
+youtube and a patreon page where your
+
+988
+00:16:26,389 --> 00:16:26,399
+youtube and a patreon page where your
+ 
+
+989
+00:16:26,399 --> 00:16:29,110
+youtube and a patreon page where your
+support is greatly appreciated for deals
+
+990
+00:16:29,110 --> 00:16:29,120
+support is greatly appreciated for deals
+ 
+
+991
+00:16:29,120 --> 00:16:30,629
+support is greatly appreciated for deals
+discounts and offers check out our
+
+992
+00:16:30,629 --> 00:16:30,639
+discounts and offers check out our
+ 
+
+993
+00:16:30,639 --> 00:16:32,150
+discounts and offers check out our
+affiliate links in the description of
+
+994
+00:16:32,150 --> 00:16:32,160
+affiliate links in the description of
+ 
+
+995
+00:16:32,160 --> 00:16:33,749
+affiliate links in the description of
+all of our videos including a link to
+
+996
+00:16:33,749 --> 00:16:33,759
+all of our videos including a link to
+ 
+
+997
+00:16:33,759 --> 00:16:35,509
+all of our videos including a link to
+our shirt store where we have a wide
+
+998
+00:16:35,509 --> 00:16:35,519
+our shirt store where we have a wide
+ 
+
+999
+00:16:35,519 --> 00:16:37,110
+our shirt store where we have a wide
+variety of shirts that we sell and
+
+1000
+00:16:37,110 --> 00:16:37,120
+variety of shirts that we sell and
+ 
+
+1001
+00:16:37,120 --> 00:16:39,269
+variety of shirts that we sell and
+designs come out well randomly so check
+
+1002
+00:16:39,269 --> 00:16:39,279
+designs come out well randomly so check
+ 
+
+1003
+00:16:39,279 --> 00:16:42,829
+designs come out well randomly so check
+back frequently and finally our forums
+
+1004
+00:16:42,829 --> 00:16:42,839
+back frequently and finally our forums
+ 
+
+1005
+00:16:42,839 --> 00:16:44,230
+back frequently and finally our forums
+forums.laurensystems.com is where you
+
+1006
+00:16:44,230 --> 00:16:44,240
+forums.laurensystems.com is where you
+ 
+
+1007
+00:16:44,240 --> 00:16:45,670
+forums.laurensystems.com is where you
+can have a more in-depth discussion
+
+1008
+00:16:45,670 --> 00:16:45,680
+can have a more in-depth discussion
+ 
+
+1009
+00:16:45,680 --> 00:16:47,509
+can have a more in-depth discussion
+about this video and other tech topics
+
+1010
+00:16:47,509 --> 00:16:47,519
+about this video and other tech topics
+ 
+
+1011
+00:16:47,519 --> 00:16:49,829
+about this video and other tech topics
+covered on this channel thanks again for
+
+1012
+00:16:49,829 --> 00:16:49,839
+covered on this channel thanks again for
+ 
+
+1013
+00:16:49,839 --> 00:16:51,269
+covered on this channel thanks again for
+watching and look forward to hearing
+
+1014
+00:16:51,269 --> 00:16:51,279
+watching and look forward to hearing
+ 
+
+1015
+00:16:51,279 --> 00:17:09,110
+watching and look forward to hearing
+from you
+
+1016
+00:17:09,110 --> 00:17:09,120
+
+ 
+
+1017
+00:17:09,120 --> 00:17:11,199
+
+you
+
