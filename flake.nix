@@ -5,11 +5,21 @@
   };
 
   outputs = { nixpkgs, flake-utils, ... }:
-    let
-      pkgs = nixpkgs.legacyPackages.${system};
-      system = flake-utils.lib.system.x86_64-linux;
-      compiler = "ghc96";
-      sorta = pkgs.haskell.packages.${compiler}.callPackage ./sorta { };
-    in
-    { packages.${system}.default = sorta; };
+    flake-utils.lib.eachDefaultSystem
+      (system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+          compiler = "ghc984";
+          sorta = pkgs.haskell.packages.${compiler}.callPackage ./sorta { };
+        in
+        { packages.default = sorta; }
+      )
+    //
+    {
+      overlays.default = final: prev: {
+        mksession =
+          final.haskell.packages.ghc984.callPackage ./sorta.nix { };
+      };
+    }
+  ;
 }
