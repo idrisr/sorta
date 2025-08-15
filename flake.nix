@@ -17,7 +17,7 @@
     //
     {
       overlays.default = final: prev: {
-        mksession =
+        sorta =
           final.haskell.packages.ghc984.callPackage ./sorta { };
       };
     }
